@@ -116,21 +116,38 @@ When we now use this new data.frame in kable, we get the following table [I will
 {% highlight r %}
 kable(temp1 ,format = "latex",booktabs=TRUE)
 {% endhighlight %}
-
-
-\begin{tabular}{rllll}
-\toprule
-gear & mean & sd & corr & p\\
-\midrule
-3 & 16.11 & 3.37 & -.74 & .002\\
-4 & 24.53 & 5.28 & -.88 & < .001\\
-5 & 21.38 & 6.66 & -.90 & .037\\
-\bottomrule
-\end{tabular}
  
 
 {% highlight text %}
 ## Error in knitr::include_graphics("images/table2.PNG"): Cannot find the file(s): "images/table2.PNG"
+{% endhighlight %}
+ 
+
+{% highlight r %}
+dir()
+{% endhighlight %}
+
+
+
+{% highlight text %}
+##  [1] "_config.yml"           "_data"                 "_includes"            
+##  [4] "_layouts"              "_pages"                "_posts"               
+##  [7] "_sass"                 "_site"                 "_source"              
+## [10] "assets"                "cache"                 "dizyd.github.io.Rproj"
+## [13] "Gemfile"               "Gemfile.lock"          "images"               
+## [16] "Old"                   "Rmd2md.R"
+{% endhighlight %}
+
+
+
+{% highlight r %}
+dir("..")
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## [1] "dizyd.github.io" "Info.txt"
 {% endhighlight %}
  
 This table looks already a little bit nicer than the previous one. Often we report composites of multiple descriptive statistics in one column, for instance the mean and then the standard deviation in parenthesis. We can easily implement this in R by using the `paste0()` 
@@ -140,33 +157,9 @@ This table looks already a little bit nicer than the previous one. Often we repo
 (temp2 <-  temp1 %>% 
               mutate(mean_sd = paste0(mean," (",sd,")"))  %>%
               select(gear,mean_sd,corr,p) )
-{% endhighlight %}
-
-
-
-{% highlight text %}
-##   gear      mean_sd corr      p
-## 1    3 16.11 (3.37) -.74   .002
-## 2    4 24.53 (5.28) -.88 < .001
-## 3    5 21.38 (6.66) -.90   .037
-{% endhighlight %}
-
-
-
-{% highlight r %}
+ 
 kable(temp2 ,format = "latex",booktabs=TRUE)
 {% endhighlight %}
-
-
-\begin{tabular}{rlll}
-\toprule
-gear & mean\_sd & corr & p\\
-\midrule
-3 & 16.11 (3.37) & -.74 & .002\\
-4 & 24.53 (5.28) & -.88 & < .001\\
-5 & 21.38 (6.66) & -.90 & .037\\
-\bottomrule
-\end{tabular}
  
 
 {% highlight text %}
@@ -185,17 +178,6 @@ temp2 %>%
           col.names = c("Gears","Miles per Gallon","$r$","$p$"),
           escape    = FALSE)
 {% endhighlight %}
-
-
-\begin{tabular}{cccc}
-\toprule
-Gears & Miles per Gallon & $r$ & $p$\\
-\midrule
-3 & 16.11 (3.37) & -.74 & .002\\
-4 & 24.53 (5.28) & -.88 & < .001\\
-5 & 21.38 (6.66) & -.90 & .037\\
-\bottomrule
-\end{tabular}
  
 
 {% highlight text %}
@@ -221,27 +203,6 @@ temp2 %>%
            general_title     = "Note.",
            title_format      = c("italic"))
 {% endhighlight %}
-
-\begin{table}
-
-\caption{\label{tab:unnamed-chunk-13}This is caption}
-\centering
-\begin{threeparttable}
-\begin{tabular}[t]{cccc}
-\toprule
-Gears & Miles per Gallon & $r$ & $p$\\
-\midrule
-3 & 16.11 (3.37) & -.74 & .002\\
-4 & 24.53 (5.28) & -.88 & < .001\\
-5 & 21.38 (6.66) & -.90 & .037\\
-\bottomrule
-\end{tabular}
-\begin{tablenotes}[para]
-\item \textit{Note.} 
-\item This is a note
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
  
 
 {% highlight text %}
@@ -269,29 +230,6 @@ temp2 %>%
            title_format      = c("italic")) %>%
   add_header_above(c("Estimates" = 2))
 {% endhighlight %}
-
-\begin{table}
-
-\caption{\label{tab:unnamed-chunk-15}This is caption}
-\centering
-\begin{threeparttable}
-\begin{tabular}[t]{cccc}
-\toprule
-\multicolumn{2}{c}{Estimates} \\
-\cmidrule(l{3pt}r{3pt}){1-2}
-Gears & Miles per Gallon & $r$ & $p$\\
-\midrule
-3 & 16.11 (3.37) & -.74 & .002\\
-4 & 24.53 (5.28) & -.88 & < .001\\
-5 & 21.38 (6.66) & -.90 & .037\\
-\bottomrule
-\end{tabular}
-\begin{tablenotes}[para]
-\item \textit{Note.} 
-\item This is a note
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
  
 
 {% highlight text %}
@@ -318,29 +256,6 @@ temp2 %>%
            title_format      = c("italic")) %>%
   add_header_above(c("Estimates" = 2))
 {% endhighlight %}
-
-\begin{table}
-
-\caption{\label{tab:unnamed-chunk-17}This is caption}
-\centering
-\begin{threeparttable}
-\begin{tabular}[t]{cccc}
-\toprule
-\multicolumn{2}{c}{Estimates} \\
-\cmidrule(l{3pt}r{3pt}){1-2}
-Gears & Miles per Gallon & $r_{hp \times mpg}$ & $p$\\
-\midrule
-3 & 16.11 (3.37) & -.74 & .002\\
-4 & 24.53 (5.28) & -.88 & < .001\\
-5 & 21.38 (6.66) & -.90 & .037\\
-\bottomrule
-\end{tabular}
-\begin{tablenotes}[para]
-\item \textit{Note.} 
-\item $E = m \times c^{2}$. $x_1$ and $x_2$
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
  
 
 {% highlight text %}
@@ -375,29 +290,6 @@ temp2 %>%
            title_format      = c("italic")) %>%
   add_header_above(c("Estimates" = 2))
 {% endhighlight %}
-
-\begin{table}
-
-\caption{\label{tab:unnamed-chunk-20}This is caption}
-\centering
-\begin{threeparttable}
-\begin{tabular}[t]{cccS[table-format=< .3]cccS[table-format=< .3]cccS[table-format=< .3]cccS[table-format=< .3]}
-\toprule
-\multicolumn{2}{c}{Estimates} \\
-\cmidrule(l{3pt}r{3pt}){1-2}
-Gears & Miles per Gallon & $r_{hp \times mpg}$ & $p$\\
-\midrule
-3 & 16.11 (3.37) & -.74 & .002\\
-4 & 24.53 (5.28) & -.88 & < .001\\
-5 & 21.38 (6.66) & -.90 & .037\\
-\bottomrule
-\end{tabular}
-\begin{tablenotes}[para]
-\item \textit{Note.} 
-\item $E = m \times c^{2}$. $x_1$ and $x_2$
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
  
 
 {% highlight text %}
