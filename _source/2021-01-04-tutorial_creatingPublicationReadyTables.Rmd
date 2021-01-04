@@ -71,7 +71,7 @@ gear & mean & sd & corr & p\\
 which leads to this table:
 
 ```{r  ,echo=F,out.width="55%",fig.align='center'}
-knitr::include_graphics("images/table1.PNG")
+knitr::include_graphics("assets/img/images_tables//table1.PNG")
 ```
 
 
@@ -95,7 +95,7 @@ kable(temp1 ,format = "latex",booktabs=TRUE)
 ```
 
 ```{r  ,echo=F,out.width="35%",fig.align='center'}
-knitr::include_graphics("images/table2.PNG")
+knitr::include_graphics("assets/img/images_tables//table2.PNG")
 ```
 
 ```{r}
@@ -114,7 +114,7 @@ kable(temp2 ,format = "latex",booktabs=TRUE)
 ```
 
 ```{r  ,echo=F,out.width="35%",fig.align='center'}
-knitr::include_graphics("images/table3.PNG")
+knitr::include_graphics("assets/img/images_tables//table3.PNG")
 ```
 
 ## Changing the variable namens in the table
@@ -130,7 +130,7 @@ temp2 %>%
 ```
 
 ```{r  ,echo=F,out.width="35%",fig.align='center'}
-knitr::include_graphics("images/table4.PNG")
+knitr::include_graphics("assets/img/images_tables//table4.PNG")
 ```
 
 ## Adding table notes and captions
@@ -153,7 +153,7 @@ temp2 %>%
 ```
 
 ```{r  ,echo=F,out.width="65%",fig.align='center'}
-knitr::include_graphics("images/table5.PNG")
+knitr::include_graphics("assets/img/images_tables//table5.PNG")
 ```
 
 ## Adding interim-headers
@@ -178,7 +178,7 @@ temp2 %>%
 ```
 
 ```{r  ,echo=F,out.width="65%",fig.align='center'}
-knitr::include_graphics("images/table6.PNG")
+knitr::include_graphics("assets/img/images_tables//table6.PNG")
 ```
 
 ## Using additional LaTeX
@@ -202,7 +202,7 @@ temp2 %>%
 ```
 
 ```{r  ,echo=F,out.width="65%",fig.align='center'}
-knitr::include_graphics("images/table7.PNG")
+knitr::include_graphics("assets/img/images_tables//table7.PNG")
 ```
 
 In addition, by adding the following line in the YAML-header of your papaja-document, you can use the more advanced column formatting options of the `siunitx` LaTeX-package. 
@@ -233,5 +233,6 @@ temp2 %>%
 ```
 
 ```{r  ,echo=F,out.width="65%",fig.align='center'}
-knitr::include_graphics("images/table8.PNG")
+knitr::include_graphics("assets/img/images_tables//table8.PNG")
 ```
+

@@ -117,7 +117,7 @@ Based on these variables, I calculated the number of hits, false alarms, false n
 
 {% highlight r %}
 hits <- dataSDT %>%  
-          mutate(IDn            = as.numeric(ID), 
+          mutate(IDn            = as.numeric(as.factor(ID)), 
                  hit            = ifelse(response == "old" & correctResponse == "old",1,0),
                  false_positive = ifelse(response == "old" & correctResponse == "new",1,0)) %>% 
           group_by(ID,IDn,stimulus,block) %>% 
@@ -147,11 +147,11 @@ Which then gives us the following data structure:
 
 | IDn|stimulus | block| n_old| n_new|  h| fa|  hit_rate| fa_rate|  z_h_rate| z_fa_rate|     dprime|
 |---:|:--------|-----:|-----:|-----:|--:|--:|---------:|-------:|---------:|---------:|----------:|
-|  NA|aliens   |     5|    12|    20|  7| 11| 0.5833333|    0.55| 0.2104284| 0.1256613|  0.0847670|
-|  NA|bugs     |     2|    12|    20|  7| 13| 0.5833333|    0.65| 0.2104284| 0.3853205| -0.1748921|
-|  NA|houses   |     4|    12|    20|  7| 14| 0.5833333|    0.70| 0.2104284| 0.5244005| -0.3139721|
-|  NA|plants   |     3|    12|    20|  7| 12| 0.5833333|    0.60| 0.2104284| 0.2533471| -0.0429187|
-|  NA|plates   |     1|    12|    20| 11| 11| 0.9166667|    0.55| 1.3829941| 0.1256613|  1.2573328|
+|   1|aliens   |     5|    12|    20|  7| 11| 0.5833333|    0.55| 0.2104284| 0.1256613|  0.0847670|
+|   1|bugs     |     2|    12|    20|  7| 13| 0.5833333|    0.65| 0.2104284| 0.3853205| -0.1748921|
+|   1|houses   |     4|    12|    20|  7| 14| 0.5833333|    0.70| 0.2104284| 0.5244005| -0.3139721|
+|   1|plants   |     3|    12|    20|  7| 12| 0.5833333|    0.60| 0.2104284| 0.2533471| -0.0429187|
+|   1|plates   |     1|    12|    20| 11| 11| 0.9166667|    0.55| 1.3829941| 0.1256613|  1.2573328|
  
  
 ### SDT - Non Hierarchical - One Stimulus Set 
@@ -250,7 +250,7 @@ $$
 which corresponds to a uniform distribution after transforming them into hit and false-alarm rates.
  
  
-<img src="/assets/img/2020-04-28-SDT1-nonhierarchical.Rmd/unnamed-chunk-7-1.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" style="display: block; margin: auto;" />
+<img src="/assets/img/2020-04-28-SDT1-nonhierarchical.Rmd/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" />
  
 ##### The STAN-Model 
  
@@ -337,7 +337,7 @@ First, we can look at some MCMC-Traces for some of the parameters and persons.
             facet_args = list(nrow = 4, labeller = label_parsed))
 {% endhighlight %}
 
-<img src="/assets/img/2020-04-28-SDT1-nonhierarchical.Rmd/unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" style="display: block; margin: auto;" />
+<img src="/assets/img/2020-04-28-SDT1-nonhierarchical.Rmd/unnamed-chunk-7-1.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" style="display: block; margin: auto;" />
  
 So far so good, this looks exactly as you would like it, some nice hairy caterpillars. We can also plot the distributions of $\hat{R}$  and the *effective sample size*:
  
@@ -358,7 +358,7 @@ p2 <- ggplot(summary_oS_nH,aes(x =summary.Rhat))+
 p1+p2 #patchwork package
 {% endhighlight %}
 
-<img src="/assets/img/2020-04-28-SDT1-nonhierarchical.Rmd/unnamed-chunk-11-1.png" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" style="display: block; margin: auto;" />
+<img src="/assets/img/2020-04-28-SDT1-nonhierarchical.Rmd/unnamed-chunk-8-1.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" style="display: block; margin: auto;" />
  
 This looks also fine. The effective sample sizes are always > 400, which is often recommended, and are near the total sample size of  4000. Also $\hat{R}$ is always very close to 1.
  
@@ -379,22 +379,31 @@ desc_oS_nH_tidy <- summary_oS_nH %>%
                              median  = summary.50.,
                              HDI975  = summary.97.5.) 
  
-mcmc_SDT_oS_nH <-  rstan::extract(fit1,pars="lp__",include=FALSE) %>%
-                      bind_rows() %>% 
+ 
+temp_d = rstan::extract(fit1,pars="d") %>%
+                      as.data.frame() %>% 
+                      unlist()
+ 
+temp_c = rstan::extract(fit1,pars="c") %>%
+                      as.data.frame() %>% 
+                      unlist()
+ 
+temp_h_pred = rstan::extract(fit1,pars=" h_pred") %>%
+                      as.data.frame() %>% 
+                      unlist()
+ 
+temp_f_pred = rstan::extract(fit1,pars="fa_pred") %>%
+                      as.data.frame() %>% 
+                      unlist()
+ 
+ 
+mcmc_SDT_oS_nH <-  bind_cols("d" = temp_d, "c"=temp_c,
+                             "h_pred"=temp_h_pred,"f_pred"=temp_f_pred) %>% 
                       mutate(ID     = rep(1:40,each = 4000),
                              dprime = rep(temp$dprime, each = 4000)) %>% 
                       group_by(ID) %>% 
                       mutate(mPP_d  = median(d),
                              mPP_c  = median(c))
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error: Problem with `mutate()` input `ID`.
-## x Input `ID` can't be recycled to size 4000.
-## i Input `ID` is `rep(1:40, each = 4000)`.
-## i Input `ID` must be size 4000 or 1, not 160000.
 {% endhighlight %}
  
  
@@ -411,7 +420,7 @@ mcmc_intervals(posterior_SDT_oS_nH,
                prob_outer = 0.96)
 {% endhighlight %}
 
-<img src="/assets/img/2020-04-28-SDT1-nonhierarchical.Rmd/unnamed-chunk-13-1.png" title="plot of chunk unnamed-chunk-13" alt="plot of chunk unnamed-chunk-13" style="display: block; margin: auto;" />
+<img src="/assets/img/2020-04-28-SDT1-nonhierarchical.Rmd/unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" style="display: block; margin: auto;" />
  
  
 
@@ -426,11 +435,7 @@ mcmc_SDT_oS_nH %>%
     theme_bw()
 {% endhighlight %}
 
-
-
-{% highlight text %}
-## Error in filter(., ID %in% 1:6): Objekt 'mcmc_SDT_oS_nH' nicht gefunden
-{% endhighlight %}
+<img src="/assets/img/2020-04-28-SDT1-nonhierarchical.Rmd/unnamed-chunk-11-1.png" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" style="display: block; margin: auto;" />
  
 We can see that the *d* values are rather small and very close to 0 for most people. This indicates that participants had a hard time differentiating old from new stimuli. I had hoped for larger values, as it is necessary that people are able to discriminate between stimuli and their features rather well for the multiple-cue judgment experiment I wanted to conduct with these stimuli. Also, from the plots it is evident that the median of the posterior distribution is very close to the analytically calculated *d'* value.  
  
@@ -448,7 +453,7 @@ mcmc_intervals(posterior_SDT_oS_nH,
                prob_outer = 0.96)
 {% endhighlight %}
 
-<img src="/assets/img/2020-04-28-SDT1-nonhierarchical.Rmd/unnamed-chunk-15-1.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" style="display: block; margin: auto;" />
+<img src="/assets/img/2020-04-28-SDT1-nonhierarchical.Rmd/unnamed-chunk-12-1.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" style="display: block; margin: auto;" />
  
 
 {% highlight r %}
@@ -461,11 +466,7 @@ mcmc_SDT_oS_nH %>%
     theme_bw()
 {% endhighlight %}
 
-
-
-{% highlight text %}
-## Error in filter(., ID %in% 1:6): Objekt 'mcmc_SDT_oS_nH' nicht gefunden
-{% endhighlight %}
+<img src="/assets/img/2020-04-28-SDT1-nonhierarchical.Rmd/unnamed-chunk-13-1.png" title="plot of chunk unnamed-chunk-13" alt="plot of chunk unnamed-chunk-13" style="display: block; margin: auto;" />
  
 ### The posterior predictive values
  
@@ -482,7 +483,8 @@ postpred <- mcmc_SDT_oS_nH %>%
 
 
 {% highlight text %}
-## Error in select(., ID, h_pred, fa_pred): Objekt 'mcmc_SDT_oS_nH' nicht gefunden
+## Error: Can't subset columns that don't exist.
+## [31mx[39m Column `fa_pred` doesn't exist.
 {% endhighlight %}
 
 
@@ -563,8 +565,8 @@ left_join(temp1,temp2,by = "ID")  %>%
 
 
 {% highlight text %}
-##   pp_h pp_fa
-## 1   NA    NA
+##    pp_h pp_fa
+## 1 0.925  0.95
 {% endhighlight %}
  
 As evident from the plots and the 95% credible interval checks of the posterior predictives, our model is able to recover our data well.

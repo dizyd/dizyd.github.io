@@ -124,7 +124,7 @@ Based on these variables, I calculated the number of hits, false alarms, false n
 
 ```{r calculateHitandFA} 
 hits <- dataSDT %>%  
-          mutate(IDn            = as.numeric(ID), 
+          mutate(IDn            = as.numeric(as.factor(ID)), 
                  hit            = ifelse(response == "old" & correctResponse == "old",1,0),
                  false_positive = ifelse(response == "old" & correctResponse == "new",1,0)) %>% 
           group_by(ID,IDn,stimulus,block) %>% 
@@ -154,7 +154,7 @@ hits <- dataSDT %>%
 Which then gives us the following data structure:
 
 ```{r, echo=FALSE}
-hits[1:5,-1] %>% kable(.,format  = "markdown")
+hits[1:5,-1] %>% kable(.,format  = "markdown") 
 ```
 
 
@@ -370,8 +370,26 @@ desc_oS_nH_tidy <- summary_oS_nH %>%
                              median  = summary.50.,
                              HDI975  = summary.97.5.) 
 
-mcmc_SDT_oS_nH <-  rstan::extract(fit1,pars="lp__",include=FALSE) %>%
-                      bind_rows() %>% 
+
+temp_d = rstan::extract(fit1,pars="d") %>%
+                      as.data.frame() %>% 
+                      unlist()
+
+temp_c = rstan::extract(fit1,pars="c") %>%
+                      as.data.frame() %>% 
+                      unlist()
+
+temp_h_pred = rstan::extract(fit1,pars=" h_pred") %>%
+                      as.data.frame() %>% 
+                      unlist()
+
+temp_f_pred = rstan::extract(fit1,pars="fa_pred") %>%
+                      as.data.frame() %>% 
+                      unlist()
+
+
+mcmc_SDT_oS_nH <-  bind_cols("d" = temp_d, "c"=temp_c,
+                             "h_pred"=temp_h_pred,"f_pred"=temp_f_pred) %>% 
                       mutate(ID     = rep(1:40,each = 4000),
                              dprime = rep(temp$dprime, each = 4000)) %>% 
                       group_by(ID) %>% 

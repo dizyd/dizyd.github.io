@@ -81,10 +81,7 @@ gear & mean & sd & corr & p\\
  
 which leads to this table:
  
-
-{% highlight text %}
-## Error in knitr::include_graphics("images/table1.PNG"): Cannot find the file(s): "images/table1.PNG"
-{% endhighlight %}
+<img src="/assets/img/images_tables//table1.PNG" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" width="55%" style="display: block; margin: auto;" />
  
  
 ## Formatting the values inside the table
@@ -117,10 +114,7 @@ When we now use this new data.frame in kable, we get the following table [I will
 kable(temp1 ,format = "latex",booktabs=TRUE)
 {% endhighlight %}
  
-
-{% highlight text %}
-## Error in knitr::include_graphics("images/table2.PNG"): Cannot find the file(s): "images/table2.PNG"
-{% endhighlight %}
+<img src="/assets/img/images_tables//table2.PNG" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" width="35%" style="display: block; margin: auto;" />
  
 
 {% highlight r %}
@@ -130,12 +124,11 @@ dir()
 
 
 {% highlight text %}
-##  [1] "_config.yml"           "_data"                 "_includes"            
-##  [4] "_layouts"              "_pages"                "_posts"               
-##  [7] "_sass"                 "_site"                 "_source"              
-## [10] "assets"                "cache"                 "dizyd.github.io.Rproj"
-## [13] "Gemfile"               "Gemfile.lock"          "images"               
-## [16] "Old"                   "Rmd2md.R"
+##  [1] "_config.yml"           "_data"                 "_includes"             "_layouts"             
+##  [5] "_pages"                "_posts"                "_sass"                 "_site"                
+##  [9] "_source"               "assets"                "cache"                 "dizyd.github.io.Rproj"
+## [13] "Gemfile"               "Gemfile.lock"          "images"                "Old"                  
+## [17] "Rmd2md.R"
 {% endhighlight %}
 
 
@@ -161,10 +154,7 @@ This table looks already a little bit nicer than the previous one. Often we repo
 kable(temp2 ,format = "latex",booktabs=TRUE)
 {% endhighlight %}
  
-
-{% highlight text %}
-## Error in knitr::include_graphics("images/table3.PNG"): Cannot find the file(s): "images/table3.PNG"
-{% endhighlight %}
+<img src="/assets/img/images_tables//table3.PNG" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" width="35%" style="display: block; margin: auto;" />
  
 ## Changing the variable namens in the table
  
@@ -179,10 +169,7 @@ temp2 %>%
           escape    = FALSE)
 {% endhighlight %}
  
-
-{% highlight text %}
-## Error in knitr::include_graphics("images/table4.PNG"): Cannot find the file(s): "images/table4.PNG"
-{% endhighlight %}
+<img src="/assets/img/images_tables//table4.PNG" title="plot of chunk unnamed-chunk-13" alt="plot of chunk unnamed-chunk-13" width="35%" style="display: block; margin: auto;" />
  
 ## Adding table notes and captions
  
@@ -204,10 +191,7 @@ temp2 %>%
            title_format      = c("italic"))
 {% endhighlight %}
  
-
-{% highlight text %}
-## Error in knitr::include_graphics("images/table5.PNG"): Cannot find the file(s): "images/table5.PNG"
-{% endhighlight %}
+<img src="/assets/img/images_tables//table5.PNG" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" width="65%" style="display: block; margin: auto;" />
  
 ## Adding interim-headers
  
@@ -231,10 +215,7 @@ temp2 %>%
   add_header_above(c("Estimates" = 2))
 {% endhighlight %}
  
-
-{% highlight text %}
-## Error in knitr::include_graphics("images/table6.PNG"): Cannot find the file(s): "images/table6.PNG"
-{% endhighlight %}
+<img src="/assets/img/images_tables//table6.PNG" title="plot of chunk unnamed-chunk-17" alt="plot of chunk unnamed-chunk-17" width="65%" style="display: block; margin: auto;" />
  
 ## Using additional LaTeX
  
@@ -257,10 +238,7 @@ temp2 %>%
   add_header_above(c("Estimates" = 2))
 {% endhighlight %}
  
-
-{% highlight text %}
-## Error in knitr::include_graphics("images/table7.PNG"): Cannot find the file(s): "images/table7.PNG"
-{% endhighlight %}
+<img src="/assets/img/images_tables//table7.PNG" title="plot of chunk unnamed-chunk-19" alt="plot of chunk unnamed-chunk-19" width="65%" style="display: block; margin: auto;" />
  
 In addition, by adding the following line in the YAML-header of your papaja-document, you can use the more advanced column formatting options of the `siunitx` LaTeX-package. 
  
@@ -291,7 +269,5 @@ temp2 %>%
   add_header_above(c("Estimates" = 2))
 {% endhighlight %}
  
-
-{% highlight text %}
-## Error in knitr::include_graphics("images/table8.PNG"): Cannot find the file(s): "images/table8.PNG"
-{% endhighlight %}
+<img src="/assets/img/images_tables//table8.PNG" title="plot of chunk unnamed-chunk-22" alt="plot of chunk unnamed-chunk-22" width="65%" style="display: block; margin: auto;" />
+ 
