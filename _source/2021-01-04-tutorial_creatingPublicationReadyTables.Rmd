@@ -98,10 +98,6 @@ kable(temp1 ,format = "latex",booktabs=TRUE)
 knitr::include_graphics("assets/img/images_tables//table2.PNG")
 ```
 
-```{r}
-dir()
-dir("..")
-```
 
 This table looks already a little bit nicer than the previous one. Often we report composites of multiple descriptive statistics in one column, for instance the mean and then the standard deviation in parenthesis. We can easily implement this in R by using the `paste0()` 
 
