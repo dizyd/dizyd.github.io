@@ -9,6 +9,10 @@ author_profile: true
 
 ### Journal articles (peer-reviewed)
 
+#### 2021
+
+**Izydorczyk, D.**, & Bröder, A. (in Press).  Exemplar-based judgment or direct recall: On a problematic procedure for estimating parameters in exemplar models of quantitative judgment. _Psychonomic Bulletin & Review._
+
 #### 2020
 
 Appel, M., **Izydorczyk, D.**, Weber, S., Mara, M., & Lischetzke, T. (2020). The uncanny of mind in a machine: Humanoid robots as tools, agents, and experiencers. _Computers in Human Behavior, 102_, 274-286.(https://doi.org/10.1016/j.chb.2019.07.031) ([PDF](https://www.mcm.uni-wuerzburg.de/fileadmin/06110000/Lehrstuhl_f_Kommunikationspsychologie_u_Neue_Medien/Dateien/Markus_Appel/Publikationen_ab_2019/Appel_et_al__Preprint__Mind_and_Machine.pdf))

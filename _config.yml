@@ -7,7 +7,7 @@ description              : &description "PhD Student"
 highlighter:         rouge
 markdown:            kramdown
 plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
-
+github: [metadata]
 
 # Site Author
 author:
