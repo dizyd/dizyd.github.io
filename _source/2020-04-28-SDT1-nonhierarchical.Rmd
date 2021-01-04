@@ -10,7 +10,7 @@ tags:
 # status: process
 # published: true
 status: process
-published: false
+published: true
 permalink: /posts/2020/04/SDT-1/
 ---
 
