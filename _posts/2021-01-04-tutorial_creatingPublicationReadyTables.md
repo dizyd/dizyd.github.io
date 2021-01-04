@@ -223,7 +223,7 @@ header-includes   :
    - \sisetup{add-integer-zero=false}
 {% endhighlight %}
  
-Changing the `align = "c"` argument to `align     = "ccccS[table-format=< .3]"` ensure right alignemt of the *p*-value column which can include a special character (i.e., <) in some cases.
+Changing the `align = "c"` argument to `align     = "ccccS[table-format=< .3]"` ensures right alignemt of the *p*-value column which can include a special character (i.e., <) in some cases.
  
  
 
