@@ -115,4 +115,6 @@ Topal, A. B., Karakasheva, R., Mascarenhas, M. F., Dbbers, F., Hoszowska, M., Ks
 Ad-hoc reviewer:  Computers in Human Behaviour
 
 
-
+## Professional Memberships
+***
+[German Psychological Society](https://www.dgps.de/) (DGPs) Sections *Methods and Evaluation* and *General Psychology*
