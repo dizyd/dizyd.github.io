@@ -21,6 +21,7 @@ Thesis: _Structuring the uncanny valley: Investigating the effect of the persona
 
 ## Teaching Experience
 ***
+**Experimental Internship**, University of Mannheim, Department of Experimental Psychology (level: Bachelor; language: German)
 
 **Workshop Advanced R**, University of Mannheim , RTG Statistical Modeling in Psychology (level: P.hD.; language: English)
 
@@ -34,7 +35,7 @@ Thesis: _Structuring the uncanny valley: Investigating the effect of the persona
 
 **Tutorial Empirical Internship**, University of Koblenz-Landau, Department for Methods and Evaluation (level: B.Sc.; language: German)
 
-**Workshop Introduction to R**, University of Koblenz-Landau, Department for Methods and Evaluation (language: English)
+**Workshop Introduction to R**, University of Koblenz-Landau, Department for Methods and Evaluation (level: P.hD.; language: English)
 
 **Tutorial Test Theory with R**, University of Koblenz-Landau, Department for Methods and Evaluation (level: B.Sc.; language: German)
 
@@ -43,13 +44,17 @@ Thesis: _Structuring the uncanny valley: Investigating the effect of the persona
 ***
 (only peer-reviewed & presenting author)
 
+#### 2021
+
+**Izydorzcyk,  D.** & Bröder,  A. (2021). *Judgment or Recall: On the Problematic Procedure for Estimating Parameters of Exemplar Models in Experiments of Quantitative Judgment.*  Talk presented at the 63rd Conference of Experimental Psychologists (TeaP). Würzburg, Germany.
+
 #### 2019
 
 **Izydorzcyk,  D.** & Unkelbach,  C. (2019). *Simulating the ecology:  Using the BIASmodel to simulate and explain contradicting evidence of the out-group homogeneity ef-fect, the intergroup bias, and the density hypothesis.*  Poster presented at the 27th Subjective Probability, Utility, and Decision Making Conference (SPUDM27). Amsterdam, Netherlands.
 
 **Izydorzcyk,  D.** & Unkelbach,  C. (2019). *Simulating the ecology:  Using the BIASmodel  to  simulate  and  explain  contradicting  evidence  of  the  out-group  homogeneityeffect, the intergroup bias, and the density hypothesis.*  Poster presented at the 17th Conference of the Social Psychology Section, September 16-17, Cologne, Germany.
 
-**Izydorzcyk,  D.** (2019). *Measuring  rule-  and  exemplar-based  processes  in  numerical judgments.*  Poster presented at the 34th IOPS Summer Conference, June 14-16, Utrecht, Netherlands.
+**Izydorzcyk,  D.** (2019). *Measuring  Rule-  and  Exemplar-based  Processes  in  Numerical Judgments.*  Poster presented at the 34th IOPS Summer Conference, June 14-16, Utrecht, Netherlands.
 
 
 #### 2018
