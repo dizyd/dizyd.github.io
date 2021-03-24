@@ -106,6 +106,12 @@ The data I will use contains the following variables:
 - `correct`: is `true` if response is equal to `correctResponse`, if not is it `false`
  
 
+{% highlight text %}
+## Error in file(file, "rt"): kann Verbindung nicht öffnen
+{% endhighlight %}
+
+
+
 |ID               | block| trial|stimulus |response |correctResponse |correct |
 |:----------------|-----:|-----:|:--------|:--------|:---------------|:-------|
 |hcpibo8hk7bz2itt |     1|     1|houses   |old      |new             |false   |
@@ -392,13 +398,13 @@ temp_h_pred = rstan::extract(fit1,pars=" h_pred") %>%
                       as.data.frame() %>% 
                       unlist()
  
-temp_f_pred = rstan::extract(fit1,pars="fa_pred") %>%
+temp_fa_pred = rstan::extract(fit1,pars="fa_pred") %>%
                       as.data.frame() %>% 
                       unlist()
  
  
 mcmc_SDT_oS_nH <-  bind_cols("d" = temp_d, "c"=temp_c,
-                             "h_pred"=temp_h_pred,"f_pred"=temp_f_pred) %>% 
+                             "h_pred"=temp_h_pred,"fa_pred"=temp_fa_pred) %>% 
                       mutate(ID     = rep(1:40,each = 4000),
                              dprime = rep(temp$dprime, each = 4000)) %>% 
                       group_by(ID) %>% 
@@ -478,25 +484,22 @@ temp     <- hits  %>%  filter(stimulus == "plants") %>% ungroup() %>% select(.,I
 postpred <- mcmc_SDT_oS_nH %>% 
               select(., ID, h_pred, fa_pred) %>% 
               left_join(.,temp,by = c("ID" = "IDn")) 
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error: Can't subset columns that don't exist.
-## [31mx[39m Column `fa_pred` doesn't exist.
-{% endhighlight %}
-
-
-
-{% highlight r %}
+ 
 postpred[1:5,]
 {% endhighlight %}
 
 
 
 {% highlight text %}
-## Error in eval(expr, envir, enclos): Objekt 'postpred' nicht gefunden
+## # A tibble: 5 x 5
+## # Groups:   ID [1]
+##      ID h_pred fa_pred     h    fa
+##   <dbl>  <dbl>   <dbl> <dbl> <dbl>
+## 1     1      6       7     7    12
+## 2     1      9      10     7    12
+## 3     1      2       9     7    12
+## 4     1     10      14     7    12
+## 5     1      7      11     7    12
 {% endhighlight %}
  
  
@@ -507,41 +510,17 @@ pp1 <- ggplot(filter(postpred,ID %in% 1:4),aes(x = h_pred)) +
         geom_vline(aes(xintercept =  h),color = "black",lwd = 1.5, lty = "dashed")+
         facet_wrap(.~ID,scales="free") + 
         theme_bw() 
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error in filter(postpred, ID %in% 1:4): Objekt 'postpred' nicht gefunden
-{% endhighlight %}
-
-
-
-{% highlight r %}
+ 
 pp2 <- ggplot(filter(postpred,ID %in% 1:4),aes(x = fa_pred)) +
         geom_histogram(bins=10,color = "black",fill = "tomato2",alpha=0.5) +
         geom_vline(aes(xintercept =  fa),color = "black",lwd = 1.5, lty = "dashed")+
         facet_wrap(.~ID,scales="free") + 
         theme_bw() 
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error in filter(postpred, ID %in% 1:4): Objekt 'postpred' nicht gefunden
-{% endhighlight %}
-
-
-
-{% highlight r %}
+ 
 pp1 + pp2 #patchwork package
 {% endhighlight %}
 
-
-
-{% highlight text %}
-## Error in eval(expr, envir, enclos): Objekt 'pp1' nicht gefunden
-{% endhighlight %}
+<img src="/assets/img/2020-04-28-SDT1-nonhierarchical.Rmd/unnamed-chunk-15-1.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" style="display: block; margin: auto;" />
  
 This looks also fine so far. The posterior distribution is symmetrically distributed around the empirical values. In addition, let me also calculate how often the 95% credible interval of the predicted values contains the true values:
  

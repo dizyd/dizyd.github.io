@@ -9,8 +9,8 @@ tags:
   
 # status: process
 # published: true
-status: publish
-published: true
+status: process
+published: false
 permalink: /posts/2020/04/SDT-1/
 ---
 
@@ -114,7 +114,7 @@ The data I will use contains the following variables:
 - `correct`: is `true` if response is equal to `correctResponse`, if not is it `false`
 
 ```{r readInData, echo=FALSE}
-dataSDT <- read.csv2("assets/data/Stimulus_Test_tidy.csv") %>% 
+dataSDT <- read.csv2("../assets/data/Stimulus_Test_tidy.csv") %>% 
             select(ID,block,trial,stimulus,response,correctResponse,correct)
 
 dataSDT[1:3,] %>%  kable(.,format  = "markdown")
@@ -383,13 +383,13 @@ temp_h_pred = rstan::extract(fit1,pars=" h_pred") %>%
                       as.data.frame() %>% 
                       unlist()
 
-temp_f_pred = rstan::extract(fit1,pars="fa_pred") %>%
+temp_fa_pred = rstan::extract(fit1,pars="fa_pred") %>%
                       as.data.frame() %>% 
                       unlist()
 
 
 mcmc_SDT_oS_nH <-  bind_cols("d" = temp_d, "c"=temp_c,
-                             "h_pred"=temp_h_pred,"f_pred"=temp_f_pred) %>% 
+                             "h_pred"=temp_h_pred,"fa_pred"=temp_fa_pred) %>% 
                       mutate(ID     = rep(1:40,each = 4000),
                              dprime = rep(temp$dprime, each = 4000)) %>% 
                       group_by(ID) %>% 
@@ -402,7 +402,7 @@ mcmc_SDT_oS_nH <-  bind_cols("d" = temp_d, "c"=temp_c,
 
 Since *d* is the parameter we are most interested in, lets start with this one. Below you see a forest plot showing the median, 50%, and 96% credible intervals of the posterior distributions, as well as uni-variate marginal posterior distributions for some participants, showing the median posterior estimate (red dashed line) as well as the analytically calculated *d* (black dashed line).
 
-```{r fig.height=5, fig.width=8}
+```{r fig.height=4, fig.width=8}
 mcmc_intervals(posterior_SDT_oS_nH,
                pars = vars(starts_with("d")),
                point_est = "median",
@@ -429,7 +429,7 @@ We can see that the *d* values are rather small and very close to 0 for most peo
 
 We can also look at the *c* values. Since we have more noise trials (new stimuli) than signal trials (old stimuli) in our testing phase (20 vs. 12), and participant were told this information, I expected to find slightly positive values of *c*. However, as apparent from the summary statistics and the plots, participants had more negative values of *c*, indicating a bias for the "old"-response.
 
-```{r fig.height=5, fig.width=8}
+```{r fig.height=4, fig.width=8}
 mcmc_intervals(posterior_SDT_oS_nH,
                pars = vars(starts_with("c")),
                point_est = "median",

@@ -81,7 +81,7 @@ gear & mean & sd & corr & p\\
  
 which leads to this table:
  
-<img src="/assets/img/images_tables//table1.PNG" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" width="55%" style="display: block; margin: auto;" />
+<img src="/assets/img/images_tables//table1.PNG" title="plot of chunk unnamed-chunk-26" alt="plot of chunk unnamed-chunk-26" width="55%" style="display: block; margin: auto;" />
  
  
 ## Formatting the values inside the table
@@ -114,7 +114,7 @@ When we now use this new data.frame in kable, we get the following table [I will
 kable(temp1 ,format = "latex",booktabs=TRUE)
 {% endhighlight %}
  
-<img src="/assets/img/images_tables//table2.PNG" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" width="35%" style="display: block; margin: auto;" />
+<img src="/assets/img/images_tables//table2.PNG" title="plot of chunk unnamed-chunk-29" alt="plot of chunk unnamed-chunk-29" width="35%" style="display: block; margin: auto;" />
  
  
 This table looks already a little bit nicer than the previous one. Often we report composites of multiple descriptive statistics in one column, for instance the mean and then the standard deviation in parenthesis. We can easily implement this in R by using the `paste0()` 
@@ -128,7 +128,7 @@ This table looks already a little bit nicer than the previous one. Often we repo
 kable(temp2 ,format = "latex",booktabs=TRUE)
 {% endhighlight %}
  
-<img src="/assets/img/images_tables//table3.PNG" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" width="35%" style="display: block; margin: auto;" />
+<img src="/assets/img/images_tables//table3.PNG" title="plot of chunk unnamed-chunk-31" alt="plot of chunk unnamed-chunk-31" width="35%" style="display: block; margin: auto;" />
  
 ## Changing the variable namens in the table
  
@@ -143,7 +143,7 @@ temp2 %>%
           escape    = FALSE)
 {% endhighlight %}
  
-<img src="/assets/img/images_tables//table4.PNG" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" width="35%" style="display: block; margin: auto;" />
+<img src="/assets/img/images_tables//table4.PNG" title="plot of chunk unnamed-chunk-33" alt="plot of chunk unnamed-chunk-33" width="35%" style="display: block; margin: auto;" />
  
 ## Adding table notes and captions
  
@@ -165,7 +165,7 @@ temp2 %>%
            title_format      = c("italic"))
 {% endhighlight %}
  
-<img src="/assets/img/images_tables//table5.PNG" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" width="65%" style="display: block; margin: auto;" />
+<img src="/assets/img/images_tables//table5.PNG" title="plot of chunk unnamed-chunk-35" alt="plot of chunk unnamed-chunk-35" width="65%" style="display: block; margin: auto;" />
  
 ## Adding interim-headers
  
@@ -189,7 +189,7 @@ temp2 %>%
   add_header_above(c("Estimates" = 2))
 {% endhighlight %}
  
-<img src="/assets/img/images_tables//table6.PNG" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" width="65%" style="display: block; margin: auto;" />
+<img src="/assets/img/images_tables//table6.PNG" title="plot of chunk unnamed-chunk-37" alt="plot of chunk unnamed-chunk-37" width="65%" style="display: block; margin: auto;" />
  
 ## Using additional LaTeX
  
@@ -212,7 +212,7 @@ temp2 %>%
   add_header_above(c("Estimates" = 2))
 {% endhighlight %}
  
-<img src="/assets/img/images_tables//table7.PNG" title="plot of chunk unnamed-chunk-18" alt="plot of chunk unnamed-chunk-18" width="65%" style="display: block; margin: auto;" />
+<img src="/assets/img/images_tables//table7.PNG" title="plot of chunk unnamed-chunk-39" alt="plot of chunk unnamed-chunk-39" width="65%" style="display: block; margin: auto;" />
  
 In addition, by adding the following line in the YAML-header of your papaja-document, you can use the more advanced column formatting options of the `siunitx` LaTeX-package. 
  
@@ -243,5 +243,5 @@ temp2 %>%
   add_header_above(c("Estimates" = 2))
 {% endhighlight %}
  
-<img src="/assets/img/images_tables//table8.PNG" title="plot of chunk unnamed-chunk-21" alt="plot of chunk unnamed-chunk-21" width="65%" style="display: block; margin: auto;" />
+<img src="/assets/img/images_tables//table8.PNG" title="plot of chunk unnamed-chunk-42" alt="plot of chunk unnamed-chunk-42" width="65%" style="display: block; margin: auto;" />
  

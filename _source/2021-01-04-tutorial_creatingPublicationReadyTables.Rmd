@@ -5,10 +5,8 @@ date: 2021-01-04
 tags:
   - APA conform tables
   - R
-# status: process
-# published: true
-status: process
-published: false
+status: publish
+published: true
 permalink: /posts/2021/01/creatingtables/
 ---
 
