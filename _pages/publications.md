@@ -11,7 +11,7 @@ author_profile: true
 
 #### 2021
 
-**Izydorczyk, D.**, & Bröder, A. (in Press).  Exemplar-based judgment or direct recall: On a problematic procedure for estimating parameters in exemplar models of quantitative judgment. _Psychonomic Bulletin & Review._
+**Izydorczyk, D.**, & Bröder, A. (2021).  Exemplar-based judgment or direct recall: On a problematic procedure for estimating parameters in exemplar models of quantitative judgment. _Psychonomic Bulletin & Review._ (https://doi.org/10.3758/s13423-020-01861-1)([PDF](https://link.springer.com/content/pdf/10.3758/s13423-020-01861-1.pdf))
 
 #### 2020
 
