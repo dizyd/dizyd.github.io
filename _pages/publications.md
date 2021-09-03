@@ -26,15 +26,29 @@ Mascarenhas, M. F., Dübbers, F.,Hoszowska, M., Köseoğlu, A., Karakasheva, R. 
 
 Lischetzke, T., **Izydorczyk, D.**, Hüller, C., & Appel, M. (2017). The topography of the uncanny valley and individuals’ need for structure: A nonlinear mixed effects analysis. _Journal of Research in Personality.68_, 96-113. (https://doi.org/10.1016/j.jrp.2017.02.001)
 
+<br/><br/>
 
 ## <i class="fas fa-bullhorn"></i> Presentations
 ***
+<br/>
 
-#### 2021
+### <i class="fas fa-microphone"></i> Conference talks
+
+**Izydorzcyk,  D.** & Bröder,  A. (2021). *Judgment or Recall: On the Problematic Procedure for Estimating Parameters of Exemplar Models in Experiments of Quantitative Judgment.*  Talk presented at the  annual joint meeting of the Society for Mathematical Psychology and the International Conference on Cognitive Modeling ( MathPsych/ICCM 2021). Virtual Conference.
 
 **Izydorzcyk,  D.** & Bröder,  A. (2021). *Judgment or Recall: On the Problematic Procedure for Estimating Parameters of Exemplar Models in Experiments of Quantitative Judgment.*  Talk presented at the 63rd Conference of Experimental Psychologists (TeaP). Würzburg, Germany.
 
-#### 2019
+<br/>
+
+### <i class="fas fa-people-carry"></i> Coauthored talks (i.e., I didn't talk, but probably did stats and made figures)
+
+Baumert, A., Schopke, A. & **Izydorzcyk,  D.** (2021). *JReactions to Others‘ Norm Violations in Everyday Life – Scrutinizing Reactivity to Intensive Assessments.*  Talk presented at the Society for Ambulatory Assessment Conference 2021 (SAA). Zürich, Switzerland.
+
+Mascarenhas, M. F., Dbbers, F., Hoszowska, M., Kseolu, A., Karakasheva, R., Topal,A. B.,**Izydorzcyk, D.** & Lemoine, J. E. (2018). *Leading us towards more commitment*. Talk presented at the 2018 Junior Researcher Programme Conference, August 13-14, Cambridge, United-Kingdom.
+
+<br/>
+
+### <i class="fas fa-image"></i> Posters
 
 **Izydorzcyk,  D.** & Unkelbach,  C. (2019). *Simulating the ecology:  Using the BIASmodel to simulate and explain contradicting evidence of the out-group homogeneity ef-fect, the intergroup bias, and the density hypothesis.*  Poster presented at the 27th Subjective Probability, Utility, and Decision Making Conference (SPUDM27). Amsterdam, Netherlands.
 
@@ -42,16 +56,4 @@ Lischetzke, T., **Izydorczyk, D.**, Hüller, C., & Appel, M. (2017). The topogra
 
 **Izydorzcyk,  D.** (2019). *Measuring  Rule-  and  Exemplar-based  Processes  in  Numerical Judgments.*  Poster presented at the 34th IOPS Summer Conference, June 14-16, Utrecht, Netherlands.
 
-
-#### 2018
-
-
-Mascarenhas, M. F., Dbbers, F., Hoszowska, M., Kseolu, A., Karakasheva, R., Topal,A. B.,**Izydorzcyk, D.**, Lemoine, J. E. (2018). *Leading us towards more commitment*. Talk presented at the 2018 Junior Researcher Programme Conference, August 13-14,Cambridge, United-Kingdom.
-
-Topal, A. B., Karakasheva, R., Mascarenhas, M. F., Dbbers, F., Hoszowska, M., Kse-olu, A., **Izydorzcyk, D.**, Lemoine, J. E. (2018). *The power of choice:  How identityleadership fosters commitment towards the organization.*  Poster presented at the 2018 jMeeting, February 2, Madrid, Spain
-
-### <i class="fas fa-microphone"></i> Conference talks
-
-### <i class="fas fa-people-carry"></i> Coauthored talks (i.e., I didn't talk, but probably did stats and made figures)
-
-### <i class="fas fa-image"></i> Posters
+Topal, A. B., Karakasheva, R., Mascarenhas, M. F., Dbbers, F., Hoszowska, M., Kse-olu, A., **Izydorzcyk, D.**, Lemoine, J. E. (2018). *The power of choice:  How identity leadership fosters commitment towards the organization.*  Poster presented at the 2018 jMeeting, February 2, Madrid, Spain

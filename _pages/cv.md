@@ -19,6 +19,7 @@ Doctoral program at the DFG Research Training Group “Statistical Modeling in P
 **B.Sc. Psychology**, University of Koblenz-Landau, 10/2012-09/2016.
 Thesis: _Structuring the uncanny valley: Investigating the effect of the personal need for structure on the uncanny valley phenomenon by using mixed-effects modelling with partially  crossed random effects_  (advisors: Markus Appel, Tanja Lischetzke)
  
+<br/><br/>
 
 ## <i class="fas fa-chalkboard-teacher"></i> Teaching Experience
 ***
@@ -40,23 +41,31 @@ Thesis: _Structuring the uncanny valley: Investigating the effect of the persona
 
 **Tutorial Test Theory with R**, University of Koblenz-Landau, Department for Methods and Evaluation (level: B.Sc.; language: German)
 
-## <i class="fas fa-chart-line"></i> Programming and statistics
+<br/><br/>
 
+## <i class="fas fa-chart-line"></i> Programming and statistics
+***
+
+<br/><br/>
 
 ## <i class="fas fa-building"></i> University Service
 ***
 
 **Elected Ph.D. students Spokesperson**, since 2020, Research Training Group Statistical Modeling in Psychology, University of Mannheim
 
+<br/><br/>
+
 ## <i class="fas fa-flask"></i> Reviewing
 ***
 Ad-hoc reviewer:  Computers in Human Behaviour, Judgment and Decision Making
 
+<br/><br/>
 
-## <i class="fas fa-people"></i> Professional Memberships
+## <i class="far fa-address-card"></i> Professional Memberships
 ***
 [German Psychological Society](https://www.dgps.de/) (DGPs) Sections *Methods and Evaluation* and *General Psychology*
 
+<br/><br/>
 
 ## <i class="fas fa-brain"></i> Workshops and Summerschools
 ***
