@@ -42,7 +42,7 @@ Lischetzke, T., **Izydorczyk, D.**, Hüller, C., & Appel, M. (2017). The topogra
 
 ### <i class="fas fa-people-carry"></i> Coauthored talks (i.e., I didn't talk, but probably did stats and made figures)
 
-Baumert, A., Schopke, A. & **Izydorzcyk,  D.** (2021). *JReactions to Others‘ Norm Violations in Everyday Life – Scrutinizing Reactivity to Intensive Assessments.*  Talk presented at the Society for Ambulatory Assessment Conference 2021 (SAA). Zürich, Switzerland.
+Baumert, A., Schopke, A. & **Izydorzcyk,  D.** (2021). *Reactions to Others‘ Norm Violations in Everyday Life – Scrutinizing Reactivity to Intensive Assessments.*  Talk presented at the Society for Ambulatory Assessment Conference 2021 (SAA). Zürich, Switzerland.
 
 Mascarenhas, M. F., Dbbers, F., Hoszowska, M., Kseolu, A., Karakasheva, R., Topal,A. B.,**Izydorzcyk, D.** & Lemoine, J. E. (2018). *Leading us towards more commitment*. Talk presented at the 2018 Junior Researcher Programme Conference, August 13-14, Cambridge, United-Kingdom.
 

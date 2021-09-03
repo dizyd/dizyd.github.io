@@ -126,6 +126,8 @@ author:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
+    - label: "ORCID"
+      icon: "fab fa-orcid"
 
 # Site Footer
 footer:
@@ -277,3 +279,4 @@ defaults:
       comments:  true
       share: true
       related: true
+      classes: wide

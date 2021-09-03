@@ -2,7 +2,7 @@
 main:
 
   - title: "About Me"
-    url: /about.html
+    url: /about/
 
   - title: "Blog Posts"
     url: /year-archive/
