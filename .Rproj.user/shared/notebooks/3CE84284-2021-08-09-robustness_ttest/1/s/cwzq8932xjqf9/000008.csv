@@ -1,0 +1,4 @@
+"0",""
+"0","# Define simulation grid"
+"0","design <- expand.grid(""mu1"" = mu1,""mu2"" = mu2, ""N"" = N)"
+"0","design"

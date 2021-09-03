@@ -5,9 +5,10 @@ permalink: /cv/
 author_profile: true
 redirect_from:
   - /resume
+classes: wide
 ---
 
-## Education
+## <i class="fas fa-graduation-cap"></i> Education
 ***
 
 **Doctoral (Ph.D.) Candidate in Psychology** , University of Mannheim, since 10/2016,  
@@ -19,7 +20,7 @@ Doctoral program at the DFG Research Training Group “Statistical Modeling in P
 Thesis: _Structuring the uncanny valley: Investigating the effect of the personal need for structure on the uncanny valley phenomenon by using mixed-effects modelling with partially  crossed random effects_  (advisors: Markus Appel, Tanja Lischetzke)
  
 
-## Teaching Experience
+## <i class="fas fa-chalkboard-teacher"></i> Teaching Experience
 ***
 **Experimental Internship**, University of Mannheim, Department of Experimental Psychology (level: Bachelor; language: German)
 
@@ -39,32 +40,25 @@ Thesis: _Structuring the uncanny valley: Investigating the effect of the persona
 
 **Tutorial Test Theory with R**, University of Koblenz-Landau, Department for Methods and Evaluation (level: B.Sc.; language: German)
 
+## <i class="fas fa-chart-line"></i> Programming and statistics
 
-## Presentations
+
+## <i class="fas fa-building"></i> University Service
 ***
-(only peer-reviewed & presenting author)
 
-#### 2021
+**Elected Ph.D. students Spokesperson**, since 2020, Research Training Group Statistical Modeling in Psychology, University of Mannheim
 
-**Izydorzcyk,  D.** & Bröder,  A. (2021). *Judgment or Recall: On the Problematic Procedure for Estimating Parameters of Exemplar Models in Experiments of Quantitative Judgment.*  Talk presented at the 63rd Conference of Experimental Psychologists (TeaP). Würzburg, Germany.
-
-#### 2019
-
-**Izydorzcyk,  D.** & Unkelbach,  C. (2019). *Simulating the ecology:  Using the BIASmodel to simulate and explain contradicting evidence of the out-group homogeneity ef-fect, the intergroup bias, and the density hypothesis.*  Poster presented at the 27th Subjective Probability, Utility, and Decision Making Conference (SPUDM27). Amsterdam, Netherlands.
-
-**Izydorzcyk,  D.** & Unkelbach,  C. (2019). *Simulating the ecology:  Using the BIASmodel  to  simulate  and  explain  contradicting  evidence  of  the  out-group  homogeneityeffect, the intergroup bias, and the density hypothesis.*  Poster presented at the 17th Conference of the Social Psychology Section, September 16-17, Cologne, Germany.
-
-**Izydorzcyk,  D.** (2019). *Measuring  Rule-  and  Exemplar-based  Processes  in  Numerical Judgments.*  Poster presented at the 34th IOPS Summer Conference, June 14-16, Utrecht, Netherlands.
+## <i class="fas fa-flask"></i> Reviewing
+***
+Ad-hoc reviewer:  Computers in Human Behaviour, Judgment and Decision Making
 
 
-#### 2018
+## <i class="fas fa-people"></i> Professional Memberships
+***
+[German Psychological Society](https://www.dgps.de/) (DGPs) Sections *Methods and Evaluation* and *General Psychology*
 
 
-Mascarenhas, M. F., Dbbers, F., Hoszowska, M., Kseolu, A., Karakasheva, R., Topal,A. B.,**Izydorzcyk, D.**, Lemoine, J. E. (2018). *Leading us towards more commitment*. Talk presented at the 2018 Junior Researcher Programme Conference, August 13-14,Cambridge, United-Kingdom.
-
-Topal, A. B., Karakasheva, R., Mascarenhas, M. F., Dbbers, F., Hoszowska, M., Kse-olu, A., **Izydorzcyk, D.**, Lemoine, J. E. (2018). *The power of choice:  How identityleadership fosters commitment towards the organization.*  Poster presented at the 2018 jMeeting, February 2, Madrid, Spain
-
-## Workshops and Summerschools
+## <i class="fas fa-brain"></i> Workshops and Summerschools
 ***
 
 ### 2019 
@@ -105,16 +99,4 @@ Topal, A. B., Karakasheva, R., Mascarenhas, M. F., Dbbers, F., Hoszowska, M., Ks
 
 
 
-## University Service
-***
 
-**Elected Ph.D. students Spokesperson**, since 2020, Research Training Group Statistical Modeling in Psychology, University of Mannheim
-
-## Reviewing
-***
-Ad-hoc reviewer:  Computers in Human Behaviour
-
-
-## Professional Memberships
-***
-[German Psychological Society](https://www.dgps.de/) (DGPs) Sections *Methods and Evaluation* and *General Psychology*

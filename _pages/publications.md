@@ -3,12 +3,12 @@ layout: archive
 title: "Publications"
 permalink: /publications/
 author_profile: true
+classes: wide
 ---
 
-## Publications
 
-### Journal articles (peer-reviewed)
-
+##  <i class="fas fa-book"></i> Journal articles (peer-reviewed)
+***
 #### 2021
 
 **Izydorczyk, D.**, & Bröder, A. (2021).  Exemplar-based judgment or direct recall: On a problematic procedure for estimating parameters in exemplar models of quantitative judgment. _Psychonomic Bulletin & Review._ (https://doi.org/10.3758/s13423-020-01861-1)([PDF](https://link.springer.com/content/pdf/10.3758/s13423-020-01861-1.pdf))
@@ -27,5 +27,31 @@ Mascarenhas, M. F., Dübbers, F.,Hoszowska, M., Köseoğlu, A., Karakasheva, R. 
 Lischetzke, T., **Izydorczyk, D.**, Hüller, C., & Appel, M. (2017). The topography of the uncanny valley and individuals’ need for structure: A nonlinear mixed effects analysis. _Journal of Research in Personality.68_, 96-113. (https://doi.org/10.1016/j.jrp.2017.02.001)
 
 
+## <i class="fas fa-bullhorn"></i> Presentations
+***
+
+#### 2021
+
+**Izydorzcyk,  D.** & Bröder,  A. (2021). *Judgment or Recall: On the Problematic Procedure for Estimating Parameters of Exemplar Models in Experiments of Quantitative Judgment.*  Talk presented at the 63rd Conference of Experimental Psychologists (TeaP). Würzburg, Germany.
+
+#### 2019
+
+**Izydorzcyk,  D.** & Unkelbach,  C. (2019). *Simulating the ecology:  Using the BIASmodel to simulate and explain contradicting evidence of the out-group homogeneity ef-fect, the intergroup bias, and the density hypothesis.*  Poster presented at the 27th Subjective Probability, Utility, and Decision Making Conference (SPUDM27). Amsterdam, Netherlands.
+
+**Izydorzcyk,  D.** & Unkelbach,  C. (2019). *Simulating the ecology:  Using the BIASmodel  to  simulate  and  explain  contradicting  evidence  of  the  out-group  homogeneityeffect, the intergroup bias, and the density hypothesis.*  Poster presented at the 17th Conference of the Social Psychology Section, September 16-17, Cologne, Germany.
+
+**Izydorzcyk,  D.** (2019). *Measuring  Rule-  and  Exemplar-based  Processes  in  Numerical Judgments.*  Poster presented at the 34th IOPS Summer Conference, June 14-16, Utrecht, Netherlands.
 
 
+#### 2018
+
+
+Mascarenhas, M. F., Dbbers, F., Hoszowska, M., Kseolu, A., Karakasheva, R., Topal,A. B.,**Izydorzcyk, D.**, Lemoine, J. E. (2018). *Leading us towards more commitment*. Talk presented at the 2018 Junior Researcher Programme Conference, August 13-14,Cambridge, United-Kingdom.
+
+Topal, A. B., Karakasheva, R., Mascarenhas, M. F., Dbbers, F., Hoszowska, M., Kse-olu, A., **Izydorzcyk, D.**, Lemoine, J. E. (2018). *The power of choice:  How identityleadership fosters commitment towards the organization.*  Poster presented at the 2018 jMeeting, February 2, Madrid, Spain
+
+### <i class="fas fa-microphone"></i> Conference talks
+
+### <i class="fas fa-people-carry"></i> Coauthored talks (i.e., I didn't talk, but probably did stats and made figures)
+
+### <i class="fas fa-image"></i> Posters

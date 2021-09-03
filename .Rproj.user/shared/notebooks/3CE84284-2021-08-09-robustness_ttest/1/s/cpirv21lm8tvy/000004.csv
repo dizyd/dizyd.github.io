@@ -1,0 +1,4 @@
+"0","temp <- data %>% group_by(ID,group) %>% summarize(emp_sensitivity=mean(correct))"
+"2","`summarise()` has grouped output by 'ID'. You can override using the `.groups` argument.
+"
+"0","temp"

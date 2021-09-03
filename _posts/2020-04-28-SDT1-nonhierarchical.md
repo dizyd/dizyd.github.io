@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Signal Detection Model with STAN - Part 1"
+excerpt: Signal Detection Model in STAN
 date: 2020-04-28
 tags:
   - cognitive modeling
@@ -12,6 +13,7 @@ tags:
 status: publish
 published: true
 permalink: /posts/2020/04/SDT-1/
+classes: wide
 ---
  
 

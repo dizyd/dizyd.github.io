@@ -1,0 +1,416 @@
+---
+layout: single
+title: "Robustness of the *t*-test when data are between 0 and 1"
+date: 2021-08-09
+tags:
+  - statistics
+  - simulation
+  - R
+status: process
+published: false
+permalink: /posts/2021/01/creatingtables/
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+I was recently asked by a colleague, who is doing her PhD in Clinical Psychology, how to best analyze her data. Her research is generally about people with schizophrenia and how they react to pictures of faces with different emotions. In a typical experiment in this line of research, participants with and without schizophrenia will be presented with different images of faces, showing different emotions (e.g., fear, happiness, anger, disgust) and then have to indicate the emotion the face is showing. In the literature, the data are then analyzed by computing a sensitivity score for each emotion, ranging from 0 to 1, indicating the accuracy of correctly identifying, for instance, a happy face as happy. In a subsequent *t*-test, the sensitivity scores are then compared between groups (schizophrenia vs. healthy). Among other things, since the *t*-test assumes that variables are normally distributed, I was wondering how robust the *t*-test is when the data are constrained on a 0 to 1 interval. I decided to set up a quick simulation to see what influence this constrained has on the power and false-positive rate of the *t*-test.
+
+## Getting started
+
+Before we can start, we have to load the packages we need for this simulation and define our general `ggplot`-theme we will use throughout this blog post
+
+```{r message=FALSE}
+library(tidyverse)
+library(parameters)
+library(latex2exp)
+library(papaja)
+
+theme_set(
+  theme_bw() +  
+  theme(plot.title = element_text(hjust = 0.5),
+       text        = element_text(size  = 14)))
+```
+
+## Generating Data
+
+First, we have to generate some data. Our general data structure looks as follows:
+
+| ID  |     group     | trial | emotion | response | correct | sensitivity |
+|:---:|:-------------:|:-----:|:-------:|:--------:|:-------:|:-----------:|
+|  1  |    healthy    |   1   |  happy  |  happy   |    1    |    0.75     |
+|  1  |    healthy    |   2   |  fear   |   fear   |    1    |    0.75     |
+|  1  |    healthy    |   3   |  happy  |   fear   |    0    |    0.75     |
+|  1  |    healthy    |   4   |  fear   |   fear   |    1    |    0.75     |
+|  2  | schizophrenia |   1   | disgust |  happy   |    0    |    0.50     |
+
+We have several participants, either healthy or with schizophrenia, each with 4 trials, the emotion of the face shown in this trial, the response of the participant, if this response was correct, and the overall sensitivity/accuracy. Since in this simulation, we don't actually care about the emotions, we only need to generate the columns `ID`,`group`, `trial`, `correct` and `sensitivity`.
+
+Lets start with our `ID` variable.
+
+```{r}
+N  <- 30
+ID <- 1:N
+
+ID
+```
+
+Now we make the `group`variable.
+
+```{r}
+group <- rep(c("healthy","schizophrenia"),each=N/2)
+
+group
+
+```
+
+Next, we have to generate the `sensitivity`scores. Since the scores have to be between 0 and 1, I will draw the score $\theta$ for each participant from a $Beta$ distribution with parameters $a$ and $b$ , which define the shape of the $Beta$ distribution. Here is an example:
+
+```{r}
+ggplot(data.frame(x = seq(0,1,0.01)),aes(x = x))+
+  stat_function(fun = dbeta,args=list(shape1=1,shape2=1),  aes(lty="a = 1, b = 1"),geom="line",lwd=0.8)+
+  stat_function(fun = dbeta,args=list(shape1=3,shape2=2),  aes(lty="a = 3, b = 2"),geom="line",lwd=0.8) +
+  stat_function(fun = dbeta,args=list(shape1=5,shape2=15),aes(lty="a = 5, b = 15"),geom="line",lwd=0.8) +
+  geom_segment(aes(x = 0, y = 0, xend = 0, yend = 1.008),lwd=0.8) +
+  geom_segment(aes(x = 1, y = 0, xend = 1, yend = 1.008),lwd=0.8) +
+  scale_linetype_manual(labels = c("a = 1, b = 1","a = 3, b = 2","a = 5, b = 15"),
+                        values = c("solid","dashed","dotted")) + 
+  labs(x   = TeX("$\\theta$"),
+       y   = "Density",
+       lty = "Beta(a,b)") +
+  theme(legend.position = c(.9, .85),
+        legend.box.background = element_rect(color="black", size=0.8),
+        legend.text = element_text(size=10),
+        legend.title = element_text(size=12))
+
+```
+
+However, since the $a$ and $b$ parameters are rather hard to interpret, we will use an advice from Lee and Wagenmakers (2014) and define the $Beta$ distribution in terms of a mean $\mu_{Beta}$ and variance $\sigma^2_{Beta}$. The $a$ and $b$ parameters from the $Beta$ distribution can then be computed from $\mu_{Beta}$ and $\lambda_{Beta}$ via $a = \mu_{Beta} \times \frac{1}{\sqrt{\sigma^2_{Beta}}}$ and $b = (1-\mu_{Beta}) \times \frac{1}{\sqrt{\sigma^2_{Beta}}}$. Lets look at some examples where $\mu_{Beta}$ = 0.5 and $\sigma^2_{Beta}$ = 0.25, $\mu_{Beta}$ = 0.5 and $\sigma^2_{Beta}$ = 0.01, or $\mu_{Beta}$ = 0.8 and $\sigma^2_{Beta}$ = 0.01.
+
+```{r}
+
+
+ggplot(data.frame(x = seq(0,1,0.01)),aes(x = x))+
+  stat_function(fun = dbeta,args=list(shape1=1,shape2=1),  aes(lty="a = 0.5 * 2, b = (1-0.5) * 2"),geom="line",lwd=0.8)+
+  stat_function(fun = dbeta,args=list(shape1=5,shape2=5),  aes(lty="a = 0.5 * 10, b = (1-0.5) * 10"),geom="line",lwd=0.8) +
+  stat_function(fun = dbeta,args=list(shape1=8,shape2=2),aes(lty="a = 0.8 * 10, b = (1-0.8) * 10"),geom="line",lwd=0.8) +
+  geom_segment(aes(x = 0, y = 0, xend = 0, yend = 1.008),lwd=0.8) +
+  geom_segment(aes(x = 1, y = 0, xend = 1, yend = 1.008),lwd=0.8) +
+  scale_linetype_manual(labels = c("a = 0.5 * 2, b = (1-0.5) * 2",
+                                   "a = 0.5 * 10, b = (1-0.5) * 10",
+                                   "a = 0.8 * 10, b = (1-0.8) * 10"),
+                        values = c("solid","dashed","dotted")) + 
+  labs(x   = TeX("$\\theta$"),
+       y   = "Density",
+       lty = "Beta(a,b)") +
+  theme(legend.position = c(.175, .82),
+        legend.box.background = element_rect(color="black", size=0.8),
+        legend.text = element_text(size=10),
+        legend.title = element_text(size=12))
+```
+
+To make our life easier, we will define a function which will recompute $\mu_{Beta}$ and $\sigma^2_{Beta}$ into $a$ and $b$:
+
+```{r}
+estBetaParams <- function(mu, var) {
+  
+  alpha <- mu*(1/sqrt(var))
+  beta  <- (1-mu)*(1/sqrt(var))
+  return(params = list(a = alpha, b = beta))
+}
+```
+
+So using this function for $\mu_{Beta}$ = 0.7 and $\sigma^2_{Beta}$ = 0.1 gives us
+
+```{r}
+estBetaParams(0.7,0.1)
+```
+
+Back to the interesting part. For our simulation, we will assume that healthy participants are better at recognizing emotions than participants with schizophrenia. This difference will be expressed with a higher $\mu_{Beta}$ for healthy participants than for schizophrenia participants. For now, we will assume that the `sensitivity`scores of healthy participants are drawn from $Beta$ distribution with $\mu_{Beta}$ = 0.7 and $\sigma^2_{Beta}$ = 0.03 and of schizophrenic participants with $\mu_{Beta}$ = 0.5 and $\sigma^2_{Beta}$ = 0.03 and. These distributions then look like this:
+
+```{r}
+ggplot(data.frame(x = seq(0,1,0.01)),aes(x = x))+
+  stat_function(fun = dbeta,args=list(shape1=4.041452,shape2=1.732051),  aes(lty="healthy"),geom="line",lwd=0.8)+
+  stat_function(fun = dbeta,args=list(shape1=2.886751,shape2=2.886751),  aes(lty="schizophrenic"),geom="line",lwd=0.8) +
+  scale_linetype_manual(labels = c("healthy",
+                                   "schizophrenic"),
+                        values = c("solid","dashed","dotted")) + 
+  labs(x   = TeX("Sensitivy Score"),
+       y   = "Density",
+       lty = "Group") +
+  xlim(0.01,0.999)+
+  theme(legend.position = c(.175, .82),
+        legend.box.background = element_rect(color="black", size=0.8),
+        legend.text = element_text(size=10),
+        legend.title = element_text(size=12))
+```
+
+Thus, we assume that healthy participants have on average a higher `sensitivity` score than schizophrenic participants, however, there might be some schizophrenic individuals who have a higher `sensitivity` score than some healthy participants. We now draw a random `sensitivity` score for each participant in both groups, based on these distributions, and put everything together to a data.frame:
+
+```{r}
+ab_healthy <- estBetaParams(0.7,0.03)
+ab_schizo  <- estBetaParams(0.5,0.03)
+
+
+
+data <- data.frame(ID,group) %>% 
+          rowwise() %>% 
+          mutate(sensitivity = ifelse(group=="healthy",
+                                      rbeta(1,ab_healthy$a,ab_healthy$b),
+                                      rbeta(1,ab_schizo$a,ab_schizo$b)))
+
+
+data 
+
+```
+
+We can now look at the mean and variances of the generated `sensitivity` scores:
+
+```{r}
+data %>% 
+  group_by(group) %>% 
+  summarize(m = mean(sensitivity),
+            var = var(sensitivity)) %>% 
+  mutate_if(is.numeric,round,2)
+```
+
+Note that the means are very close to the ones specified via $\mu_{Beta}$ (i.e., healthy = 0.7, schizophrenic = 0.5). The variance, however, is different from $\sigma^2_{Beta}$ , so we have to keep that in mind. Important, both groups have similar variances, since they have the same $\sigma^2_{Beta}$. We can now also plot our data:
+
+```{r}
+ggplot(data,aes(x = group, y = sensitivity)) +
+  geom_boxplot() + 
+  geom_jitter(aes(fill=group),size=2,shape=21,show.legend = F,width=0.1) +
+   labs(x   = "Group",
+        y   = "Sensitivy Score")
+
+```
+
+Now that we have our participants, groups, and a sensitivity score for each participant, we can generate the trial level data\^[We don't actually need the trial level data here, however, I think just staying as close as possible to the original data pattern is often the most promising way to make all assumptions and possible problems clear]. To do this, we assume that the data of each participant $i$ in each trial $t$ is draw from a $Bernoulli$ Distribution where the sensitive score is the success rate, this is:
+
+\$\$
+
+\$\$
+
+$$
+correct_{it} \sim Bernoulli(sensitivy_i)
+$$
+
+So lets do this in `R`:
+
+```{r}
+ab_healthy <- estBetaParams(0.7,0.03)
+ab_schizo  <- estBetaParams(0.5,0.03)
+
+
+n_trials <- 4
+
+
+data <- data.frame("ID"=rep(ID,each=n_trials),"group" = rep(group,each=n_trials),"trial"=rep(1:n_trials,N)) %>% 
+          group_by(ID) %>% 
+          mutate(sensitivity  = ifelse(group=="healthy",
+                                      rbeta(1,ab_healthy$a,ab_healthy$b),
+                                      rbeta(1,ab_schizo$a,ab_schizo$b))) %>% 
+          rowwise() %>% 
+          mutate(correct      = rbinom(1,1,sensitivity))
+
+data
+  
+```
+
+Now this looks like the data example we had in the beginning.
+
+## Running the tests
+
+### $t$-test
+
+Now that we have our data, we can run our tests. First, we run the *t*-test as it is currently done in this line of research. However, we first have to compute the empirical sensitivity score for each individual. We could use the sensitivity score we generated for each participant and with a large number of trials, the empirical score would be equal, or very close to this one, I feel that computing the empirical sensitivity score is more in line with the data generating process and the actual analysis procedure.
+
+```{r}
+temp <- data %>% group_by(ID,group) %>% summarize(emp_sensitivity=mean(correct))
+temp
+
+res_ttest <- t.test(emp_sensitivity~group,temp,var.equal=T,alternative = "greater")
+res_ttest
+```
+
+Our test suggests that there is a significant difference between the sensitivity scores of the groups, `r apa_print(res_ttest)$statistic` . Note that we have tested one-sided here, since we assume that healthy individuals have a *higher* sensitivity score than schizophrenic patients.
+
+### Test of Equal or Given Proportions
+
+A more appropriate test, given the data on the 0 to 1 interval, would be the test of equal or given proportions, which is equal to Fishers's exact test. The proportion test is implemented in `R` via the `prop.test()` function. Other then the name suggest, the `prop.test()` does not use the proportions, but the number of successes as input. Running the test in `R` this looks like this:
+
+```{r}
+
+temp <- data %>% group_by(group) %>% summarize(nr_successes = sum(correct),
+                                               nr_trials    = length(correct),
+                                               .groups = "drop")
+temp
+
+
+
+prop.test(x = c(temp$nr_successes[1], temp$nr_successes[2]), n = c(temp$nr_trials[1], temp$nr_trials[1]), alternative = "greater")
+```
+
+So we still get a significant result (assuming our significance level to be $\alpha$ = .05), however, the $p$ is now larger than the $p$ value we got from the $t$-test. Since we now have our general data generating and testing procedure, we want to put everything together in a simulation, to test this issue more thoroughly.
+
+## Putting everything together
+
+To make our life easier, we first will put the steps we have done before in functions. Lets start with data generation:
+
+```{r}
+gen_data <- function(N = 100, n_trials = 8, mu1=0.7, mu2=0.5, var1 = 0.03, var2 = 0.03){
+  
+  ID <- 1:N
+  group <- rep(c("healthy","schizophrenia"),each=N/2)
+
+  ab_healthy <- estBetaParams(mu1,var1)
+  ab_schizo  <- estBetaParams(mu2,var2)
+
+  data <- data.frame("ID"=rep(ID,each=n_trials),"group" = rep(group,each=n_trials),"trial"=rep(1:n_trials,N)) %>% 
+            group_by(ID) %>% 
+            mutate(sensitivity  = ifelse(group=="healthy",
+                                        rbeta(1,ab_healthy$a,ab_healthy$b),
+                                        rbeta(1,ab_schizo$a,ab_schizo$b))) %>% 
+            rowwise() %>% 
+            mutate(correct      = rbinom(1,1,sensitivity))
+  
+  return(data)
+  
+}
+```
+
+Lets test this function:
+
+```{r}
+gen_data(N=10)
+```
+
+Seems to work ! Now we write the testing part:
+
+```{r}
+
+test_data <- function(data){
+  
+  p1 <- data %>% filter(group=="healthy")       %>% pull(sensitivity) %>% mean()
+  p2 <- data %>% filter(group=="schizophrenia") %>% pull(sensitivity) %>% mean()
+  
+  temp_t    <- data %>% group_by(ID,group) %>% summarize(emp_sensitivity=mean(correct),
+                                                   .groups="drop")
+  
+  res_ttest <- t.test(emp_sensitivity~group,temp_t,var.equal=T,alternative = "greater")$p.value
+
+
+  
+  temp_p <- data %>% group_by(group) %>% summarize(nr_successes = sum(correct),
+                                                   nr_trials    = length(correct),
+                                                   .groups="drop")
+
+  res_ptest <- prop.test(x = c(temp_p$nr_successes[1], temp_p$nr_successes[2]),
+                         n = c(temp_p$nr_trials[1], temp_p$nr_trials[1]),
+                         alternative = "greater")$p.value
+  
+  
+  return(list("p_t" = res_ttest,"p_p" = res_ptest, "mean_p1" = p1, "mean_p2" = p2))
+}
+
+```
+
+Lets also test this function:
+
+```{r}
+gen_data(N=100) %>% test_data()
+
+```
+
+This also seems to work. As you see, this function returns the *p*-value of the $t$-test, the *p*-value of the $z$-test, as well as the empirical (i.e., generated) means of the sensitivity scores of each group ($p_1$ = "healty", $p_2$ = "schizophrenic").
+
+## Run the simulation
+
+We now define our simulation settings. In this simulation, we want to vary the true difference between the sensitivity scores of healthy and schizophrenic participants, as well as the sample size. For the mean sensitivity difference, I chose values of -0.1,0,0.1 and 0.2, which correspond to having mean sensitivity scores of 0.4, 0.5, 0.6 and 0.7 for healthy participants, when the mean sensitivity score for schizophrenic participants is 0.5. For the sample sizes I chose 50, 100, 200 ,or 300. Our significance level will be $\alpha$ = .05.
+
+```{r}
+# Mean sensitivity of healthy participants
+mu1 <-  c(0.4,0.5,0.6,0.7)
+
+# Mean sensitivity of schizophrenic participants
+mu2 <- 0.5
+
+# Define sample size we want to look at
+N  <- c(50,100,200,300)
+
+# Define significance level
+alpha <- 0.05
+
+# Define the number of repetitions of the simulation, the more, the better our estimates become
+n_rep <- 1000
+```
+
+We will combine the simulation factors into a design data.frame, over which rows we will loop over `n_rep`times.
+
+```{r}
+# Define simulation grid
+design <- expand.grid("mu1" = mu1,"mu2" = mu2, "N" = N)
+design
+```
+
+```{r}
+# Define empty results matrix 
+res_g <- matrix(0,ncol= 3,nrow=nrow(design))
+
+# Set column names
+colnames(res_g) <- c("emp_diff","power_tTest","power_pTest")
+
+
+# Run simulation
+for(d in 1:nrow(design)){
+  
+  res <- matrix(0,ncol= 3,nrow=n_rep)
+  colnames(res) <- c("diff","p_tTest","p_pTest")
+  
+  
+  for(rep in 1:n_rep){
+    
+    # run function
+    temp <- gen_data(N=design$N[d],mu1=design$mu1[d]) %>% test_data()
+    
+    # save results
+    res[rep,1] <-  temp$mean_p1-temp$mean_p2
+    res[rep,2] <-  temp$p_t
+    res[rep,3] <-  temp$p_p
+    
+    
+  }
+  
+  
+  # Compute mean average coefficients and power (nur of sig results / nr of reps)
+  
+  res_g[d,] <- res %>%
+    as.data.frame() %>%
+    summarize(m_diff      = mean(diff),
+              power_tTest = mean(p_tTest < alpha),
+              power_zTest = mean(p_pTest < alpha)) %>% unlist()
+  
+}
+```
+
+## The results
+
+Lets have a look at the results.
+
+### False-Positive Error
+
+### Power
+
+```{r}
+res_g %>%
+  as_tibble() %>% # transform matrix to tibble
+  bind_cols(design,.) %>% # bind with the design matrix 
+  mutate(diff = mu1-0.5) %>% 
+  select(N,mu1,power_tTest,power_pTest,diff,emp_diff) %>% 
+  mutate_if(is.numeric,round,2) # round values 
+
+```
+
+
+

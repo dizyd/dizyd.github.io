@@ -3,6 +3,7 @@ layout: archive
 title: "Shiny"
 permalink: /shiny/
 excerpt: "Shiny"
+classes: wide
 author_profile: true
 ---
 

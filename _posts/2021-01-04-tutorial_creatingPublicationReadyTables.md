@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Short Tutorial: Creating Publication Ready Tables With `papaja` and `kable()`"
+excerpt: How to create publication ready tables in R
 date: 2021-01-04
 tags:
   - APA conform tables
@@ -10,6 +11,7 @@ tags:
 status: publish
 published: true
 permalink: /posts/2021/01/creatingtables/
+classes: wide
 ---
  
 

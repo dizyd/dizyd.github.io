@@ -1,0 +1,6 @@
+"0","res_g %>%"
+"0","  as_tibble() %>% # transform matrix to tibble"
+"0","  bind_cols(design,.) %>% # bind with the design matrix "
+"0","  mutate(diff = mu1-0.5) %>% "
+"0","  select(N,mu1,power_tTest,power_pTest,diff,emp_diff) %>% "
+"0","  mutate_if(is.numeric,round,2) # round values "

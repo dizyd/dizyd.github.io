@@ -1,0 +1,6 @@
+"0","estBetaParams <- function(mu, var) {"
+"0","  "
+"0","  alpha <- mu*(1/sqrt(var))"
+"0","  beta  <- (1-mu)*(1/sqrt(var))"
+"0","  return(params = list(a = alpha, b = beta))"
+"0","}"
