@@ -9,9 +9,10 @@ tags:
   
 # status: process
 # published: true
-status: publish
-published: true
+# status: publish
+# published: true
 permalink: /posts/2020/04/SDT-1/
+classes: wide
 ---
 
 ```{r setup, include=FALSE}
@@ -114,7 +115,7 @@ The data I will use contains the following variables:
 - `correct`: is `true` if response is equal to `correctResponse`, if not is it `false`
 
 ```{r readInData, echo=FALSE}
-dataSDT <- read.csv2("../assets/data/Stimulus_Test_tidy.csv") %>% 
+dataSDT <- read.csv2("Data/Stimulus_Test_tidy.csv") %>% 
             select(ID,block,trial,stimulus,response,correctResponse,correct)
 
 dataSDT[1:3,] %>%  kable(.,format  = "markdown")
@@ -498,6 +499,7 @@ left_join(temp1,temp2,by = "ID")  %>%
 
 As evident from the plots and the 95% credible interval checks of the posterior predictives, our model is able to recover our data well.
 
+
 ---
 
 ### References 
@@ -509,3 +511,5 @@ As evident from the plots and the 95% credible interval checks of the posterior 
 - Stanislaw, H., & Todorov, N. (1999). Calculation of signal detection theory measures. *Behavior Research Methods, Instruments, & Computers*, 31(1), 137–149. https://doi.org/10.3758/BF03207704
 
 
+```{r, child = "_footer.Rmd"}
+```

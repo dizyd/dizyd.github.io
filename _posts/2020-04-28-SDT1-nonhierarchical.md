@@ -16,8 +16,6 @@ permalink: /posts/2020/04/SDT-1/
 classes: wide
 ---
  
-
- 
  
  
 ## About this blog post
@@ -60,7 +58,7 @@ signal &\sim N(d,1)
 \end{aligned}
 $$
  
-where **d** is the **discriminability** or **sensitivity** parameter, which goes from $-\infty$ to $+ \infty $. This parameter **d** corresponds to the distance between means of the noise and the signal distribution in standard deviation units. A value of 0 indicates an inability to distinguish signals from noise, whereas larger values indicate a correspondingly greater ability to distinguish signals from noise. Negative values are also possible, but are harder to interpret. They are most often thought of as a sampling error or response confusion (i.e., responding "old" when intending to respond "new", and vice versa, for instance by confusing the corresponding buttons). 
+where **d** is the **discriminability** or **sensitivity** parameter, which goes from $ -\infty $ to $ + \infty $. This parameter **d** corresponds to the distance between means of the noise and the signal distribution in standard deviation units. A value of 0 indicates an inability to distinguish signals from noise, whereas larger values indicate a correspondingly greater ability to distinguish signals from noise. Negative values are also possible, but are harder to interpret. They are most often thought of as a sampling error or response confusion (i.e., responding "old" when intending to respond "new", and vice versa, for instance by confusing the corresponding buttons). 
  
 Another parameter is **c**, the **bias** parameter. Positive values of **c** correspond to a bias towards saying *new* and negative values correspond to a bias towards saying *old*. 
  
