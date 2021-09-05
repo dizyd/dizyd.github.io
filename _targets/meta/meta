@@ -1,0 +1,24 @@
+name|type|data|command|depend|seed|path|time|size|bytes|format|iteration|parent|children|seconds|warnings|error
+spellcheck_exceptions|stem|8910a61ab6e361d1|5f24d7b8d52cae7e|a3dad144c40657ed|1200658335||t18874.4450485797s|bb7d1897b1601692|1196|rds|vector|||0||
+2021-01-04-tutorial_creatingPublicationReadyTables.Rmd|stem|96ca8c0ebe85a2b3|13f8ffa1afcc831b|ef46db3751d8e999|-1807733993|./_R/2021-01-04-tutorial_creatingPublicationReadyTables.Rmd|t18874.4511314032s|24d8f130ccaa37b3|9125|file|vector|||0||
+2021-05-11-hello.Rmd|stem|09208bc0612c3a77|3ab1bf55adb65ed9|ef46db3751d8e999|1775574045|./_R/_drafts/2021-05-11-hello.Rmd|t18875.5444823902s|0ec253163f4b03d2|39|file|vector|||0||
+footer|stem|14fce6c5528f0fa5|5eebd231dabb7081|ef46db3751d8e999|1740462663|_R/_footer.Rmd|t18875.5539553398s|dfbf5c9d8bc07d4d|141|file|vector|||0||
+draft_post.Rmd|stem|92b9041cd0530374|4c08ea5e91edcb96|ef46db3751d8e999|931839616|./_R/_drafts/draft_post.Rmd|t18875.5547055751s|57c48fb64e0f83e5|3999|file|vector|||0||
+draft_post.md|stem||0b7487ae950f2dba|cfb4a70e106f4cf1|-1858607252||t18875.5548759306s||0|file|vector|||6.2||callr subprocess failed kann Verbindung nicht öffnen
+2021-01-04-tutorial_creatingPublicationReadyTables.md|stem|e2075ece6e2d34b0|d21c469fec223b2e|83c32a25a2c328b3|1450386970|_posts/2021-01-04-tutorial_creatingPublicationReadyTables.md|t18875.5549167625s|330d6b0c7ed68b5e|9171|file|vector|||3.56||
+spellcheck_current|stem|a9a751382c01336a|0027400a91e7ad81|e141fdd4a333ce21|-574490618||t18875.555018089s|28760f4dcae47007|531|rds|vector|||0.48||
+draft_rmds|stem|a7a0472106c2f425|fa11c3b3ad0fc87c|9819ed63fad8bf99|-1196489879||t18875.5557393826s|6429a4967279f4eb|86|rds|vector|||0||
+list_rmds|function|93bdfd47338f0dfa||||||||||||||
+knit_post|function|bb1562dc2bf220be||||||||||||||
+paths_current_posts|object|b5cc4b17c62ef748||||||||||||||
+drafts|object|72d6abc33cafa547||||||||||||||
+posts|object|961e6981268d9401||||||||||||||
+paths_draft_posts|object|7b0992a2010b2e80||||||||||||||
+targets_drafts|object|9c730a6b329c741d||||||||||||||
+targets_posts|object|cd1a04eae48330e6||||||||||||||
+2020-04-28-SDT1-nonhierarchical.Rmd|stem|8d8e29e4e4cf2eee|f3f4104dc1ba4e56|ef46db3751d8e999|-1234061384|./_R/2020-04-28-SDT1-nonhierarchical.Rmd|t18875.5592824156s|b85ccbe3da22327b|21819|file|vector|||0||
+2020-04-28-SDT1-nonhierarchical.md|stem|4e31e4a09973078a|9b40bfc72f7067dd|e183cc4fd7116cf9|1905765107|_posts/2020-04-28-SDT1-nonhierarchical.md|t18875.5607008762s|eae2e67610dc32d6|30251|file|vector|||80.59||
+post_rmds|stem|eb51d580425eadd9|96a8991027e49cee|a6ec2ced1a56c408|752582536||t18875.5607021575s|8b56b051e40fb951|144|rds|vector|||0||
+2021-05-11-hello.md|stem||99573f3c745f3e97|9074fbe4299260e4|131432533||t18875.5550120057s||0|file|vector|||0.8||callr subprocess failed kann Verbindung nicht öffnen
+spellcheck_current_results_change|stem|1d374dca5b9f7a61|6c36a24e5e54667c|b3bd8248934df016|-1201225623||t18875.5607119983s|6a7d693e2118d888|64|rds|vector|||0||
+spellcheck_current_results|stem|a9a751382c01336a|803bddce9e6e9822|0c2b0baab6ce4ec6|-515747826||t18875.5607123792s|28760f4dcae47007|531|rds|vector|||0||

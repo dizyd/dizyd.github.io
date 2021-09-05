@@ -1,5 +1,0 @@
-"0","data %>% "
-"0","  group_by(group) %>% "
-"0","  summarize(m = mean(sensitivity),"
-"0","            var = var(sensitivity)) %>% "
-"0","  mutate_if(is.numeric,round,2)"
