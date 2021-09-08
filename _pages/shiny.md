@@ -8,7 +8,7 @@ author_profile: true
 ---
 
 
-I have developed a number of R shiny apps which I want to link here,  that are available for exploration. Be warned that the apps have limited (i.e. no) documentation or guidance. They were designed to be intuitive, but maybe only in the eyes of the creator. The software provided on this website may be used for non-commercial purposes free of charge.  Although considerable effort was put into developing and testing the software, there is no warranty whatsoever. 
+I have developed a number of R shiny apps that are available for exploration, which I want to link here. Be warned that the apps might have limited documentation or guidance. They were designed to be intuitive, but maybe only in the eyes of the creator. The software provided on this website may be used for non-commercial purposes free of charge.  Although considerable effort was put into developing and testing the software, there is no warranty whatsoever. 
 
 <br>
 <br>
@@ -19,4 +19,4 @@ I have developed a number of R shiny apps which I want to link here,  that are a
 
 [**Curtailed RRT made easy**](https://fabiolareiber.shinyapps.io/CurtailedRRT/)
 
-This is a shiny-app is part of a published paper for sequential hypothesis testing whithin a Curtailed Sampling Plan using Randomized Response Techniques by Reiber, F., Schnuerch, M. & Ulrich, R. (in press). Improving the efficiency of surveys with randomized response models: A sequential approach based on curtailed sampling. Psychological Methods.  
+This is a shiny-app is part of a published paper for sequential hypothesis testing whithin a Curtailed Sampling Plan using Randomized Response Techniques by Reiber, F., Schnuerch, M. & Ulrich, R. (in press). Improving the efficiency of surveys with randomized response models: A sequential approach based on curtailed sampling. *Psychological Methods*.  
