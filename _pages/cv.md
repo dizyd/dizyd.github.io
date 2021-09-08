@@ -46,6 +46,14 @@ Thesis: _Structuring the uncanny valley: Investigating the effect of the persona
 ## <i class="fas fa-chart-line"></i> Programming and statistics
 ***
 
+Languages: Mastery of R. Regular practice writing JAGS, Stan for Bayesian modeling, as well as HTML/CSS and JavaScript to program experiments. I also did some courses in and analysis with Python. Exposure to C++.
+
+Computing tools and technologies: tidy data and the R tidyverse, git and GitHub, knitr/rmarkdown, Shiny.
+
+Statistics: Regression: generalized linear models, hierarchical and mixed effects models, and Bayesian versions of these models. Structural equation modeling and factor analysis. Neural networks:  familiarity with how some deep network architectures work. 
+
+Experimental software: nowadays mostly lab.JS and Soscisurvey. Some experience with OpenSesame and  Inquisit.
+
 <br/><br/>
 
 ## <i class="fas fa-building"></i> University Service
