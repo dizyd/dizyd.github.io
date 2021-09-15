@@ -2,7 +2,7 @@
 layout: archive
 title: "Documentation and useful tricks for HAL9000"
 permalink: /documentation_RServer/
-author_profile: true
+author_profile: false
 toc: true
 ---
 
