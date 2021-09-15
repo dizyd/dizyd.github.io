@@ -6,6 +6,8 @@ author_profile: true
 toc: true
 ---
 
+# R Server
+
 ## Create a new account
 
 - you can add new users with by typing the command `sudo adduser newuser` in the Terminal (you have to be logged in with an admin account) where you should replace `newuser` with the name of the user you want to create
@@ -24,6 +26,16 @@ here are some useful RServer commands
 ## Add User to group
 
 - This commands adds a user to a group `sudo usermod -a -G <groupname> <username>`
+
+## Check R Version
+
+- you can check the R version with the command `R --version`
+
+## Update R Version of RServer
+
+- to update the RVersion of the RServer you just have to update R on the computer the Server runs on. To do this, check the many up to date explanations on the internet (Google: "update R ubuntu 20.04")
+
+# Ubuntu/Linux
 
 
 ## Show memory and CPU workload
@@ -46,14 +58,6 @@ here are some useful RServer commands
 ## Check Ubuntu Version
 
 - you can check the currently installed Ubuntu Version with by typing `lsb_release -a` in the terminal
-
-## Check R Version
-
-- you can check the R version with the command `R --version`
-
-## Update R Version of RServer
-
-- to update the RVersion of the RServer you just have to update R on the computer the Server runs on. To do this, check the many up to date explanations on the internet (Google: "update R ubuntu 20.04")
 
 ## Restart/reboot computer via the terminal in RStudio
 
