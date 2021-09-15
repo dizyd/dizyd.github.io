@@ -1,5 +1,5 @@
 ---
-layout: archive
+layout: single
 title: "Documentation and useful tricks for HAL9000"
 permalink: /documentation_RServer/
 author_profile: false
