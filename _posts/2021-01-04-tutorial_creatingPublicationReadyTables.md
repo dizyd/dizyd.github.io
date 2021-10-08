@@ -74,7 +74,7 @@ gear & mean & sd & corr & p\\
 
 which leads to this table:
 
-{% include figure image_path="assets/img/images_tables/table1.PNG" %}{: style="max-width: 65%; display: block; margin: 2em auto;"}
+{% include figure image_path="assets/img/images_tables/table1.PNG" %}{: .full}
 
 
 ## Formatting the values inside the table
@@ -102,7 +102,7 @@ When we now use this new data.frame in kable, we get the following table [I will
 kable(temp1 ,format = "latex",booktabs=TRUE)
 ```
 
-{% include figure image_path="assets/img/images_tables/table2.PNG" %}{: style="max-width: 65%; display: block; margin: 2em auto;"}
+{% include figure image_path="assets/img/images_tables/table2.PNG" %}{: style="max-width: 80%; display: block; margin: 2em auto;"}
 
 
 This table looks already a little bit nicer than the previous one. Often we report composites of multiple descriptive statistics in one column, for instance the mean and then the standard deviation in parenthesis. We can easily implement this in R by using the `paste0()` 
@@ -116,7 +116,7 @@ This table looks already a little bit nicer than the previous one. Often we repo
 kable(temp2 ,format = "latex",booktabs=TRUE)
 ```
 
-{% include figure image_path="assets/img/images_tables/table3.PNG" %}{: style="max-width: 65%; display: block; margin: 2em auto;"}
+{% include figure image_path="assets/img/images_tables/table3.PNG" %}{: style="max-width: 80%; display: block; margin: 2em auto;"}
 
 ## Changing the variable namens in the table
 
@@ -131,7 +131,7 @@ temp2 %>%
           escape    = FALSE)
 ```
 
-{% include figure image_path="assets/img/images_tables/table4.PNG" %}{: style="max-width: 65%; display: block; margin: 2em auto;"}
+{% include figure image_path="assets/img/images_tables/table4.PNG" %}{: style="max-width: 80%; display: block; margin: 2em auto;"}
 
 ## Adding table notes and captions
 
@@ -153,7 +153,7 @@ temp2 %>%
            title_format      = c("italic"))
 ```
 
-{% include figure image_path="assets/img/images_tables/table5.PNG" %}{: style="max-width: 65%; display: block; margin: 2em auto;"}
+{% include figure image_path="assets/img/images_tables/table5.PNG" %}{: style="max-width: 80%; display: block; margin: 2em auto;"}
 
 ## Adding interim-headers
 
@@ -177,7 +177,7 @@ temp2 %>%
   add_header_above(c("Estimates" = 2))
 ```
 
-{% include figure image_path="assets/img/images_tables/table6.PNG" %}{: style="max-width: 65%; display: block; margin: 2em auto;"}
+{% include figure image_path="assets/img/images_tables/table6.PNG" %}{: style="max-width: 80%; display: block; margin: 2em auto;"}
 
 ## Using additional LaTeX
 
@@ -200,7 +200,7 @@ temp2 %>%
   add_header_above(c("Estimates" = 2))
 ```
 
-{% include figure image_path="assets/img/images_tables/table7.PNG" %}{: style="max-width: 65%; display: block; margin: 2em auto;"}
+{% include figure image_path="assets/img/images_tables/table7.PNG" %}{: style="max-width: 80%; display: block; margin: 2em auto;"}
 
 
 In addition, by adding the following line in the YAML-header of your papaja-document, you can use the more advanced column formatting options of the `siunitx` LaTeX-package. 
@@ -233,4 +233,4 @@ temp2 %>%
 ```
 
 
-{% include figure image_path="assets/img/images_tables/table8.PNG" %}{: style="max-width: 65%; display: block; margin: 2em auto;"}
+{% include figure image_path="assets/img/images_tables/table8.PNG" %}{: style="max-width: 80%; display: block; margin: 2em auto;"}
