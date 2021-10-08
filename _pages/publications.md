@@ -11,7 +11,9 @@ classes: wide
 ***
 #### 2021
 
-Frenken, M., Hemmerich, W., **Izydorczyk, D.**, Scharf, S., & Imhoff, R. (Accepted for Publication).  Cognitive processes behind the shooter bias: Dissecting response bias, motor preparation and information accumulation. _Journal of Experimental Social Psychology._ (preprint available [PDF](https://psyarxiv.com/eagwt/)) 
+Ruggeri K., ..., **Izydorczyk, D.**, ..., &  Garcia-Garzon, E. (preprint only). The globalizability of  temporal discounting. (preprint available [PDF](https://psyarxiv.com/2enfz/)) 
+
+Frenken, M., Hemmerich, W., **Izydorczyk, D.**, Scharf, S., & Imhoff, R. (2021).  Cognitive processes behind the shooter bias: Dissecting response bias, motor preparation and information accumulation. _Journal of Experimental Social Psychology._ (preprint available [PDF](https://psyarxiv.com/eagwt/)) 
 
 **Izydorczyk, D.**, & Bröder, A. (2021).  Exemplar-based judgment or direct recall: On a problematic procedure for estimating parameters in exemplar models of quantitative judgment. _Psychonomic Bulletin & Review._ (https://doi.org/10.3758/s13423-020-01861-1)([PDF](https://link.springer.com/content/pdf/10.3758/s13423-020-01861-1.pdf))
 
