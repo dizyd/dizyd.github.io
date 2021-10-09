@@ -6,7 +6,7 @@ classes: wide
 excerpt: ""
 share: false
 author_profile: true
-permalink: /about/
+permalink: /
 
 ---
 
