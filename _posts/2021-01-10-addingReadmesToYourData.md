@@ -30,12 +30,12 @@ This data.frame now contains the reaction time data of 50 participant, who can b
 ```r
 head(df)
 #>   ID cond       rt
-#> 1  1    A 469.6988
-#> 2  2    A 411.3410
-#> 3  3    A 525.5295
-#> 4  4    B 496.7503
-#> 5  5    A 499.4429
-#> 6  6    B 462.6672
+#> 1  1    A 470.5576
+#> 2  2    B 512.1693
+#> 3  3    B 442.7360
+#> 4  4    B 502.0922
+#> 5  5    B 503.0349
+#> 6  6    B 490.0945
 ```
 
 The next thing we need is a vector of the same length as the number of variables we have in our data.frame, which contains the description of the corresponding variables. For instance, in our example this might look like this:
@@ -125,7 +125,7 @@ Afterwards we add this new vector to the data.frame as a new column called `Desc
     temp_info <- df[sample(1:nrow(df),2),] %>%
                   mutate_if(is.numeric,round,2) %>% 
                   t() %>%
-                  apply(., 1, paste, collapse=",") %>% 
+                  apply(., 1, paste, collapse=", ") %>% 
                   unlist()
     
     names(temp_info) <- NULL
@@ -137,10 +137,10 @@ So now we have:
 
 
 ```
-#>   Variable      Type       Example                            Description
-#> 1       ID   integer         29, 4   unique numeric participant ID [1-50]
-#> 2     cond character           A,B condition [A:congruent, B:incongruent]
-#> 3       rt   numeric 512.41,496.75            average reaction time in ms
+#>   Variable      Type        Example                            Description
+#> 1       ID   integer         41, 30   unique numeric participant ID [1-50]
+#> 2     cond character           A, B condition [A:congruent, B:incongruent]
+#> 3       rt   numeric 498.55, 520.77            average reaction time in ms
 ```
 
 The next line will add an info text, provided trough the `info = ` argument, as well as information about the dimensions of the data.frame to the top of the final `readme.txt`. The statement `length(info)` will return be `FALSE`, and thus nothing added, if the argument is left empty (or `= NULL`). 

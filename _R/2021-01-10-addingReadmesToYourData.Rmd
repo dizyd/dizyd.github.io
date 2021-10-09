@@ -111,7 +111,7 @@ Afterwards we add this new vector to the data.frame as a new column called `Desc
     temp_info <- df[sample(1:nrow(df),2),] %>%
                   mutate_if(is.numeric,round,2) %>% 
                   t() %>%
-                  apply(., 1, paste, collapse=",") %>% 
+                  apply(., 1, paste, collapse=", ") %>% 
                   unlist()
     
     names(temp_info) <- NULL
