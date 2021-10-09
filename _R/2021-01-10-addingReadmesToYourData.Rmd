@@ -13,7 +13,7 @@ classes: wide
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Because of a recent experience, I was reminded that it is absolutley annoying when researchers upload their data to an open repository (e.g. OSF or Github) without adding any form of description or wiki. Thus, I decided to a little `R` - function for me and my colleagues to help with this^[You can source the function directly via `devtools::source_url("https://github.com/dizyd/functions/blob/master/make_readme_fun.R?raw=TRUE")`]. 
+Because of a recent experience, I was reminded that it is absolutely annoying when researchers upload their data to an open repository (e.g. OSF or Github) without adding any form of description or wiki. Thus, I decided to a little `R` - function for me and my colleagues to help with this. You can also source the function directly from Github via `devtools::source_url("https://github.com/dizyd/functions/blob/master/make_readme_fun.R?raw=TRUE")`. 
 
 Lets start by creating a data.frame containing our very cool and very interesting data. 
 
@@ -25,7 +25,7 @@ df = data.frame("ID"   = 1:50,
                 "rt"   = rnorm(50,500,40))
 ```
 
-This data.frame now contains the reaction time data of 50 participant in one of two conditions:
+This data.frame now contains the reaction time data of 50 participant, who can be in one of two conditions:
 
 ```{r}
 head(df)
@@ -59,7 +59,7 @@ make_df_readme     <- function(df,desc,info = NULL,file = "readme.txt",add_examp
                     mutate_if(is.numeric,round,digits) %>% 
                     t() %>%
                     as.data.frame() %>%
-                    apply(., 1, paste, collapse=",") %>% 
+                    apply(., 1, paste, collapse=", ") %>% 
                     unlist()
     
     names(temp_info) <- NULL
@@ -97,7 +97,15 @@ In the first part of the function we start by creating an inital data.frame cont
 temp0
 ```
 
-The next step is to add two example entries of each variable to this `temp0` data.frame **if** the argument `add_examples == T`. The following few lines of codes will sample two entries from the initial data.frame (`sample()`), round numeric variables to `digits` decimal places (`mutate_if`) ,transpose it (`t()`), paste the two entries together (`apply()`) and the return everything as vector (`unlist()`).  Afterwards we add this new vector to the data.frame as a new column called `Description`
+The next step is to add two example entries of each variable to this `temp0` data.frame *if* the argument `add_examples` equals `TRUE`. The following few lines of codes will:
+
+- sample two entries from the initial data.frame (`sample()`)
+- round numeric variables to `digits` decimal places (`mutate_if`)
+- transpose it (`t()`)
+- paste the two entries together (`apply()`) 
+- the return everything as vector (`unlist()`).  
+
+Afterwards we add this new vector to the data.frame as a new column called `Description`
 
 ```{r}
     temp_info <- df[sample(1:nrow(df),2),] %>%
@@ -141,7 +149,7 @@ data.frame (50,3)
 |Variable |Type      |Example             |Description                            |
 |:--------|:---------|:-------------------|:--------------------------------------|
 |ID       |integer   |12,15               |unique numeric participant ID [1-50]   |
-|cond     |character |congruent,congruent |condition [A:congruent, B:incongruent] |
+|cond     |character |A, B                |condition [A:congruent, B:incongruent] |
 |rt       |numeric   |511.44,486.54       |average reaction time in ms            |
 
 ```
@@ -151,5 +159,5 @@ IFf you copy & paste the table in your OSF wiki or Github Readme the table would
 |Variable |Type      |Example             |Description                            |
 |:--------|:---------|:-------------------|:--------------------------------------|
 |ID       |integer   |12,15               |unique numeric participant ID [1-50]   |
-|cond     |character |congruent,congruent |condition [A:congruent, B:incongruent] |
+|cond     |character |A, B                |condition [A:congruent, B:incongruent] |
 |rt       |numeric   |511.44,486.54       |average reaction time in ms            |

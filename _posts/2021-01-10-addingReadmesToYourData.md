@@ -11,7 +11,7 @@ classes: wide
 
 
 
-Because of a recent experience, I was reminded that it is absolutley annoying when researchers upload their data to an open repository (e.g. OSF or Github) without adding any form of description or wiki. Thus, I decided to a little `R` - function for me and my colleagues to help with this^[You can source the function directly via `devtools::source_url("https://github.com/dizyd/functions/blob/master/make_readme_fun.R?raw=TRUE")`]. 
+Because of a recent experience, I was reminded that it is absolutely annoying when researchers upload their data to an open repository (e.g. OSF or Github) without adding any form of description or wiki. Thus, I decided to a little `R` - function for me and my colleagues to help with this. You can also source the function directly from Github via `devtools::source_url("https://github.com/dizyd/functions/blob/master/make_readme_fun.R?raw=TRUE")`. 
 
 Lets start by creating a data.frame containing our very cool and very interesting data. 
 
@@ -24,18 +24,18 @@ df = data.frame("ID"   = 1:50,
                 "rt"   = rnorm(50,500,40))
 ```
 
-This data.frame now contains the reaction time data of 50 participant in one of two conditions:
+This data.frame now contains the reaction time data of 50 participant, who can be in one of two conditions:
 
 
 ```r
 head(df)
 #>   ID cond       rt
-#> 1  1    A 496.7167
-#> 2  2    B 481.2317
-#> 3  3    A 475.6879
-#> 4  4    B 548.9158
-#> 5  5    B 541.5480
-#> 6  6    A 509.4509
+#> 1  1    A 469.6988
+#> 2  2    A 411.3410
+#> 3  3    A 525.5295
+#> 4  4    B 496.7503
+#> 5  5    A 499.4429
+#> 6  6    B 462.6672
 ```
 
 The next thing we need is a vector of the same length as the number of variables we have in our data.frame, which contains the description of the corresponding variables. For instance, in our example this might look like this:
@@ -68,7 +68,7 @@ make_df_readme     <- function(df,desc,info = NULL,file = "readme.txt",add_examp
                     mutate_if(is.numeric,round,digits) %>% 
                     t() %>%
                     as.data.frame() %>%
-                    apply(., 1, paste, collapse=",") %>% 
+                    apply(., 1, paste, collapse=", ") %>% 
                     unlist()
     
     names(temp_info) <- NULL
@@ -110,7 +110,15 @@ In the first part of the function we start by creating an inital data.frame cont
 #> 3       rt   numeric            average reaction time in ms
 ```
 
-The next step is to add two example entries of each variable to this `temp0` data.frame **if** the argument `add_examples == T`. The following few lines of codes will sample two entries from the initial data.frame (`sample()`), round numeric variables to `digits` decimal places (`mutate_if`) ,transpose it (`t()`), paste the two entries together (`apply()`) and the return everything as vector (`unlist()`).  Afterwards we add this new vector to the data.frame as a new column called `Description`
+The next step is to add two example entries of each variable to this `temp0` data.frame *if* the argument `add_examples` equals `TRUE`. The following few lines of codes will:
+
+- sample two entries from the initial data.frame (`sample()`)
+- round numeric variables to `digits` decimal places (`mutate_if`)
+- transpose it (`t()`)
+- paste the two entries together (`apply()`) 
+- the return everything as vector (`unlist()`).  
+
+Afterwards we add this new vector to the data.frame as a new column called `Description`
 
 
 ```r
@@ -130,9 +138,9 @@ So now we have:
 
 ```
 #>   Variable      Type       Example                            Description
-#> 1       ID   integer         16,41   unique numeric participant ID [1-50]
-#> 2     cond character           B,A condition [A:congruent, B:incongruent]
-#> 3       rt   numeric 491.78,499.02            average reaction time in ms
+#> 1       ID   integer         29, 4   unique numeric participant ID [1-50]
+#> 2     cond character           A,B condition [A:congruent, B:incongruent]
+#> 3       rt   numeric 512.41,496.75            average reaction time in ms
 ```
 
 The next line will add an info text, provided trough the `info = ` argument, as well as information about the dimensions of the data.frame to the top of the final `readme.txt`. The statement `length(info)` will return be `FALSE`, and thus nothing added, if the argument is left empty (or `= NULL`). 
@@ -161,7 +169,7 @@ data.frame (50,3)
 |Variable |Type      |Example             |Description                            |
 |:--------|:---------|:-------------------|:--------------------------------------|
 |ID       |integer   |12,15               |unique numeric participant ID [1-50]   |
-|cond     |character |congruent,congruent |condition [A:congruent, B:incongruent] |
+|cond     |character |A, B                |condition [A:congruent, B:incongruent] |
 |rt       |numeric   |511.44,486.54       |average reaction time in ms            |
 
 ```
@@ -171,5 +179,5 @@ IFf you copy & paste the table in your OSF wiki or Github Readme the table would
 |Variable |Type      |Example             |Description                            |
 |:--------|:---------|:-------------------|:--------------------------------------|
 |ID       |integer   |12,15               |unique numeric participant ID [1-50]   |
-|cond     |character |congruent,congruent |condition [A:congruent, B:incongruent] |
+|cond     |character |A, B                |condition [A:congruent, B:incongruent] |
 |rt       |numeric   |511.44,486.54       |average reaction time in ms            |
