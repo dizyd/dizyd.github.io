@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Adding a Readme to your data files"
+excerpt: R function to create a readme-file of your data.
 date: 2021-01-04
 tags:
   - R

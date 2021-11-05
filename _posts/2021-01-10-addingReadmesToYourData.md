@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Adding a Readme to your data files"
+excerpt: R function to create a readme-file of your data.
 date: 2021-01-04
 tags:
   - R
@@ -30,12 +31,12 @@ This data.frame now contains the reaction time data of 50 participant, who can b
 ```r
 head(df)
 #>   ID cond       rt
-#> 1  1    A 470.5576
-#> 2  2    B 512.1693
-#> 3  3    B 442.7360
-#> 4  4    B 502.0922
-#> 5  5    B 503.0349
-#> 6  6    B 490.0945
+#> 1  1    A 506.7621
+#> 2  2    B 527.9162
+#> 3  3    A 498.9245
+#> 4  4    A 586.1895
+#> 5  5    B 522.0194
+#> 6  6    A 522.9781
 ```
 
 The next thing we need is a vector of the same length as the number of variables we have in our data.frame, which contains the description of the corresponding variables. For instance, in our example this might look like this:
@@ -138,9 +139,9 @@ So now we have:
 
 ```
 #>   Variable      Type        Example                            Description
-#> 1       ID   integer         41, 30   unique numeric participant ID [1-50]
-#> 2     cond character           A, B condition [A:congruent, B:incongruent]
-#> 3       rt   numeric 498.55, 520.77            average reaction time in ms
+#> 1       ID   integer         35, 49   unique numeric participant ID [1-50]
+#> 2     cond character           A, A condition [A:congruent, B:incongruent]
+#> 3       rt   numeric 535.14, 478.20            average reaction time in ms
 ```
 
 The next line will add an info text, provided trough the `info = ` argument, as well as information about the dimensions of the data.frame to the top of the final `readme.txt`. The statement `length(info)` will return be `FALSE`, and thus nothing added, if the argument is left empty (or `= NULL`). 

@@ -14,14 +14,14 @@ knit_post <- function(path_in, dir_out, dir_figs, dir_cache, base_url = "/") {
   rmd_to_md <- function(file_path, dir_md = ".") {
     paste0(file.path(dir_md, just_basename(file_path)), ".md")
   }
-
+  
   path_out <- rmd_to_md(path_in, dir_out)
   # this function is a modified version of an example here:
   # http://jfisher-usgs.github.com/r/2012/07/03/knitr-jekyll/
-
+  
   path_figs <-  file.path(dir_figs,  just_basename(path_in), "/")
   path_cache <- file.path(dir_cache, just_basename(path_in))
-
+  
   knit_it <- function(path_in, path_out, path_figs, path_cache, base_url) {
     library(knitr)
     opts_knit$set(
@@ -42,10 +42,10 @@ knit_post <- function(path_in, dir_out, dir_figs, dir_cache, base_url = "/") {
       dev = "ragg_png"
     )
     render_markdown()
-
+    
     knit(path_in, path_out, envir = new.env(), encoding = "UTF-8")
   }
-
+  
   # knit in a clean session
   callr::r(
     knit_it,
@@ -57,11 +57,12 @@ knit_post <- function(path_in, dir_out, dir_figs, dir_cache, base_url = "/") {
       base_url = base_url
     )
   )
-
+  
   path_out
 }
 
-paths_current_posts <- list_rmds("./_R") %>%  stringr::str_subset("_footer.Rmd", negate = TRUE)
+paths_current_posts <- list_rmds("./_R") %>%
+  stringr::str_subset("_footer.Rmd", negate = TRUE)
 paths_draft_posts <- list_rmds("./_R/_drafts")
 
 
@@ -140,7 +141,7 @@ list(
       "shinyapps", "io", "https", "tristan", "icc", "jpg", "png", "embo",
       # Abbreviations
       "APA", "PPV", "NPV", "btw", "DS", "ICC",
-      "AST",
+      "AST", "uuid",
       # Code names
       "bayesplot",
       "brms",
@@ -149,6 +150,7 @@ list(
       "DiagrammeR",
       "dplyr", "dplyring",
       "dnorm", "qnorm",
+      "dotenv",
       "flexdashboard",
       "gamlss",
       "gratia",
@@ -156,6 +158,7 @@ list(
       "gganimate", "ggmcmc", "ggridges",
       "GitHub",
       "iccbot",
+      "Javascript",
       "knitr",
       "lazyeval",
       "libPaths", "libpaths",
@@ -171,6 +174,8 @@ list(
       "probs",
       "purrr", "purrr's",
       "readr",
+      "reprex",
+      "Renviron",
       "RMarkdown",
       "RStanARM",
       "rlang", "rlang's",
@@ -180,6 +185,7 @@ list(
       "ShinyApps",
       "Stanverse",
       "tidybayes",
+      "tidyverse",
       "withr",
       "WrapRmd",
       "tibble", "tribble",
@@ -196,12 +202,16 @@ list(
       "blogpost",
       "bowtie",
       "coarticulation",
+      "comboing",
       "completionists",
       "copypasting",
+      "debuff",
       "detrend",
       "dextrality",
       "else's",
       "eyetracking", "eyetracker",
+      "falsiness", "falsy",
+      "gameplay",
       "gnosis",
       "grey",
       "gridlines",
@@ -220,6 +230,7 @@ list(
       "na",
       "noncentered",
       "nibling",
+      "nullish",
       "offscreen",
       "ooooooh", "ooooh",
       "overfit",
@@ -242,10 +253,12 @@ list(
       "ta", "da",
       "theming",
       "toolset",
+      "truthy",
       "ummm", "umm",
       "understandability",
       "unintuitive",
       "vaganotic",
+      "vectorized", "vectorization",
       "walkthrough",
       "wavily",
       "wiggliness",
@@ -259,6 +272,7 @@ list(
       "Foresman",
       "Gabry",
       "Gelman", "gelman",
+      "Jorbs",
       "Kross", "Kross's",
       "Hazen",
       "Marchman",
@@ -281,7 +295,7 @@ list(
       "textrm", "textsf", "texttt"
     )
   ),
-
+  
   tar_target(
     spellcheck_current,
     spelling::spell_check_files(
@@ -289,11 +303,10 @@ list(
       ignore = spellcheck_exceptions
     )
   ),
-
+  
   tar_force(
     spellcheck_current_results,
     command = print(spellcheck_current),
     force = nrow(spellcheck_current) > 0
   )
 )
-

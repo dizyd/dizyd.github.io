@@ -1,6 +1,8 @@
 ---
 layout: single
 title: "Short Tutorial: Creating Publication Ready Tables With `papaja` and `kable()`"
+excerpt: In this short tutorial, I want to demonstrate how to build publication ready `LaTeX` tables in R with the [`papaja`](https://github.com/crsh/papaja) package and the `kable()` function.
+
 date: 2021-01-04
 tags:
   - APA conform tables

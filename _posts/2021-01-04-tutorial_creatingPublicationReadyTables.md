@@ -1,6 +1,8 @@
 ---
 layout: single
 title: "Short Tutorial: Creating Publication Ready Tables With `papaja` and `kable()`"
+excerpt: In this short tutorial, I want to demonstrate how to build publication ready `LaTeX` tables in R with the [`papaja`](https://github.com/crsh/papaja) package and the `kable()` function.
+
 date: 2021-01-04
 tags:
   - APA conform tables
@@ -26,6 +28,10 @@ library(papaja)
 library(knitr)
 library(kableExtra)
 library(tidyverse)
+#> Warning: Paket 'tidyverse' wurde unter R Version 4.1.1 erstellt
+#> Warning: Paket 'ggplot2' wurde unter R Version 4.1.1 erstellt
+#> Warning: Paket 'tidyr' wurde unter R Version 4.1.1 erstellt
+#> Warning: Paket 'readr' wurde unter R Version 4.1.1 erstellt
 ```
 
 Lets also create an example results data.frame based on the `mtcars` data set, which we would like to convert to a nice table ready for publication. 
