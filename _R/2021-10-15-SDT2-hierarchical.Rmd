@@ -101,7 +101,7 @@ The data contains the following variables:
 
 ```{r readInData, echo=FALSE}
 
-dataSDT <- read.csv2("Data/Stimulus_Test_tidy.csv") %>% 
+dataSDT <- read.csv2("_R/Data/Stimulus_Test_tidy.csv") %>% 
             select(ID,block,trial,stimulus,response,correctResponse,correct)
 
 dataSDT[1:3,] %>%  kable(.,format  = "markdown")
@@ -340,7 +340,7 @@ Now that we have defined our STAN model, we are ready to go. I sample from the m
 ```{r message=FALSE, warning=FALSE}
 options(mc.cores=4)
 
-mod  <- cmdstan_model("Stan Models/StanModel_oneStim_Hier.stan")
+mod  <- cmdstan_model("_R/Stan Models/StanModel_oneStim_Hier.stan")
 
 fit2 <- mod$sample(
           data           = stan_data, # named list of data
@@ -367,7 +367,7 @@ As a first check of the convergence of our MCMC-chains, let us look at the MCMC-
             facet_args = list(nrow = 2, labeller = label_parsed))
 ```
 
-Although this trace plots look very similar to the hairy caterpillars we had when using the non-hierarchical model, if you look closely you will see that at some point the chains seem to be stuck at some value for a few iterations. To avoid this behavior, we can extend our original Stan model by using a so called *parameter expansion* (see Lee & Wagenmakers, p. XX for detailed information). We will introduce an additional parameter called `noise_sigma`. We will then expaned the model with this new parameter in the following way:
+Although this trace plots look very similar to the hairy caterpillars we had when using the non-hierarchical model, if you look closely you will see that at some point the chains seem to be stuck at some value for a few iterations. To avoid this behavior, we can extend our original Stan model by using a so called *parameter expansion* (see Lee & Wagenmakers, p. XX for detailed information). We will introduce an additional parameter called `noise_sigma`. We will then expand the model with this new parameter in the following way:
 
 
 $$
@@ -384,6 +384,7 @@ d_p &\sim Normal(\mu_d,new-\sigma_d)\\[.5em]
 c_p &\sim Normal(\mu_c,new-\sigma_c)
 \end{aligned}
 $$
+
 We basically just add some additional noise, or randomness into the standard deviation of our group-level normal distributions for $d_p$ and $c_p$ by multiplying $\sigma$ with `noise_sigma`.
 
 ### The STAN-Model with parameter expansion 
@@ -470,7 +471,7 @@ Now that we have defined our new and hopefully better model, lets run it again.
 ```{r message=FALSE, warning=FALSE}
 options(mc.cores=4)
 
-mod  <- cmdstan_model("Stan Models/StanModel_oneStim_Hier_exp.stan")
+mod  <- cmdstan_model("_R/Stan Models/StanModel_oneStim_Hier_exp.stan")
 
 fit3 <- mod$sample(
           data           = stan_data, # named list of data
@@ -481,7 +482,7 @@ fit3 <- mod$sample(
           thin           = 4,
           adapt_delta    = 0.9)
 
-fit3$save_object(file = "Data/fit_StanModel_Hier.RDS")
+fit3$save_object(file = "_R/Data/fit_StanModel_Hier.RDS")
 ```
 
 ### Inspect MCMC, Rhat, ESS                 
@@ -653,7 +654,7 @@ The following plot shows the number of hits (Plot A) and false alarms (Plot B) a
 
 ```{r}
 # load old data
-fit_non_hier <- readRDS("Data/fit_StanModel_nonHier.RDS")
+fit_non_hier <- readRDS("_R/Data/fit_StanModel_nonHier.RDS")
 
 # extract what we need and join with predicitons from non-hierarchical model
 ph <- fit3 %>%

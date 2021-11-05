@@ -91,10 +91,11 @@ The data contains the following variables:
 - `correct`: is `true` if response is equal to `correctResponse`, if not is it `false`
 
 
-```
-#> Error in file(file, "rt"): kann Verbindung nicht öffnen
-#> Error in kable(., format = "markdown"): Objekt 'dataSDT' nicht gefunden
-```
+|ID               | block| trial|stimulus |response |correctResponse |correct |
+|:----------------|-----:|-----:|:--------|:--------|:---------------|:-------|
+|hcpibo8hk7bz2itt |     1|     1|houses   |old      |new             |false   |
+|hcpibo8hk7bz2itt |     1|     2|houses   |new      |new             |true    |
+|hcpibo8hk7bz2itt |     1|     3|houses   |old      |new             |false   |
 
 Based on these variables, I calculated the number of hits, false alarms, false negatives, and misses, as well as their corresponding rates for each person, in each block. In addition, I calculated $d'$  as $d' = z(HR) - z(FR)$ (Snodgrass &  Corwin, 1988; Stanislaw & Todorov,1999), where HR again is the hit rate and FR is the false-alarm rate.
 
@@ -124,15 +125,19 @@ hits <- dataSDT %>%
                  z_h_rate  = qnorm(hit_rate),
                  z_fa_rate = qnorm(fa_rate),
                  dprime    = z_h_rate-z_fa_rate)  
-#> Error in mutate(., IDn = as.numeric(as.factor(ID)), hit = ifelse(response == : Objekt 'dataSDT' nicht gefunden
+
 ```
 
 Which then gives us the following data structure:
 
 
-```
-#> Error in kable(., format = "markdown"): Objekt 'hits' nicht gefunden
-```
+| IDn|stimulus | block| n_old| n_new|  h| fa|  hit_rate| fa_rate|  z_h_rate| z_fa_rate|     dprime|
+|---:|:--------|-----:|-----:|-----:|--:|--:|---------:|-------:|---------:|---------:|----------:|
+|   1|aliens   |     5|    12|    20|  7| 11| 0.5833333|    0.55| 0.2104284| 0.1256613|  0.0847670|
+|   1|bugs     |     2|    12|    20|  7| 13| 0.5833333|    0.65| 0.2104284| 0.3853205| -0.1748921|
+|   1|houses   |     4|    12|    20|  7| 14| 0.5833333|    0.70| 0.2104284| 0.5244005| -0.3139721|
+|   1|plants   |     3|    12|    20|  7| 12| 0.5833333|    0.60| 0.2104284| 0.2533471| -0.0429187|
+|   1|plates   |     1|    12|    20| 11| 11| 0.9166667|    0.55| 1.3829941| 0.1256613|  1.2573328|
 
 
 Again, we will use only use the data from one stimulus set:
@@ -140,7 +145,6 @@ Again, we will use only use the data from one stimulus set:
 
 ```r
 temp <- hits %>% filter(stimulus == "plants")
-#> Error in filter(., stimulus == "plants"): Objekt 'hits' nicht gefunden
 ```
 
 ## SDT - Hierarchical - One Stimulus Set 
@@ -234,10 +238,26 @@ stan_data <- list(
   fa = temp$fa,
   p  = length(unique(temp$ID))
 )
-#> Error in eval(expr, envir, enclos): Objekt 'temp' nicht gefunden
 
 stan_data
-#> Error in eval(expr, envir, enclos): Objekt 'stan_data' nicht gefunden
+#> $s
+#>  [1] 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12
+#> [26] 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12
+#> 
+#> $n
+#>  [1] 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20
+#> [26] 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20
+#> 
+#> $h
+#>  [1]  7  9  7 10 11 12 10  7  6  7  7  8  8  7  6 12  6 11  9 12  7  6 10  8  8
+#> [26]  6 11  5  7  8  9 10  6  9  6  6  7  5  6  9
+#> 
+#> $fa
+#>  [1] 12 10 16 10 11 20 12 10 13  7 11 12 11 10  6 20 11 11 14 11 10 14 14 17 10
+#> [26] 15  9 11 11 13 16 10 12 13 16 11  8 11 11 13
+#> 
+#> $p
+#> [1] 40
 ```
 
 ### The Parameters 
@@ -297,8 +317,7 @@ Now that we have defined our STAN model, we are ready to go. I sample from the m
 ```r
 options(mc.cores=4)
 
-mod  <- cmdstan_model("Stan Models/StanModel_oneStim_Hier.stan")
-#> Error in initialize(...): Assertion on 'stan_file' failed: File does not exist: 'Stan Models/StanModel_oneStim_Hier.stan'.
+mod  <- cmdstan_model("_R/Stan Models/StanModel_oneStim_Hier.stan")
 
 fit2 <- mod$sample(
           data           = stan_data, # named list of data
@@ -308,13 +327,18 @@ fit2 <- mod$sample(
           refresh        = 0,         # no progress shown
           thin           = 4,
           adapt_delta    = 0.9)
-#> Error in eval(expr, envir, enclos): Objekt 'mod' nicht gefunden
+#> Running MCMC with 2 chains, at most 4 in parallel...
+#> 
+#> Chain 2 finished in 20.1 seconds.
+#> Chain 1 finished in 34.0 seconds.
+#> 
+#> Both chains finished successfully.
+#> Mean chain execution time: 27.0 seconds.
+#> Total execution time: 34.6 seconds.
 
 # save results 
 posterior_SDT_oS_H <- as_draws_df(fit2$draws())
-#> Error in as_draws_df(fit2$draws()): Objekt 'fit2' nicht gefunden
 summary_oS_H       <- fit2$summary() %>% as.data.frame()
-#> Error in as.data.frame(.): Objekt 'fit2' nicht gefunden
 ```
 
 ### Inspect MCMC, Rhat, ESS                 
@@ -327,10 +351,11 @@ As a first check of the convergence of our MCMC-chains, let us look at the MCMC-
  mcmc_trace(posterior_SDT_oS_H,
             pars       = vars("mu_c","mu_d","sigma_d","sigma_c"),
             facet_args = list(nrow = 2, labeller = label_parsed))
-#> Error in is.data.frame(x): Objekt 'posterior_SDT_oS_H' nicht gefunden
 ```
 
-Although this trace plots look very similar to the hairy caterpillars we had when using the non-hierarchical model, if you look closely you will see that at some point the chains seem to be stuck at some value for a few iterations. To avoid this behavior, we can extend our original Stan model by using a so called *parameter expansion* (see Lee & Wagenmakers, p. XX for detailed information). We will introduce an additional parameter called `noise_sigma`. We will then expaned the model with this new parameter in the following way:
+<img src="/figs/2021-10-15-SDT2-hierarchical/unnamed-chunk-6-1.png" title="center" alt="center" width="80%" style="display: block; margin: auto;" />
+
+Although this trace plots look very similar to the hairy caterpillars we had when using the non-hierarchical model, if you look closely you will see that at some point the chains seem to be stuck at some value for a few iterations. To avoid this behavior, we can extend our original Stan model by using a so called *parameter expansion* (see Lee & Wagenmakers, p. XX for detailed information). We will introduce an additional parameter called `noise_sigma`. We will then expand the model with this new parameter in the following way:
 
 
 $$
@@ -347,6 +372,7 @@ d_p &\sim Normal(\mu_d,new-\sigma_d)\\[.5em]
 c_p &\sim Normal(\mu_c,new-\sigma_c)
 \end{aligned}
 $$
+
 We basically just add some additional noise, or randomness into the standard deviation of our group-level normal distributions for $d_p$ and $c_p$ by multiplying $\sigma$ with `noise_sigma`.
 
 ### The STAN-Model with parameter expansion 
@@ -435,8 +461,7 @@ Now that we have defined our new and hopefully better model, lets run it again.
 ```r
 options(mc.cores=4)
 
-mod  <- cmdstan_model("Stan Models/StanModel_oneStim_Hier_exp.stan")
-#> Error in initialize(...): Assertion on 'stan_file' failed: File does not exist: 'Stan Models/StanModel_oneStim_Hier_exp.stan'.
+mod  <- cmdstan_model("_R/Stan Models/StanModel_oneStim_Hier_exp.stan")
 
 fit3 <- mod$sample(
           data           = stan_data, # named list of data
@@ -446,10 +471,16 @@ fit3 <- mod$sample(
           refresh        = 0,         # no progress shown
           thin           = 4,
           adapt_delta    = 0.9)
-#> Error in eval(expr, envir, enclos): Objekt 'mod' nicht gefunden
+#> Running MCMC with 2 chains, at most 4 in parallel...
+#> 
+#> Chain 1 finished in 55.4 seconds.
+#> Chain 2 finished in 60.5 seconds.
+#> 
+#> Both chains finished successfully.
+#> Mean chain execution time: 57.9 seconds.
+#> Total execution time: 60.7 seconds.
 
-fit3$save_object(file = "Data/fit_StanModel_Hier.RDS")
-#> Error in eval(expr, envir, enclos): Objekt 'fit3' nicht gefunden
+fit3$save_object(file = "_R/Data/fit_StanModel_Hier.RDS")
 ```
 
 ### Inspect MCMC, Rhat, ESS                 
@@ -462,8 +493,9 @@ Let's check our MCMC-traces again:
  mcmc_trace(as_draws_df(fit3$draws()),
             pars = vars("mu_c","mu_d","sigma_d","sigma_c"),
             facet_args = list(nrow = 2, labeller = label_parsed))
-#> Error in as_draws_df(fit3$draws()): Objekt 'fit3' nicht gefunden
 ```
+
+<img src="/figs/2021-10-15-SDT2-hierarchical/unnamed-chunk-9-1.png" title="center" alt="center" width="80%" style="display: block; margin: auto;" />
 
 So far so good, this looks exactly as you would like it, some nice hairy caterpillars. So our parameter expansion seems to have helped. We could run the chains for a little bit longer, to get better sampling for $\sigma_d$, however, for now this is good enough for me. We can also plot the distributions of $\hat{R}$  and the *effective sample size* again:
 
@@ -476,7 +508,6 @@ p1 <- ggplot(summary_oS_H,aes(x = ess_bulk))+
         xlim(0,6000)+
         labs(x = "Effective Sample Size",
              y = "Count")
-#> Error in ggplot(summary_oS_H, aes(x = ess_bulk)): Objekt 'summary_oS_H' nicht gefunden
 
 p2 <- ggplot(summary_oS_H,aes(x = rhat))+
         geom_histogram(bins = 40, color = "black", fill = "tomato2")+
@@ -484,7 +515,6 @@ p2 <- ggplot(summary_oS_H,aes(x = rhat))+
         xlim(0.99,2) + 
         labs(x = "Rhat",
              y = "Count")
-#> Error in ggplot(summary_oS_H, aes(x = rhat)): Objekt 'summary_oS_H' nicht gefunden
 
 p1+p2 #patchwork package
 ```
@@ -506,7 +536,11 @@ fit2 %>%
     stat_halfeye() +
     labs(x = "Value",
          y = "Parameter")
-#> Error in tidy_draws(model): Objekt 'fit2' nicht gefunden
+```
+
+<img src="/figs/2021-10-15-SDT2-hierarchical/unnamed-chunk-11-1.png" title="center" alt="center" width="80%" style="display: block; margin: auto;" />
+
+```r
 
 
 fit2 %>%
@@ -518,8 +552,16 @@ fit2 %>%
         digits    = 2,
         align     = "c",
         col.names = c("Parameter","$M$","95%-HDI"))
-#> Error in tidy_draws(model): Objekt 'fit2' nicht gefunden
 ```
+
+
+
+| Parameter |  $M$  |    95%-HDI     |
+|:---------:|:-----:|:--------------:|
+|   mu_c    | -0.37 | [-0.49, -0.24] |
+|   mu_d    | 0.18  |  [0.02, 0.36]  |
+|  sigma_c  | 0.30  |  [0.17, 0.43]  |
+|  sigma_d  | 0.24  |  [0.02, 0.46]  |
 
 
 ### The posterior predictive values         
@@ -530,10 +572,17 @@ We can also look at the posterior predictive values of `h` and `fa`.  For this, 
 
 ```r
 pp_emp <- hits  %>%  filter(stimulus == "plants") %>% ungroup() %>% select(.,ID=IDn,h,fa)
-#> Error in filter(., stimulus == "plants"): Objekt 'hits' nicht gefunden
 
 head(pp_emp)
-#> Error in head(pp_emp): Objekt 'pp_emp' nicht gefunden
+#> # A tibble: 6 x 3
+#>      ID     h    fa
+#>   <dbl> <dbl> <dbl>
+#> 1     1     7    12
+#> 2     2     9    10
+#> 3     3     7    16
+#> 4     4    10    10
+#> 5     5    11    11
+#> 6     6    12    20
 ```
 
 Next, we extract the posterior draws for our predicted values. To do this, I use the `spread_draws()` function from the `tidybayes` package, since it makes it very easy to extract a tidy data .frame when we have parameter names like `fa_pred[12]`, where `fa_pred` is the name of our parameter (the predicted number of false alarms), and `[12]` indicates the ID of the participant. 
@@ -541,10 +590,18 @@ Next, we extract the posterior draws for our predicted values. To do this, I use
 
 ```r
 pp_pred <- fit3 %>% spread_draws(fa_pred[ID],h_pred[ID])
-#> Error in tidy_draws(model): Objekt 'fit3' nicht gefunden
 
 head(pp_pred)
-#> Error in head(pp_pred): Objekt 'pp_pred' nicht gefunden
+#> # A tibble: 6 x 6
+#> # Groups:   ID [1]
+#>      ID fa_pred .chain .iteration .draw h_pred
+#>   <int>   <dbl>  <int>      <int> <int>  <dbl>
+#> 1     1      17      1          1     1      9
+#> 2     1       9      1          2     2      5
+#> 3     1      16      1          3     3     11
+#> 4     1      11      1          4     4      6
+#> 5     1      14      1          5     5      8
+#> 6     1      11      1          6     6      8
 ```
 
 Now I can simply join both data.frames together:
@@ -553,10 +610,18 @@ Now I can simply join both data.frames together:
 
 ```r
 pp_df <- pp_pred %>% left_join(.,pp_emp,by = c("ID")) 
-#> Error in left_join(., pp_emp, by = c("ID")): Objekt 'pp_pred' nicht gefunden
 
 head(pp_df)
-#> Error in head(pp_df): Objekt 'pp_df' nicht gefunden
+#> # A tibble: 6 x 8
+#> # Groups:   ID [1]
+#>      ID fa_pred .chain .iteration .draw h_pred     h    fa
+#>   <dbl>   <dbl>  <int>      <int> <int>  <dbl> <dbl> <dbl>
+#> 1     1      17      1          1     1      9     7    12
+#> 2     1       9      1          2     2      5     7    12
+#> 3     1      16      1          3     3     11     7    12
+#> 4     1      11      1          4     4      6     7    12
+#> 5     1      14      1          5     5      8     7    12
+#> 6     1      11      1          6     6      8     7    12
 ```
 
 
@@ -575,7 +640,6 @@ pp1 <- ggplot(filter(pp_df,ID %in% 1:4),aes(x = h_pred)) +
         labs(x = "(Posterior) Predicted False Alarms",
              y = "Frequency",
              title = "False Alarms")
-#> Error in filter(pp_df, ID %in% 1:4): Objekt 'pp_df' nicht gefunden
 
 pp2 <- ggplot(filter(pp_df,ID %in% 1:4),aes(x = fa_pred)) +
         geom_histogram(bins=10,color = "black",fill = "tomato2",alpha=0.5) +
@@ -585,11 +649,11 @@ pp2 <- ggplot(filter(pp_df,ID %in% 1:4),aes(x = fa_pred)) +
         labs(x = "(Posterior) Predicted False Alarms",
              y = "Frequency",
              title = "False Alarms")
-#> Error in filter(pp_df, ID %in% 1:4): Objekt 'pp_df' nicht gefunden
 
 pp1 + pp2 #patchwork package
-#> Error in eval(expr, envir, enclos): Objekt 'pp1' nicht gefunden
 ```
+
+<img src="/figs/2021-10-15-SDT2-hierarchical/unnamed-chunk-15-1.png" title="center" alt="center" width="80%" style="display: block; margin: auto;" />
 
 This looks also fine so far. The posterior distribution is symmetrically distributed around the empirical values. In addition, let me also calculate how often the 95% credible interval of the predicted values contains the true values:
 
@@ -602,7 +666,8 @@ fit3 %>%
   summarize(pp_h  = mean(h  > h_pred.lower  & h  < h_pred.upper),
             pp_fa = mean(fa > fa_pred.lower & fa < fa_pred.upper)) %>% 
   as.data.frame() # better output in .md
-#> Error in tidy_draws(model): Objekt 'fit3' nicht gefunden
+#>   pp_h pp_fa
+#> 1  0.9  0.95
 ```
 
 
@@ -620,7 +685,6 @@ ph <- fit3 %>%
           labs(x = "Observed Hits",
                y = "Predicted Hits",
                title = "Hits")
-#> Error in tidy_draws(model): Objekt 'fit3' nicht gefunden
 
 
 pfa <- fit3 %>%
@@ -633,11 +697,11 @@ pfa <- fit3 %>%
           labs(x = "Observed False Alarms",
                y = "Predicted False Alarms",
                title = "False Alarms")
-#> Error in tidy_draws(model): Objekt 'fit3' nicht gefunden
 
 ph + pfa + plot_annotation(tag_levels = "A")
-#> Error in eval(expr, envir, enclos): Objekt 'ph' nicht gefunden
 ```
+
+<img src="/figs/2021-10-15-SDT2-hierarchical/unnamed-chunk-17-1.png" title="center" alt="center" width="80%" style="display: block; margin: auto;" />
 
 As evident from the plots and the 95% credible interval checks of the posterior predictives, the hierarchical model is also able to recover our data well, however, a little bit worse then the non-hierarchical version of the model. So how can this be ? 
 
@@ -650,8 +714,7 @@ The following plot shows the number of hits (Plot A) and false alarms (Plot B) a
 
 ```r
 # load old data
-fit_non_hier <- readRDS("Data/fit_StanModel_nonHier.RDS")
-#> Error in gzfile(file, "rb"): kann Verbindung nicht öffnen
+fit_non_hier <- readRDS("_R/Data/fit_StanModel_nonHier.RDS")
 
 # extract what we need and join with predicitons from non-hierarchical model
 ph <- fit3 %>%
@@ -663,7 +726,6 @@ ph <- fit3 %>%
                                       mean_hdci() %>%  pull(h_pred)
                   ) %>% 
         select(ID,h_pred,h_emp = h,h_pred_non_h)
-#> Error in tidy_draws(model): Objekt 'fit3' nicht gefunden
 
 
 pfa <- fit3 %>%
@@ -675,11 +737,17 @@ pfa <- fit3 %>%
                                       mean_hdci() %>%  pull(fa_pred)
                   )%>% 
         select(ID,fa_pred,fa_emp = fa,fa_pred_non_h)
-#> Error in tidy_draws(model): Objekt 'fit3' nicht gefunden
 
 
 head(ph,5)
-#> Error in head(ph, 5): Objekt 'ph' nicht gefunden
+#> # A tibble: 5 x 4
+#>      ID h_pred h_emp h_pred_non_h
+#>   <dbl>  <dbl> <dbl>        <dbl>
+#> 1     1   7.69     7         6.93
+#> 2     2   8.06     9         8.49
+#> 3     3   8.23     7         7.07
+#> 4     4   8.42    10         9.36
+#> 5     5   8.92    11        10.2
 ```
 
 
@@ -701,7 +769,6 @@ p1 <- ggplot(ph,aes(y = factor(ID))) +
         labs(x = "Predicted Hits",
              y = "ID",
              title = "Hits")
-#> Error in ggplot(ph, aes(y = factor(ID))): Objekt 'ph' nicht gefunden
 
 
 
@@ -720,7 +787,6 @@ p2 <- ggplot(pfa,aes(y = factor(ID))) +
                title = "False Alarms",
                color = "Estimate Type",
                shape = "Estimate Type")
-#> Error in ggplot(pfa, aes(y = factor(ID))): Objekt 'pfa' nicht gefunden
 
 
 p1 + p2 + plot_annotation(tag_levels = "A") + plot_layout(guides = "collect") & theme(legend.position = "bottom")
@@ -782,6 +848,7 @@ In the next part in this series of blog posts, I will now use a different type o
     #>    colorspace       2.0-1    2021-05-04 [1] CRAN (R 4.1.0)                   
     #>    crayon           1.4.2    2021-10-29 [1] CRAN (R 4.1.1)                   
     #>    curl             4.3.1    2021-04-30 [1] CRAN (R 4.1.0)                   
+    #>    data.table       1.14.2   2021-09-27 [1] CRAN (R 4.1.1)                   
     #>    DBI              1.1.1    2021-01-15 [1] CRAN (R 4.1.0)                   
     #>    dbplyr           2.1.1    2021-04-06 [1] CRAN (R 4.1.0)                   
     #>    digest           0.6.27   2020-10-24 [1] CRAN (R 4.1.0)                   
@@ -802,6 +869,7 @@ In the next part in this series of blog posts, I will now use a different type o
     #>    gridExtra        2.3      2017-09-09 [1] CRAN (R 4.1.0)                   
     #>    gtable           0.3.0    2019-03-25 [1] CRAN (R 4.1.0)                   
     #>    haven            2.4.3    2021-08-04 [1] CRAN (R 4.1.1)                   
+    #>    HDInterval       0.2.2    2020-05-23 [1] CRAN (R 4.1.0)                   
     #>    here             1.0.1    2020-12-13 [1] CRAN (R 4.1.1)                   
     #>    highr            0.9      2021-04-16 [1] CRAN (R 4.1.0)                   
     #>    hms              1.1.1    2021-09-26 [1] CRAN (R 4.1.1)                   
@@ -818,9 +886,12 @@ In the next part in this series of blog posts, I will now use a different type o
     #>    loo              2.4.1    2020-12-09 [1] CRAN (R 4.1.0)                   
     #>    lubridate        1.7.10   2021-02-26 [1] CRAN (R 4.1.0)                   
     #>    magrittr         2.0.1    2020-11-17 [1] CRAN (R 4.1.0)                   
+    #>    Matrix           1.3-3    2021-05-04 [2] CRAN (R 4.1.0)                   
     #>    matrixStats      0.59.0   2021-06-01 [1] CRAN (R 4.1.0)                   
+    #>    mgcv             1.8-35   2021-04-18 [2] CRAN (R 4.1.0)                   
     #>    modelr           0.1.8    2020-05-19 [1] CRAN (R 4.1.0)                   
     #>    munsell          0.5.0    2018-06-12 [1] CRAN (R 4.1.0)                   
+    #>    nlme             3.1-152  2021-02-04 [2] CRAN (R 4.1.0)                   
     #>    patchwork      * 1.1.1    2020-12-17 [1] CRAN (R 4.1.0)                   
     #>    pillar           1.6.4    2021-10-18 [1] CRAN (R 4.1.0)                   
     #>    pkgbuild         1.2.0    2020-12-15 [1] CRAN (R 4.1.0)                   
@@ -838,6 +909,7 @@ In the next part in this series of blog posts, I will now use a different type o
     #>    readr          * 2.0.2    2021-09-27 [1] CRAN (R 4.1.1)                   
     #>    readxl           1.3.1    2019-03-13 [1] CRAN (R 4.1.0)                   
     #>    reprex           2.0.1    2021-08-05 [1] CRAN (R 4.1.1)                   
+    #>    reshape2         1.4.4    2020-04-09 [1] CRAN (R 4.1.0)                   
     #>    rlang            0.4.11   2021-04-30 [1] CRAN (R 4.1.0)                   
     #>    rmarkdown        2.11     2021-09-14 [1] CRAN (R 4.1.1)                   
     #>    rprojroot        2.0.2    2020-11-15 [1] CRAN (R 4.1.0)                   
