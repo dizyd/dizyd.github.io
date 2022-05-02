@@ -1,8 +1,0 @@
-***
-
-*Last knitted on `r format(Sys.Date())`.*[^si] 
-
-[^si]: 
-    ```{r, results = "markup"}
-    sessioninfo::session_info()
-    ```
