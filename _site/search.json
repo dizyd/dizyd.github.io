@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "David Izydorczyk",
+    "section": "",
+    "text": "To learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "CV.html",
+    "href": "CV.html",
+    "title": "CV",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "Publications.html",
+    "href": "Publications.html",
+    "title": "Publications",
+    "section": "",
+    "text": "Izydorczyk, D., & Bröder, A. (2021). Exemplar-based judgment or direct recall: On a problematic procedure for estimating parameters in exemplar models of quantitative judgment. Psychonomic Bulletin & Review. (https://doi.org/10.3758/s13423-020-01861-1)(PDF)\n\n\n\nAppel, M., Izydorczyk, D., Weber, S., Mara, M., & Lischetzke, T. (2020). The uncanny of mind in a machine: Humanoid robots as tools, agents, and experiencers. Computers in Human Behavior, 102, 274-286.(https://doi.org/10.1016/j.chb.2019.07.031) (PDF)\n\n\n\nMascarenhas, M. F., Dübbers, F.,Hoszowska, M., Köseoğlu, A., Karakasheva, R. B. Topal, A.& Izydorczyk, D.,Lemoine, J.E.(2018). The Power of Choice: A Study Protocol on How Identity Leadership Fosters Commitment Toward the Organization. Frontiers in Psychology. (https://doi.org/10.3389/fpsyg.2018.01677)\n\n\n\nLischetzke, T., Izydorczyk, D., Hüller, C., & Appel, M. (2017). The topography of the uncanny valley and individuals’ need for structure: A nonlinear mixed effects analysis. Journal of Research in Personality.68, 96-113. (https://doi.org/10.1016/j.jrp.2017.02.001)"
+  },
+  {
+    "objectID": "Shiny.html",
+    "href": "Shiny.html",
+    "title": "Shiny",
+    "section": "",
+    "text": "I have developed a number of R shiny apps which I want to link here, that are available for exploration. Be warned that the apps have limited (i.e. no) documentation or guidance. They were designed to be intuitive, but maybe only in the eyes of the creator. The software provided on this website may be used for non-commercial purposes free of charge. Although considerable effort was put into developing and testing the software, there is no warranty whatsoever."
+  },
+  {
+    "objectID": "Shiny.html#curtailed-rrt-made-easy",
+    "href": "Shiny.html#curtailed-rrt-made-easy",
+    "title": "Shiny",
+    "section": "Curtailed RRT made easy",
+    "text": "Curtailed RRT made easy\nThis is a shiny-app is part of a published paper for sequential hypothesis testing whithin a Curtailed Sampling Plan using Randomized Response Techniques by Reiber, F., Schnuerch, M. & Ulrich, R. (in press). Improving the efficiency of surveys with randomized response models: A sequential approach based on curtailed sampling. Psychological Methods."
+  }
+]

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.339">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>David Izydorczyk - R Server Documentation</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link id="quarto-text-highlighting-styles" href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">David Izydorczyk</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./cv.html">CV</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./publications.html">Publications</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./teaching.html">Teaching</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Shiny.html">Shiny</a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#r-server" id="toc-r-server" class="nav-link active" data-scroll-target="#r-server">R Server</a>
+  <ul class="collapse">
+  <li><a href="#create-a-new-account" id="toc-create-a-new-account" class="nav-link" data-scroll-target="#create-a-new-account">Create a new account</a></li>
+  <li><a href="#rserver-commands" id="toc-rserver-commands" class="nav-link" data-scroll-target="#rserver-commands">RServer commands</a></li>
+  <li><a href="#add-user-to-group" id="toc-add-user-to-group" class="nav-link" data-scroll-target="#add-user-to-group">Add User to group</a></li>
+  <li><a href="#check-r-version" id="toc-check-r-version" class="nav-link" data-scroll-target="#check-r-version">Check R Version</a></li>
+  <li><a href="#update-r-version-of-rserver" id="toc-update-r-version-of-rserver" class="nav-link" data-scroll-target="#update-r-version-of-rserver">Update R Version of RServer</a></li>
+  </ul></li>
+  <li><a href="#ubuntulinux" id="toc-ubuntulinux" class="nav-link" data-scroll-target="#ubuntulinux">Ubuntu/Linux</a>
+  <ul class="collapse">
+  <li><a href="#show-memory-and-cpu-workload" id="toc-show-memory-and-cpu-workload" class="nav-link" data-scroll-target="#show-memory-and-cpu-workload">Show memory and CPU workload</a></li>
+  <li><a href="#change-your-own-password" id="toc-change-your-own-password" class="nav-link" data-scroll-target="#change-your-own-password">Change your own password</a></li>
+  <li><a href="#changing-the-password-of-another-user" id="toc-changing-the-password-of-another-user" class="nav-link" data-scroll-target="#changing-the-password-of-another-user">Changing the password of another user</a></li>
+  <li><a href="#check-ubuntu-version" id="toc-check-ubuntu-version" class="nav-link" data-scroll-target="#check-ubuntu-version">Check Ubuntu Version</a></li>
+  <li><a href="#restartreboot-computer-via-the-terminal-in-rstudio" id="toc-restartreboot-computer-via-the-terminal-in-rstudio" class="nav-link" data-scroll-target="#restartreboot-computer-via-the-terminal-in-rstudio">Restart/reboot computer via the terminal in RStudio</a></li>
+  <li><a href="#look-up-ip-adress" id="toc-look-up-ip-adress" class="nav-link" data-scroll-target="#look-up-ip-adress">look up IP adress</a></li>
+  <li><a href="#open-and-close-documents-with-vim" id="toc-open-and-close-documents-with-vim" class="nav-link" data-scroll-target="#open-and-close-documents-with-vim">Open and Close documents with <code>vim</code></a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">R Server Documentation</h1>
+</div>
+
+
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="r-server" class="level1">
+<h1>R Server</h1>
+<section id="create-a-new-account" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-new-account">Create a new account</h2>
+<ul>
+<li>you can add new users with by typing the command <code>sudo adduser newuser</code> in the Terminal (you have to be logged in with an admin account) where you should replace <code>newuser</code> with the name of the user you want to create</li>
+<li>you will be prompted to give some information for the user like an initial password etc.</li>
+</ul>
+</section>
+<section id="rserver-commands" class="level2">
+<h2 class="anchored" data-anchor-id="rserver-commands">RServer commands</h2>
+<p>here are some useful RServer commands</p>
+<ul>
+<li><code>sudo rstudio-server stop</code></li>
+<li><code>sudo rstudio-server start</code></li>
+<li><code>sudo rstudio-server restart</code></li>
+<li><code>sudo rstudio-server status</code></li>
+<li><code>sudo rstudio-server active-sessions</code></li>
+</ul>
+</section>
+<section id="add-user-to-group" class="level2">
+<h2 class="anchored" data-anchor-id="add-user-to-group">Add User to group</h2>
+<ul>
+<li>This commands adds a user to a group <code>sudo usermod -a -G &lt;groupname&gt; &lt;username&gt;</code></li>
+</ul>
+</section>
+<section id="check-r-version" class="level2">
+<h2 class="anchored" data-anchor-id="check-r-version">Check R Version</h2>
+<ul>
+<li>you can check the R version with the command <code>R --version</code></li>
+</ul>
+</section>
+<section id="update-r-version-of-rserver" class="level2">
+<h2 class="anchored" data-anchor-id="update-r-version-of-rserver">Update R Version of RServer</h2>
+<ul>
+<li>to update the RVersion of the RServer you just have to update R on the computer the Server runs on. To do this, check the many up to date explanations on the internet (Google: “update R ubuntu 20.04”)</li>
+</ul>
+</section>
+</section>
+<section id="ubuntulinux" class="level1">
+<h1>Ubuntu/Linux</h1>
+<section id="show-memory-and-cpu-workload" class="level2">
+<h2 class="anchored" data-anchor-id="show-memory-and-cpu-workload">Show memory and CPU workload</h2>
+<ul>
+<li>in the Terminal type <code>htop</code> which gives you detailed information about memory and CPU usage</li>
+</ul>
+</section>
+<section id="change-your-own-password" class="level2">
+<h2 class="anchored" data-anchor-id="change-your-own-password">Change your own password</h2>
+<ul>
+<li>in the Terminal type <code>passwd</code></li>
+<li>insert your password</li>
+</ul>
+</section>
+<section id="changing-the-password-of-another-user" class="level2">
+<h2 class="anchored" data-anchor-id="changing-the-password-of-another-user">Changing the password of another user</h2>
+<ul>
+<li>sign in with an admin account</li>
+<li>in Terminal type <code>sudo passwd user</code> where you should replace <code>user</code> with the name of the user you want to change the password of</li>
+<li>confirm comand with admin password</li>
+<li>type in new password</li>
+</ul>
+</section>
+<section id="check-ubuntu-version" class="level2">
+<h2 class="anchored" data-anchor-id="check-ubuntu-version">Check Ubuntu Version</h2>
+<ul>
+<li>you can check the currently installed Ubuntu Version with by typing <code>lsb_release -a</code> in the terminal</li>
+</ul>
+</section>
+<section id="restartreboot-computer-via-the-terminal-in-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="restartreboot-computer-via-the-terminal-in-rstudio">Restart/reboot computer via the terminal in RStudio</h2>
+<ul>
+<li>you can also restart/reboot the computer running the RServer via the terminal pane in RStudio with the command <code>sudo reboot</code></li>
+</ul>
+</section>
+<section id="look-up-ip-adress" class="level2">
+<h2 class="anchored" data-anchor-id="look-up-ip-adress">look up IP adress</h2>
+<ul>
+<li><code>ifconfig</code></li>
+</ul>
+</section>
+<section id="open-and-close-documents-with-vim" class="level2">
+<h2 class="anchored" data-anchor-id="open-and-close-documents-with-vim">Open and Close documents with <code>vim</code></h2>
+<ul>
+<li>Sometimes you have to open &amp; edit documents in a text editor via the terminal, for instance <code>vim</code></li>
+<li>you can open documents in the terminal with vim by typing <code>vim document</code></li>
+<li>To close a document <code>:q</code> and hit <code>Enter</code></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Copyright 2021, Norah Jones</div>   
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>
