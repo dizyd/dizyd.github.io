@@ -10,12 +10,12 @@ website:
     background: dark
     search: true
     left:
-      - href: index.qmd
+      - href: pages/index.qmd
         text: "Home"
-      - cv.qmd
-      - publications.qmd
-      - teaching.qmd
-      - shiny.qmd
+      - pages/cv.qmd
+      - pages/publications.qmd
+      - pages/teaching.qmd
+      - pages/shiny.qmd
   page-footer: 
     left: "Copyright 2021, Norah Jones" 
     right: 
