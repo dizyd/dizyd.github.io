@@ -34,7 +34,7 @@ Lischetzke, T., **Izydorczyk, D.**, Hüller, C., & Appel, M. (2017). The topogra
 
 ### <i class="fas fa-microphone"></i> Conference talks
 
-**Izydorzcyk,  D.**, Jung, J. & Bröder,  A. (2021). *What is more democratic, a stone or a feather? Predicting nonsensical judgments using high-dimensional vector representations obtained from a semantic space model.*  Talk presented at the 63rd Conference of Experimental Psychologists (TeaP). Cologne, Germany.
+**Izydorzcyk,  D.**, Jung, J. & Bröder,  A. (2022). *What is more democratic, a stone or a feather? Predicting nonsensical judgments using high-dimensional vector representations obtained from a semantic space model.*  Talk presented at the 63rd Conference of Experimental Psychologists (TeaP). Cologne, Germany.
 
 **Izydorzcyk,  D.** & Bröder,  A. (2021). *Measuring Eule‐ and Exemplar‐based Processes of numerical Judgments in a hierarchical Bayesian framework.*  Talk presented at the  15th Conference of the Section Methods & Evaluation (FGME 2021). Mannheim, Germany.
 

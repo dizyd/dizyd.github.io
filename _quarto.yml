@@ -17,7 +17,7 @@ website:
       - pages/teaching.qmd
       - pages/shiny.qmd
   page-footer: 
-    left: "Copyright 2021, Norah Jones" 
+    left: "Copyright 2021, David Izydorczyk" 
     right: 
       - icon: github
         href: https://github.com/
@@ -28,9 +28,12 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: 
+      dark: darkly
+      light: flatly 
     css: styles.css
     toc: true
+    linkcolor: "#5381e6"
 
 
 
