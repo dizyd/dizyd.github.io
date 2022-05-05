@@ -6,6 +6,7 @@ title: "Teaching"
 
 ## Workshops (PhD level)
 
+**Introduction to lab.js**: This workshop teaches the basics of of [`lab.js](https://lab.js.org/), a free, open, online study builder for the behavioral and cognitive sciences.  Participants learn to create their own experiments using the builder GUI, HTML, CSS and JavaScript.
 
 [**Workshop Modern R**](https://github.com/dizyd/Workshop_ModernR): This workshop teaches the basics of R Markdown and how to write APA conform manuscripts using R Markdown and the `papaja`-package. In addition, it will give an introduction into building interactive web applications in R with `shiny`. 
 

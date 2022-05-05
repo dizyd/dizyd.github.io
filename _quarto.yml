@@ -15,6 +15,7 @@ website:
       - pages/cv.qmd
       - pages/publications.qmd
       - pages/teaching.qmd
+      - pages/blog.qmd
       - pages/shiny.qmd
   page-footer: 
     left: "Copyright 2021, David Izydorczyk" 

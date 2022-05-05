@@ -179,7 +179,7 @@
     "href": "pages/teaching.html#workshops-phd-level",
     "title": "Teaching",
     "section": "Workshops (PhD level)",
-    "text": "Workshops (PhD level)\nWorkshop Modern R: This workshop teaches the basics of R Markdown and how to write APA conform manuscripts using R Markdown and the papaja-package. In addition, it will give an introduction into building interactive web applications in R with shiny.\nWorkshop Advanced R: This workshop shows how to benchmark and profile functions in R to identify potential bottlenecks. The workshops then also shows how to solve those bottlenecks and speed up your R code through vectorized R code, Rcpp, or parallelization."
+    "text": "Workshops (PhD level)\nIntroduction to lab.js: This workshop teaches the basics of of `lab.js, a free, open, online study builder for the behavioral and cognitive sciences. Participants learn to create their own experiments using the builder GUI, HTML, CSS and JavaScript.\nWorkshop Modern R: This workshop teaches the basics of R Markdown and how to write APA conform manuscripts using R Markdown and the papaja-package. In addition, it will give an introduction into building interactive web applications in R with shiny.\nWorkshop Advanced R: This workshop shows how to benchmark and profile functions in R to identify potential bottlenecks. The workshops then also shows how to solve those bottlenecks and speed up your R code through vectorized R code, Rcpp, or parallelization."
   },
   {
     "objectID": "pages/teaching.html#seminars-bachelor",
@@ -187,5 +187,12 @@
     "title": "Teaching",
     "section": "Seminars (Bachelor)",
     "text": "Seminars (Bachelor)\nGeneral Psychology II: Topics: Cognitive Illusions.\nProject Seminar Experimental Psychology: In this seminar, students plan, conduct, and present their own research project in small groups. Projects supervised so far:\n\nWie beeinflusst die Berichterstattung über Corona das Entscheidungsverhalten?\nFraming Effekt in Zeiten einer Pandemie: Krankheit oder Risiko?"
+  },
+  {
+    "objectID": "pages/blog.html",
+    "href": "pages/blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "No matching items"
   }
 ]
