@@ -1,0 +1,797 @@
+﻿teamA;teamB;goalsA;goalsB;region
+Niger;Burkina Faso;0;2;Africa
+Algerien;Djibouti;8;0;Africa
+Djibouti;Niger;2;4;Africa
+Burkina Faso;Algerien;1;1;Africa
+Algerien;Niger;6;1;Africa
+Djibouti;Burkina Faso;0;4;Africa
+Burkina Faso;Djibouti;2;0;Africa
+Niger;Algerien;0;4;Africa
+Burkina Faso;Niger;1;1;Africa
+Djibouti;Algerien;0;4;Africa
+Niger;Djibouti;7;2;Africa
+Algerien;Burkina Faso;2;2;Africa
+Mauretanien;Sambia;1;2;Africa
+Tunesien;Äquatorialguinea;3;0;Africa
+Sambia;Tunesien;0;2;Africa
+Äquatorialguinea;Mauretanien;1;0;Africa
+Äquatorialguinea;Sambia;2;0;Africa
+Tunesien;Mauretanien;3;0;Africa
+Sambia;Äquatorialguinea;1;1;Africa
+Mauretanien;Tunesien;0;0;Africa
+Sambia;Mauretanien;4;0;Africa
+Äquatorialguinea;Tunesien;1;0;Africa
+Mauretanien;Äquatorialguinea;1;1;Africa
+Tunesien;Sambia;3;1;Africa
+Zentralafr. Republik;Kapverdische Inseln;1;1;Africa
+Nigeria;Liberia;2;0;Africa
+Liberia;Zentralafr. Republik;1;0;Africa
+Kapverdische Inseln;Nigeria;1;2;Africa
+Liberia;Kapverdische Inseln;1;2;Africa
+Nigeria;Zentralafr. Republik;0;1;Africa
+Zentralafr. Republik;Nigeria;0;2;Africa
+Kapverdische Inseln;Liberia;1;0;Africa
+Kapverdische Inseln;Zentralafr. Republik;2;1;Africa
+Liberia;Nigeria;0;2;Africa
+Nigeria;Kapverdische Inseln;1;1;Africa
+Zentralafr. Republik;Liberia;1;3;Africa
+Mosambik;Elfenbeinküste;0;0;Africa
+Kamerun;Malawi;2;0;Africa
+Elfenbeinküste;Kamerun;2;1;Africa
+Malawi;Mosambik;1;0;Africa
+Malawi;Elfenbeinküste;0;3;Africa
+Kamerun;Mosambik;3;1;Africa
+Mosambik;Kamerun;0;1;Africa
+Elfenbeinküste;Malawi;2;1;Africa
+Malawi;Kamerun;0;4;Africa
+Elfenbeinküste;Mosambik;3;0;Africa
+Mosambik;Malawi;1;0;Africa
+Kamerun;Elfenbeinküste;1;0;Africa
+Mali;Ruanda;1;0;Africa
+Kenia;Uganda;0;0;Africa
+Ruanda;Kenia;1;1;Africa
+Uganda;Mali;0;0;Africa
+Ruanda;Uganda;0;1;Africa
+Mali;Kenia;5;0;Africa
+Kenia;Mali;0;1;Africa
+Uganda;Ruanda;1;0;Africa
+Uganda;Kenia;1;1;Africa
+Ruanda;Mali;0;3;Africa
+Mali;Uganda;1;0;Africa
+Kenia;Ruanda;2;1;Africa
+Ägypten;Angola;1;0;Africa
+Libyen;Gabun;2;1;Africa
+Gabun;Ägypten;1;1;Africa
+Angola;Libyen;0;1;Africa
+Angola;Gabun;3;1;Africa
+Ägypten;Libyen;1;0;Africa
+Gabun;Angola;2;0;Africa
+Libyen;Ägypten;0;3;Africa
+Gabun;Libyen;1;0;Africa
+Angola;Ägypten;2;2;Africa
+Ägypten;Gabun;2;1;Africa
+Libyen;Angola;1;1;Africa
+Simbabwe;Südafrika;0;0;Africa
+Ghana;Äthiopien;1;0;Africa
+Südafrika;Ghana;1;0;Africa
+Äthiopien;Simbabwe;1;0;Africa
+Äthiopien;Südafrika;1;3;Africa
+Ghana;Simbabwe;3;1;Africa
+Simbabwe;Ghana;0;1;Africa
+Südafrika;Äthiopien;1;0;Africa
+Äthiopien;Ghana;1;1;Africa
+Südafrika;Simbabwe;1;0;Africa
+Simbabwe;Äthiopien;1;1;Africa
+Ghana;Südafrika;1;0;Africa
+Sénégal;Togo;2;0;Africa
+Namibia;Kongo;1;1;Africa
+Togo;Namibia;0;1;Africa
+Kongo;Sénégal;1;3;Africa
+Togo;Kongo;1;1;Africa
+Sénégal;Namibia;4;1;Africa
+Namibia;Sénégal;1;3;Africa
+Kongo;Togo;1;2;Africa
+Kongo;Namibia;1;1;Africa
+Togo;Sénégal;1;1;Africa
+Sénégal;Kongo;2;0;Africa
+Namibia;Togo;0;1;Africa
+Guinea-Bissau;Guinea;1;1;Africa
+Marokko;Sudan;2;0;Africa
+Sudan;Guinea-Bissau;2;4;Africa
+Sudan;Guinea;1;1;Africa
+Marokko;Guinea-Bissau;5;0;Africa
+Guinea;Sudan;2;2;Africa
+Guinea-Bissau;Marokko;0;3;Africa
+Guinea;Marokko;1;4;Africa
+Guinea;Guinea-Bissau;0;0;Africa
+Sudan;Marokko;0;3;Africa
+Guinea-Bissau;Sudan;0;0;Africa
+Marokko;Guinea;3;0;Africa
+DR Kongo;Tansania;1;1;Africa
+Madagaskar;Benin;0;1;Africa
+Benin;DR Kongo;1;1;Africa
+Tansania;Madagaskar;3;2;Africa
+Tansania;Benin;0;1;Africa
+DR Kongo;Madagaskar;2;0;Africa
+Benin;Tansania;0;1;Africa
+Madagaskar;DR Kongo;1;0;Africa
+Tansania;DR Kongo;0;3;Africa
+Benin;Madagaskar;2;0;Africa
+DR Kongo;Benin;2;0;Africa
+Madagaskar;Tansania;1;1;Africa
+Guam;Malediven;0;1;Asia
+Philippinen;Syrien;2;5;Asia
+Guam;Philippinen;1;4;Asia
+Malediven;China;0;5;Asia
+China;Guam;7;0;Asia
+Syrien;Malediven;2;1;Asia
+Philippinen;China;0;0;Asia
+Syrien;Guam;4;0;Asia
+Malediven;Philippinen;1;2;Asia
+Syrien;China;2;1;Asia
+Malediven;Guam;3;1;Asia
+Syrien;Philippinen;1;0;Asia
+China;Guam;7;0;Asia
+Malediven;Syrien;0;4;Asia
+Guam;Syrien;0;3;Asia
+China;Philippinen;2;0;Asia
+Philippinen;Guam;3;0;Asia
+China;Malediven;5;0;Asia
+Philippinen;Malediven;1;1;Asia
+China;Syrien;3;1;Asia
+Taiwan;Jordanien;1;2;Asia
+Kuwait;Nepal;7;0;Asia
+Taiwan;Nepal;0;2;Asia
+Kuwait;Australien;0;3;Asia
+Australien;Nepal;5;0;Asia
+Jordanien;Kuwait;0;0;Asia
+Taiwan;Australien;1;7;Asia
+Jordanien;Nepal;3;0;Asia
+Jordanien;Australien;0;1;Asia
+Kuwait;Taiwan;9;0;Asia
+Nepal;Kuwait;0;1;Asia
+Jordanien;Taiwan;5;0;Asia
+Nepal;Taiwan;2;0;Asia
+Kuwait;Australien;0;3;Asia
+Nepal;Jordanien;0;3;Asia
+Australien;Taiwan;5;1;Asia
+Nepal;Australien;0;3;Asia
+Kuwait;Jordanien;0;0;Asia
+Australien;Jordanien;1;0;Asia
+Kuwait;Taiwan;2;1;Asia
+Kambodscha;Hongkong;1;1;Asia
+Bahrain;Irak;1;1;Asia
+Kambodscha;Bahrain;0;1;Asia
+Hongkong;Iran;0;2;Asia
+Iran;Kambodscha;14;0;Asia
+Irak;Hongkong;2;0;Asia
+Kambodscha;Irak;0;4;Asia
+Bahrain;Iran;1;0;Asia
+Hongkong;Bahrain;0;0;Asia
+Irak;Iran;2;1;Asia
+Hongkong;Kambodscha;2;0;Asia
+Irak;Bahrain;0;0;Asia
+Iran;Hongkong;3;1;Asia
+Bahrain;Kambodscha;8;0;Asia
+Irak;Kambodscha;4;1;Asia
+Bahrain;Iran;0;3;Asia
+Kambodscha;Iran;0;10;Asia
+Hongkong;Irak;0;1;Asia
+Bahrain;Hongkong;4;0;Asia
+Iran;Irak;1;0;Asia
+Singapur;Jemen;2;2;Asia
+Palästina;Usbekistan;2;0;Asia
+Singapur;Palästina;2;1;Asia
+Jemen;Saudi-Arabien;2;2;Asia
+Usbekistan;Jemen;5;0;Asia
+Saudi-Arabien;Singapur;3;0;Asia
+Singapur;Usbekistan;1;3;Asia
+Palästina;Saudi-Arabien;0;0;Asia
+Usbekistan;Saudi-Arabien;2;3;Asia
+Jemen;Palästina;1;0;Asia
+Usbekistan;Palästina;2;0;Asia
+Jemen;Singapur;1;2;Asia
+Saudi-Arabien;Palästina;5;0;Asia
+Palästina;Singapur;4;0;Asia
+Saudi-Arabien;Jemen;3;0;Asia
+Usbekistan;Singapur;5;0;Asia
+Jemen;Usbekistan;0;1;Asia
+Saudi-Arabien;Singapur;3;0;Asia
+Palästina;Jemen;3;0;Asia
+Saudi-Arabien;Usbekistan;3;0;Asia
+Indien;Oman;1;2;Asia
+Katar;Afghanistan;6;0;Asia
+Afghanistan;Bangladesch;1;0;Asia
+Katar;Indien;0;0;Asia
+Bangladesch;Katar;0;2;Asia
+Oman;Afghanistan;3;0;Asia
+Indien;Bangladesch;1;1;Asia
+Katar;Oman;2;1;Asia
+Afghanistan;Indien;1;1;Asia
+Oman;Bangladesch;4;1;Asia
+Afghanistan;Katar;0;1;Asia
+Oman;Indien;1;0;Asia
+Katar;Bangladesch;5;0;Asia
+Bangladesch;Afghanistan;1;1;Asia
+Katar;Indien;1;0;Asia
+Bangladesch;Indien;0;2;Asia
+Katar;Oman;1;0;Asia
+Afghanistan;Oman;1;2;Asia
+Indien;Afghanistan;1;1;Asia
+Bangladesch;Oman;0;3;Asia
+Mongolei;Myanmar;1;0;Asia
+Tadschikistan;Kirgisistan;1;0;Asia
+Mongolei;Tadschikistan;0;1;Asia
+Myanmar;Japan;0;2;Asia
+Japan;Mongolei;6;0;Asia
+Kirgisistan;Myanmar;7;0;Asia
+Mongolei;Kirgisistan;1;2;Asia
+Tadschikistan;Japan;0;3;Asia
+Myanmar;Tadschikistan;4;3;Asia
+Kirgisistan;Japan;0;2;Asia
+Myanmar;Mongolei;1;0;Asia
+Kirgisistan;Tadschikistan;1;1;Asia
+Tadschikistan;Mongolei;3;0;Asia
+Japan;Mongolei;14;0;Asia
+Japan;Myanmar;10;0;Asia
+Kirgisistan;Mongolei;0;1;Asia
+Japan;Tadschikistan;4;1;Asia
+Myanmar;Kirgisistan;1;8;Asia
+Japan;Kirgisistan;5;1;Asia
+Tadschikistan;Myanmar;4;0;Asia
+Thailand;Vietnam;0;0;Asia
+Indonesien;Malaysia;2;3;Asia
+Indonesien;Thailand;0;3;Asia
+Malaysia;VA Emirate;1;2;Asia
+Vietnam;Malaysia;1;0;Asia
+VA Emirate;Indonesien;5;0;Asia
+Indonesien;Vietnam;1;3;Asia
+Thailand;VA Emirate;2;1;Asia
+Malaysia;Thailand;2;1;Asia
+Vietnam;VA Emirate;1;0;Asia
+Malaysia;Indonesien;2;0;Asia
+Vietnam;Thailand;0;0;Asia
+Thailand;Indonesien;2;2;Asia
+VA Emirate;Malaysia;4;0;Asia
+Vietnam;Indonesien;4;0;Asia
+VA Emirate;Thailand;3;1;Asia
+VA Emirate;Indonesien;5;0;Asia
+Malaysia;Vietnam;1;2;Asia
+Thailand;Malaysia;0;1;Asia
+VA Emirate;Vietnam;3;2;Asia
+Sri Lanka;Turkmenistan;0;2;Asia
+Turkmenistan;Südkorea;0;2;Asia
+Südkorea;Sri Lanka;8;0;Asia
+Libanon;Turkmenistan;2;1;Asia
+Sri Lanka;Libanon;0;3;Asia
+Libanon;Südkorea;0;0;Asia
+Turkmenistan;Sri Lanka;2;0;Asia
+Libanon;Sri Lanka;3;2;Asia
+Südkorea;Turkmenistan;5;0;Asia
+Turkmenistan;Libanon;3;2;Asia
+Südkorea;Sri Lanka;5;0;Asia
+Südkorea;Libanon;2;1;Asia
+Südkorea;Irak;0;0;Asia
+Iran;Syrien;1;0;Asia
+VA Emirate;Libanon;0;0;Asia
+Südkorea;Libanon;1;0;Asia
+Syrien;VA Emirate;1;1;Asia
+Irak;Iran;0;3;Asia
+Südkorea;Syrien;2;1;Asia
+Irak;Libanon;0;0;Asia
+VA Emirate;Iran;0;1;Asia
+Iran;Südkorea;1;1;Asia
+Syrien;Libanon;2;3;Asia
+VA Emirate;Irak;2;2;Asia
+Südkorea;VA Emirate;1;0;Asia
+Libanon;Iran;1;2;Asia
+Irak;Syrien;1;1;Asia
+Libanon;VA Emirate;0;1;Asia
+Irak;Südkorea;0;3;Asia
+Syrien;Iran;0;3;Asia
+Libanon;Südkorea;0;1;Asia
+Iran;Irak;1;0;Asia
+VA Emirate;Syrien;2;0;Asia
+Libanon;Irak;1;1;Asia
+Syrien;Südkorea;0;2;Asia
+Iran;VA Emirate;1;0;Asia
+Südkorea;Iran;2;0;Asia
+Libanon;Syrien;0;3;Asia
+Irak;VA Emirate;1;0;Asia
+Iran;Libanon;2;0;Asia
+VA Emirate;Südkorea;1;0;Asia
+Syrien;Irak;1;1;Asia
+Japan;Oman;0;1;Asia
+Australien;China;3;0;Asia
+Saudi-Arabien;Vietnam;3;1;Asia
+Vietnam;Australien;0;1;Asia
+China;Japan;0;1;Asia
+Oman;Saudi-Arabien;0;1;Asia
+Saudi-Arabien;Japan;1;0;Asia
+China;Vietnam;3;2;Asia
+Australien;Oman;3;1;Asia
+Japan;Australien;2;1;Asia
+Oman;Vietnam;3;1;Asia
+Saudi-Arabien;China;3;2;Asia
+Australien;Saudi-Arabien;0;0;Asia
+Vietnam;Japan;0;1;Asia
+China;Oman;1;1;Asia
+Vietnam;Saudi-Arabien;0;1;Asia
+China;Australien;1;1;Asia
+Oman;Japan;0;1;Asia
+Australien;Vietnam;4;0;Asia
+Japan;China;2;0;Asia
+Saudi-Arabien;Oman;1;0;Asia
+Japan;Saudi-Arabien;2;0;Asia
+Vietnam;China;3;1;Asia
+Oman;Australien;2;2;Asia
+Australien;Japan;0;2;Asia
+Vietnam;Oman;0;1;Asia
+China;Saudi-Arabien;1;1;Asia
+Japan;Vietnam;1;1;Asia
+Oman;China;2;0;Asia
+Saudi-Arabien;Australien;1;0;Asia
+Antigua & Barbuda;Montserrat;2;2;CONCACAF
+El Salvador;Grenada;2;0;CONCACAF
+US Jungferninseln;Antigua & Barbuda;0;3;CONCACAF
+Montserrat;El Salvador;1;1;CONCACAF
+Grenada;US Jungferninseln;1;0;CONCACAF
+Montserrat;US Jungferninseln;4;0;CONCACAF
+Antigua & Barbuda;Grenada;1;0;CONCACAF
+US Jungferninseln;El Salvador;0;7;CONCACAF
+Grenada;Montserrat;1;2;CONCACAF
+El Salvador;Antigua & Barbuda;3;0;CONCACAF
+Suriname;Kaimaninseln;3;0;CONCACAF
+Kanada;Bermuda;5;1;CONCACAF
+Aruba;Suriname;0;6;CONCACAF
+Kaimaninseln;Kanada;0;11;CONCACAF
+Bermuda;Aruba;5;0;CONCACAF
+Kaimaninseln;Aruba;1;3;CONCACAF
+Suriname;Bermuda;6;0;CONCACAF
+Aruba;Kanada;0;7;CONCACAF
+Bermuda;Kaimaninseln;1;1;CONCACAF
+Kanada;Suriname;4;0;CONCACAF
+Guatemala;Kuba;1;0;CONCACAF
+Curaçao;St. Vincent/Grenadines;5;0;CONCACAF
+Br. Jungferninseln;Guatemala;0;3;CONCACAF
+Kuba;Curaçao;1;2;CONCACAF
+St. Vincent/Grenadines;Br. Jungferninseln;3;0;CONCACAF
+Kuba;Br. Jungferninseln;5;0;CONCACAF
+Guatemala;St. Vincent/Grenadines;10;0;CONCACAF
+Br. Jungferninseln;Curaçao;0;8;CONCACAF
+St. Vincent/Grenadines;Kuba;0;1;CONCACAF
+Curaçao;Guatemala;0;0;CONCACAF
+Dom. Republik;Dominica;1;0;CONCACAF
+Panama;Barbados;1;0;CONCACAF
+Anguilla;Dom. Republik;0;6;CONCACAF
+Dominica;Panama;1;2;CONCACAF
+Barbados;Anguilla;1;0;CONCACAF
+Dominica;Anguilla;3;0;CONCACAF
+Dom. Republik;Barbados;1;1;CONCACAF
+Anguilla;Panama;0;13;CONCACAF
+Barbados;Dominica;1;1;CONCACAF
+Panama;Dom. Republik;3;0;CONCACAF
+Nicaragua;St. Lucia;n.gesp.;;CONCACAF
+Haiti;Belize;2;0;CONCACAF
+Turks & Caicos;Nicaragua;0;7;CONCACAF
+Belize;Turks & Caicos;5;0;CONCACAF
+Nicaragua;Belize;3;0;CONCACAF
+Turks & Caicos;Haiti;0;10;CONCACAF
+Belize;St. Lucia;n.gesp.;;CONCACAF
+Haiti;Nicaragua;1;0;CONCACAF
+St. Kitts & Nevis;Puerto Rico;1;0;CONCACAF
+Trinidad & Tobago;Guyana;3;0;CONCACAF
+Bahamas;St. Kitts & Nevis;0;4;CONCACAF
+Puerto Rico;Trinidad & Tobago;1;1;CONCACAF
+Guyana;Bahamas;4;0;CONCACAF
+Puerto Rico;Bahamas;7;0;CONCACAF
+St. Kitts & Nevis;Guyana;3;0;CONCACAF
+Bahamas;Trinidad & Tobago;0;0;CONCACAF
+Guyana;Puerto Rico;0;2;CONCACAF
+Trinidad & Tobago;St. Kitts & Nevis;2;0;CONCACAF
+Kanada;Honduras;1;1;CONCACAF
+Panama;Costa Rica;0;0;CONCACAF
+Mexiko;Jamaika;2;1;CONCACAF
+El Salvador;USA;0;0;CONCACAF
+Jamaika;Panama;0;3;CONCACAF
+El Salvador;Honduras;0;0;CONCACAF
+Costa Rica;Mexiko;0;1;CONCACAF
+USA;Kanada;1;1;CONCACAF
+Kanada;El Salvador;3;0;CONCACAF
+Panama;Mexiko;1;1;CONCACAF
+Costa Rica;Jamaika;1;1;CONCACAF
+Honduras;USA;1;4;CONCACAF
+USA;Jamaika;2;0;CONCACAF
+Honduras;Costa Rica;0;0;CONCACAF
+Mexiko;Kanada;1;1;CONCACAF
+El Salvador;Panama;1;0;CONCACAF
+Jamaika;Kanada;0;0;CONCACAF
+Costa Rica;El Salvador;2;1;CONCACAF
+Panama;USA;1;0;CONCACAF
+Mexiko;Honduras;3;0;CONCACAF
+USA;Costa Rica;2;1;CONCACAF
+Kanada;Panama;4;1;CONCACAF
+Honduras;Jamaika;0;2;CONCACAF
+El Salvador;Mexiko;0;2;CONCACAF
+Honduras;Panama;2;3;CONCACAF
+El Salvador;Jamaika;1;1;CONCACAF
+Kanada;Costa Rica;1;0;CONCACAF
+USA;Mexiko;2;0;CONCACAF
+Jamaika;USA;1;1;CONCACAF
+Costa Rica;Honduras;2;1;CONCACAF
+Panama;El Salvador;2;1;CONCACAF
+Kanada;Mexiko;2;1;CONCACAF
+USA;El Salvador;1;0;CONCACAF
+Jamaika;Mexiko;1;2;CONCACAF
+Honduras;Kanada;0;2;CONCACAF
+Costa Rica;Panama;1;0;CONCACAF
+Kanada;USA;2;0;CONCACAF
+Panama;Jamaika;3;2;CONCACAF
+Mexiko;Costa Rica;0;0;CONCACAF
+Honduras;El Salvador;0;2;CONCACAF
+Jamaika;Costa Rica;0;1;CONCACAF
+USA;Honduras;3;0;CONCACAF
+El Salvador;Kanada;0;2;CONCACAF
+Mexiko;Panama;1;0;CONCACAF
+Jamaika;El Salvador;1;1;CONCACAF
+Panama;Honduras;1;1;CONCACAF
+Mexiko;USA;0;0;CONCACAF
+Costa Rica;Kanada;1;0;CONCACAF
+Kanada;Jamaika;4;0;CONCACAF
+El Salvador;Costa Rica;1;2;CONCACAF
+USA;Panama;5;1;CONCACAF
+Honduras;Mexiko;0;1;CONCACAF
+Panama;Kanada;1;0;CONCACAF
+Jamaika;Honduras;2;1;CONCACAF
+Mexiko;El Salvador;2;0;CONCACAF
+Costa Rica;USA;2;0;CONCACAF
+Portugal;Aserbaidschan;1;0;Europe
+Serbien;Irland;3;2;Europe
+Irland;Luxemburg;0;1;Europe
+Serbien;Portugal;2;2;Europe
+Aserbaidschan;Serbien;1;2;Europe
+Luxemburg;Portugal;1;3;Europe
+Luxemburg;Aserbaidschan;2;1;Europe
+Portugal;Irland;2;1;Europe
+Irland;Aserbaidschan;1;1;Europe
+Serbien;Luxemburg;4;1;Europe
+Aserbaidschan;Portugal;0;3;Europe
+Irland;Serbien;1;1;Europe
+Aserbaidschan;Irland;0;3;Europe
+Luxemburg;Serbien;0;1;Europe
+Portugal;Luxemburg;5;0;Europe
+Serbien;Aserbaidschan;3;1;Europe
+Aserbaidschan;Luxemburg;1;3;Europe
+Irland;Portugal;0;0;Europe
+Luxemburg;Irland;0;3;Europe
+Portugal;Serbien;1;2;Europe
+Schweden;Georgien;1;0;Europe
+Spanien;Griechenland;1;1;Europe
+Georgien;Spanien;1;2;Europe
+Kosovo;Schweden;0;3;Europe
+Griechenland;Georgien;1;1;Europe
+Spanien;Kosovo;3;1;Europe
+Georgien;Kosovo;0;1;Europe
+Schweden;Spanien;2;1;Europe
+Kosovo;Griechenland;1;1;Europe
+Spanien;Georgien;4;0;Europe
+Griechenland;Schweden;2;1;Europe
+Kosovo;Spanien;0;2;Europe
+Georgien;Griechenland;0;2;Europe
+Schweden;Kosovo;3;0;Europe
+Kosovo;Georgien;1;2;Europe
+Schweden;Griechenland;2;0;Europe
+Georgien;Schweden;2;0;Europe
+Griechenland;Spanien;0;1;Europe
+Griechenland;Kosovo;1;1;Europe
+Spanien;Schweden;1;0;Europe
+Bulgarien;Schweiz;1;3;Europe
+Italien;Nordirland;2;0;Europe
+Bulgarien;Italien;0;2;Europe
+Schweiz;Litauen;1;0;Europe
+Litauen;Italien;0;2;Europe
+Nordirland;Bulgarien;0;0;Europe
+Italien;Bulgarien;1;1;Europe
+Litauen;Nordirland;1;4;Europe
+Bulgarien;Litauen;1;0;Europe
+Schweiz;Italien;0;0;Europe
+Italien;Litauen;5;0;Europe
+Nordirland;Schweiz;0;0;Europe
+Litauen;Bulgarien;3;1;Europe
+Schweiz;Nordirland;2;0;Europe
+Bulgarien;Nordirland;2;1;Europe
+Litauen;Schweiz;0;4;Europe
+Italien;Schweiz;1;1;Europe
+Nordirland;Litauen;1;0;Europe
+Nordirland;Italien;0;0;Europe
+Schweiz;Bulgarien;4;0;Europe
+Finnland;Bosnien-Herzegowina;2;2;Europe
+Frankreich;Ukraine;1;1;Europe
+Kasachstan;Frankreich;0;2;Europe
+Ukraine;Finnland;1;1;Europe
+Bosnien-Herzegowina;Frankreich;0;1;Europe
+Ukraine;Kasachstan;1;1;Europe
+Kasachstan;Ukraine;2;2;Europe
+Frankreich;Bosnien-Herzegowina;1;1;Europe
+Finnland;Kasachstan;1;0;Europe
+Ukraine;Frankreich;1;1;Europe
+Bosnien-Herzegowina;Kasachstan;2;2;Europe
+Frankreich;Finnland;2;0;Europe
+Kasachstan;Bosnien-Herzegowina;0;2;Europe
+Finnland;Ukraine;1;2;Europe
+Kasachstan;Finnland;0;2;Europe
+Ukraine;Bosnien-Herzegowina;1;1;Europe
+Bosnien-Herzegowina;Finnland;1;3;Europe
+Frankreich;Kasachstan;8;0;Europe
+Bosnien-Herzegowina;Ukraine;0;2;Europe
+Finnland;Frankreich;0;2;Europe
+Belgien;Wales;3;1;Europe
+Estland;Tschechien;2;6;Europe
+Belarus;Estland;4;2;Europe
+Tschechien;Belgien;1;1;Europe
+Belgien;Belarus;8;0;Europe
+Wales;Tschechien;1;0;Europe
+Estland;Belgien;2;5;Europe
+Tschechien;Belarus;1;0;Europe
+Belarus;Wales;2;3;Europe
+Belgien;Tschechien;3;0;Europe
+Belarus;Belgien;0;1;Europe
+Wales;Estland;0;0;Europe
+Estland;Belarus;2;0;Europe
+Tschechien;Wales;2;2;Europe
+Belarus;Tschechien;0;2;Europe
+Estland;Wales;0;1;Europe
+Belgien;Estland;3;1;Europe
+Wales;Belarus;5;1;Europe
+Tschechien;Estland;2;0;Europe
+Wales;Belgien;1;1;Europe
+Israel;Dänemark;0;2;Europe
+Moldau;Färöer;1;1;Europe
+Schottland;Österreich;2;2;Europe
+Dänemark;Moldau;8;0;Europe
+Israel;Schottland;1;1;Europe
+Österreich;Färöer;3;1;Europe
+Moldau;Israel;1;4;Europe
+Österreich;Dänemark;0;4;Europe
+Schottland;Färöer;4;0;Europe
+Dänemark;Schottland;2;0;Europe
+Färöer;Israel;0;4;Europe
+Moldau;Österreich;0;2;Europe
+Färöer;Dänemark;0;1;Europe
+Israel;Österreich;5;2;Europe
+Schottland;Moldau;1;0;Europe
+Dänemark;Israel;5;0;Europe
+Färöer;Moldau;2;1;Europe
+Österreich;Schottland;0;1;Europe
+Schottland;Israel;3;2;Europe
+Färöer;Österreich;0;2;Europe
+Moldau;Dänemark;0;4;Europe
+Dänemark;Österreich;1;0;Europe
+Färöer;Schottland;0;1;Europe
+Israel;Moldau;2;1;Europe
+Moldau;Schottland;0;2;Europe
+Dänemark;Färöer;3;1;Europe
+Österreich;Israel;4;2;Europe
+Israel;Färöer;3;2;Europe
+Österreich;Moldau;4;1;Europe
+Schottland;Dänemark;2;0;Europe
+Türkei;Niederlande;4;2;Europe
+Gibraltar;Norwegen;0;3;Europe
+Lettland;Montenegro;1;2;Europe
+Montenegro;Gibraltar;4;1;Europe
+Niederlande;Lettland;2;0;Europe
+Norwegen;Türkei;0;3;Europe
+Gibraltar;Niederlande;0;7;Europe
+Montenegro;Norwegen;0;1;Europe
+Türkei;Lettland;3;3;Europe
+Lettland;Gibraltar;3;1;Europe
+Norwegen;Niederlande;1;1;Europe
+Türkei;Montenegro;2;2;Europe
+Lettland;Norwegen;0;2;Europe
+Gibraltar;Türkei;0;3;Europe
+Niederlande;Montenegro;4;0;Europe
+Montenegro;Lettland;0;0;Europe
+Niederlande;Türkei;6;1;Europe
+Norwegen;Gibraltar;5;1;Europe
+Gibraltar;Montenegro;0;3;Europe
+Lettland;Niederlande;0;1;Europe
+Türkei;Norwegen;1;1;Europe
+Lettland;Türkei;1;2;Europe
+Niederlande;Gibraltar;6;0;Europe
+Norwegen;Montenegro;2;0;Europe
+Norwegen;Lettland;0;0;Europe
+Türkei;Gibraltar;6;0;Europe
+Montenegro;Niederlande;2;2;Europe
+Gibraltar;Lettland;1;3;Europe
+Montenegro;Türkei;1;2;Europe
+Niederlande;Norwegen;2;0;Europe
+Malta;Russland;1;3;Europe
+Slowenien;Kroatien;1;0;Europe
+Zypern;Slowakei;0;0;Europe
+Russland;Slowenien;2;1;Europe
+Kroatien;Zypern;1;0;Europe
+Slowakei;Malta;2;2;Europe
+Zypern;Slowenien;1;0;Europe
+Kroatien;Malta;3;0;Europe
+Slowakei;Russland;2;1;Europe
+Malta;Zypern;3;0;Europe
+Russland;Kroatien;0;0;Europe
+Slowenien;Slowakei;1;1;Europe
+Slowenien;Malta;1;0;Europe
+Zypern;Russland;0;2;Europe
+Slowakei;Kroatien;0;1;Europe
+Kroatien;Slowenien;3;0;Europe
+Russland;Malta;2;0;Europe
+Slowakei;Zypern;2;0;Europe
+Malta;Slowenien;0;4;Europe
+Russland;Slowakei;1;0;Europe
+Zypern;Kroatien;0;3;Europe
+Zypern;Malta;2;2;Europe
+Kroatien;Slowakei;2;2;Europe
+Slowenien;Russland;1;2;Europe
+Russland;Zypern;6;0;Europe
+Malta;Kroatien;1;7;Europe
+Slowakei;Slowenien;2;2;Europe
+Kroatien;Russland;1;0;Europe
+Malta;Slowakei;0;6;Europe
+Slowenien;Zypern;2;1;Europe
+Andorra;Albanien;0;1;Europe
+England;San Marino;5;0;Europe
+Ungarn;Polen;3;3;Europe
+Albanien;England;0;2;Europe
+Polen;Andorra;3;0;Europe
+San Marino;Ungarn;0;3;Europe
+Andorra;Ungarn;1;4;Europe
+England;Polen;2;1;Europe
+San Marino;Albanien;0;2;Europe
+Andorra;San Marino;2;0;Europe
+Polen;Albanien;4;1;Europe
+Ungarn;England;0;4;Europe
+Albanien;Ungarn;1;0;Europe
+England;Andorra;4;0;Europe
+San Marino;Polen;1;7;Europe
+Albanien;San Marino;5;0;Europe
+Polen;England;1;1;Europe
+Ungarn;Andorra;2;1;Europe
+Andorra;England;0;5;Europe
+Polen;San Marino;5;0;Europe
+Ungarn;Albanien;0;1;Europe
+Albanien;Polen;0;1;Europe
+England;Ungarn;1;1;Europe
+San Marino;Andorra;0;3;Europe
+Andorra;Polen;1;4;Europe
+England;Albanien;5;0;Europe
+Ungarn;San Marino;4;0;Europe
+Albanien;Andorra;1;0;Europe
+Polen;Ungarn;1;2;Europe
+San Marino;England;0;10;Europe
+Deutschland;Island;3;0;Europe
+Liechtenstein;Armenien;0;1;Europe
+Rumänien;Nordmazedonien;3;2;Europe
+Armenien;Island;2;0;Europe
+Nordmazedonien;Liechtenstein;5;0;Europe
+Rumänien;Deutschland;0;1;Europe
+Armenien;Rumänien;3;2;Europe
+Deutschland;Nordmazedonien;1;2;Europe
+Liechtenstein;Island;1;4;Europe
+Island;Rumänien;0;2;Europe
+Liechtenstein;Deutschland;0;2;Europe
+Nordmazedonien;Armenien;0;0;Europe
+Island;Nordmazedonien;2;2;Europe
+Deutschland;Armenien;6;0;Europe
+Rumänien;Liechtenstein;2;0;Europe
+Armenien;Liechtenstein;1;1;Europe
+Island;Deutschland;0;4;Europe
+Nordmazedonien;Rumänien;0;0;Europe
+Deutschland;Rumänien;2;1;Europe
+Island;Armenien;1;1;Europe
+Liechtenstein;Nordmazedonien;0;4;Europe
+Island;Liechtenstein;4;0;Europe
+Nordmazedonien;Deutschland;0;4;Europe
+Rumänien;Armenien;1;0;Europe
+Armenien;Nordmazedonien;0;5;Europe
+Deutschland;Liechtenstein;9;0;Europe
+Rumänien;Island;0;0;Europe
+Armenien;Deutschland;1;4;Europe
+Liechtenstein;Rumänien;0;2;Europe
+Nordmazedonien;Island;3;1;Europe
+Paraguay;Peru;2;2;South America
+Uruguay;Chile;2;1;South America
+Argentinien;Ecuador;1;0;South America
+Kolumbien;Venezuela;3;0;South America
+Brasilien;Bolivien;5;0;South America
+Bolivien;Argentinien;1;2;South America
+Ecuador;Uruguay;4;2;South America
+Venezuela;Paraguay;0;1;South America
+Peru;Brasilien;2;4;South America
+Chile;Kolumbien;2;2;South America
+Bolivien;Ecuador;2;3;South America
+Argentinien;Paraguay;1;1;South America
+Kolumbien;Uruguay;0;3;South America
+Chile;Peru;2;0;South America
+Brasilien;Venezuela;1;0;South America
+Venezuela;Chile;2;1;South America
+Ecuador;Kolumbien;6;1;South America
+Uruguay;Brasilien;0;2;South America
+Paraguay;Bolivien;2;2;South America
+Peru;Argentinien;0;2;South America
+Bolivien;Peru;1;0;South America
+Venezuela;Ecuador;2;1;South America
+Kolumbien;Brasilien;0;0;South America
+Argentinien;Uruguay;3;0;South America
+Chile;Paraguay;2;0;South America
+Ecuador;Chile;0;0;South America
+Uruguay;Bolivien;4;2;South America
+Paraguay;Kolumbien;1;1;South America
+Peru;Venezuela;1;0;South America
+Brasilien;Argentinien;-;;South America
+Bolivien;Venezuela;3;1;South America
+Uruguay;Paraguay;0;0;South America
+Argentinien;Chile;1;1;South America
+Peru;Kolumbien;0;3;South America
+Brasilien;Ecuador;2;0;South America
+Ecuador;Peru;1;2;South America
+Venezuela;Uruguay;0;0;South America
+Kolumbien;Argentinien;2;2;South America
+Paraguay;Brasilien;0;2;South America
+Chile;Bolivien;1;1;South America
+Bolivien;Kolumbien;1;1;South America
+Ecuador;Paraguay;2;0;South America
+Venezuela;Argentinien;1;3;South America
+Peru;Uruguay;1;1;South America
+Chile;Brasilien;0;1;South America
+Uruguay;Ecuador;1;0;South America
+Paraguay;Venezuela;2;1;South America
+Kolumbien;Chile;3;1;South America
+Argentinien;Bolivien;3;0;South America
+Brasilien;Peru;2;0;South America
+Uruguay;Kolumbien;0;0;South America
+Paraguay;Argentinien;0;0;South America
+Venezuela;Brasilien;1;3;South America
+Ecuador;Bolivien;3;0;South America
+Peru;Chile;2;0;South America
+Bolivien;Paraguay;4;0;South America
+Kolumbien;Ecuador;0;0;South America
+Argentinien;Peru;1;0;South America
+Chile;Venezuela;3;0;South America
+Brasilien;Uruguay;4;1;South America
+Ecuador;Venezuela;1;0;South America
+Paraguay;Chile;0;1;South America
+Brasilien;Kolumbien;1;0;South America
+Peru;Bolivien;3;0;South America
+Uruguay;Argentinien;0;1;South America
+Bolivien;Uruguay;3;0;South America
+Venezuela;Peru;1;2;South America
+Kolumbien;Paraguay;0;0;South America
+Argentinien;Brasilien;0;0;South America
+Chile;Ecuador;0;2;South America
+Ecuador;Brasilien;1;1;South America
+Paraguay;Uruguay;0;1;South America
+Chile;Argentinien;1;2;South America
+Kolumbien;Peru;0;1;South America
+Venezuela;Bolivien;4;1;South America
+Bolivien;Chile;2;3;South America
+Uruguay;Venezuela;4;1;South America
+Argentinien;Kolumbien;1;0;South America
+Brasilien;Paraguay;4;0;South America
+Peru;Ecuador;1;1;South America
+Uruguay;Peru;1;0;South America
+Kolumbien;Bolivien;3;0;South America
+Brasilien;Chile;4;0;South America
+Paraguay;Ecuador;3;1;South America
+Argentinien;Venezuela;3;0;South America
+Peru;Paraguay;2;0;South America
+Venezuela;Kolumbien;0;1;South America
+Bolivien;Brasilien;0;4;South America
+Chile;Uruguay;0;2;South America
+Ecuador;Argentinien;1;1;South America
+Salomonen;Tahiti;3;1;Ozeanien
+Papua-Neuguinea;Neuseeland;0;1;Ozeanien
+Neukaledonien;Fidschi;1;2;Ozeanien
+Papua-Neuguinea;Neukaledonien;1;0;Ozeanien
+Neuseeland;Fidschi;4;0;Ozeanien
+Neuseeland;Neukaledonien;7;1;Ozeanien
+Fidschi;Papua-Neuguinea;1;2;Ozeanien
+Salomonen;Papua-Neuguinea;3;2;Ozeanien
+Neuseeland;Tahiti;1;0;Ozeanien
+Salomonen;Neuseeland;0;5;Ozeanien
