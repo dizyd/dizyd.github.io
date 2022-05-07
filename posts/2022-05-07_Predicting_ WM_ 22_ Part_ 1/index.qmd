@@ -3,10 +3,9 @@ title: "Predicting the WM22 Part 1"
 format:
   html:
     code-fold: true
-date: 2022-05-07
+date: "2022-05-07"
 categories: [football,STAN]
 execute: 
-  keep-md: true
   warning: false
   message: false
   out.width: "100%"
