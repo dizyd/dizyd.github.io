@@ -10,12 +10,11 @@ website:
     background: dark
     search: true
     left:
-      - href: pages/index.qmd
-        text: "Home"
       - pages/cv.qmd
       - pages/publications.qmd
       - pages/teaching.qmd
-      - pages/blog.qmd
+      - href: pages/index.qmd
+        text: "Blog"
       - pages/shiny.qmd
   page-footer: 
     left: "Copyright 2021, David Izydorczyk" 
