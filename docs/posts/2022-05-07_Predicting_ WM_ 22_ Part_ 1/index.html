@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.339">
+<meta name="generator" content="quarto-0.9.342">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -123,7 +123,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -137,9 +137,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../../pages/index.html">Home</a>
-  </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../pages/cv.html">CV</a>
   </li>  
@@ -170,12 +167,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Predicting the WM22 Part 1</h1>
+                          <div class="quarto-categories">
+                <div class="quarto-category">football</div>
+                <div class="quarto-category">STAN</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+
+
+
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 7, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">On this page</h2>
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
   <li><a href="#exploring-the-goals-around-the-world." id="toc-exploring-the-goals-around-the-world." class="nav-link active" data-scroll-target="#exploring-the-goals-around-the-world.">Exploring the goals around the world.</a></li>
@@ -188,37 +212,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></li>
   </ul>
 </nav>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Predicting the WM22 Part 1</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">football</div>
-    <div class="quarto-category">STAN</div>
-  </div>
-  </div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
-
-
-<div class="quarto-title-meta">
-
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">May 7, 2022</p>
-    </div>
-  </div>
-    
-  </div>
-  
-
-</header>
 
 <p>With this series of blog posts, I wanted to learn more about <code>Python</code>, plotting maps with <code>ggplot</code>, modeling with <code>STAN</code>, football (?) and just practice writing. The aim is to predict the games of the 2022 football world championship using data from the qualifying games of all countries and informations about the individual players of each team. I scraped the data from open websites using <code>Python</code>. The scripts can be found on the corresponding <code>Github</code> page of this project. In this first blog post of the series, I want to explore the data set <code>results_quali_matches.csv</code> which contains the data of all qualifying games. I never used spatial data or plotted spatial data, so since I have data from all over the world, I want to try out plotting maps with <code>ggplot</code>. The main point of this blog post, however, is to get a feel for the data we have, which will be useful for our modeling attempts later.</p>
 <section id="exploring-the-goals-around-the-world." class="level1">
@@ -268,7 +270,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(quali22)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 5
+<pre><code># A tibble: 6 x 5
   teamA        teamB        goalsA goalsB region
   &lt;chr&gt;        &lt;chr&gt;         &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; 
 1 Niger        Burkina Faso      0      2 Africa
@@ -315,7 +317,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>country_stats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 183 × 3
+<pre><code># A tibble: 183 x 3
    country     scored received
    &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;
  1 Japan           58        6
@@ -328,7 +330,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  8 Panama          36       20
  9 Deutschland     36        4
 10 Südkorea        35        4
-# … with 173 more rows</code></pre>
+# ... with 173 more rows</code></pre>
 </div>
 </div>
 <section id="making-world-maps-using-the-ggplot2" class="level2">
@@ -374,7 +376,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>country_stats <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 4
+<pre><code># A tibble: 6 x 4
   country    scored received country_en
   &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;     
 1 Japan          58        6 Japan     
@@ -427,7 +429,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>country_stats <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 4
+<pre><code># A tibble: 6 x 4
   country    scored received country_en
   &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;     
 1 Japan          58        6 Japan     
@@ -634,7 +636,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>quali22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(goalsA <span class="sc">&gt;=</span> <span class="dv">10</span> <span class="sc">|</span> goalsB <span class="sc">&gt;=</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 9 × 5
+<pre><code># A tibble: 9 x 5
   teamA          teamB                  goalsA goalsB region  
   &lt;chr&gt;          &lt;chr&gt;                   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;   
 1 Iran           Kambodscha                 14      0 Asia    
@@ -654,7 +656,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{izydorczyk2022,
+  author = {David Izydorczyk},
+  title = {Predicting the {WM22} {Part} 1},
+  date = {2022-05-07},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-izydorczyk2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+David Izydorczyk. 2022. <span>“Predicting the Wm22 Part 1.”</span> May
+7, 2022.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const disableStylesheet = (stylesheets) => {

@@ -12,18 +12,17 @@ license: "CC BY"
 # Default for table of contents
 toc: true
 toc-title: Table of contents
-toc-location: left
+toc-location: right
 
 # Default knitr options
 execute:
   echo: true
-message: true
-warning: true
+  message: true
+  warning: true
 
 # Default author
 author:
   - name: David Izydorczyk
-orcid: 0000-0002-8792-0795
+  - orcid: 0000-0002-8792-0795
 
-# Default fields for citation
-citation: true
+

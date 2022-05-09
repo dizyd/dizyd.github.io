@@ -13,8 +13,8 @@ website:
       - pages/cv.qmd
       - pages/publications.qmd
       - pages/teaching.qmd
-      - href: pages/index.qmd
-        text: "Blog"
+      - text: "Blog"
+        href: blog/index.qmd
       - pages/shiny.qmd
   page-footer: 
     left: "Copyright 2021, David Izydorczyk" 
