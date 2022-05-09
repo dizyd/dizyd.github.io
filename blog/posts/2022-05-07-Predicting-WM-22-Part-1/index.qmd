@@ -16,6 +16,19 @@ execute:
 image: goals_WM22_qualifying.png
 ---
 
+```{r include = FALSE}
+library(knitr)
+
+knit_print.data.frame <- function (x, options, ...) {
+  rmarkdown::paged_table(x, options) |>
+    rmarkdown:::print.paged_df()
+}
+
+registerS3method("knit_print", "data.frame", knit_print.data.frame)
+```
+
+
+
 With this series of blog posts, I wanted to learn more about `Python`, plotting maps with `ggplot`, modeling with `STAN`, football (?) and just practice writing. The aim is to predict the games of the 2022 football world championship using data from the qualifying games of all countries and informations about the individual players of each team. I scraped the data from open websites using `Python`. The scripts can be found on the corresponding `Github` page of this project. In this first blog post of the series, I want to explore the data set `results_quali_matches.csv` which contains the data of all qualifying games. I never used spatial data or plotted spatial data, so since I have data from all over the world, I want to try out plotting maps with `ggplot`. The main point of this blog post, however, is to get a feel for the data we have, which will be useful for our modeling attempts later. 
 
 # The data
@@ -32,6 +45,7 @@ library(countrycode)
 library(ggthemes)
 library(ggrepel)
 library(plotly)
+library(kableExtra)
 
 theme_set(
   theme_bw() +
@@ -43,21 +57,15 @@ quali22        <- read_csv2("../../../data/results_quali_matches.csv")
 quali22$goalsA <- as.numeric(quali22$goalsA)
 ```
 
-In total we have `r nrow(quali22)` matches in our data set. Lets also check how many different countries we have:
+Our data.frame generally looks like this: 
 
 ```{r}
+quali22
+
 countries <-  quali22$teamA %>% unique() 
-length(countries)
 ```
 
-
-Lets start by calculating and plotting the number of goals scored and received by each country. Our data.frame generally looks like this:
-
-```{r}
-head(quali22)
-```
-
-I first want to create two new variables `scored` and `received` using a `for`-loop. There might be a "tidyverse" way to do this faster, however, I think the `for`-loop is pretty straight forward.
+In total we have `r nrow(quali22)` matches from `r length(countries)` in our data set. Lets start our exploration by calculating and then plotting the number of goals scored and received by each country. For this, I first want to create two new variables `scored` and `received` using a `for`-loop. There might be a "tidyverse" way to do this faster, however, I think the `for`-loop is pretty straight forward.
 
 ```{r}
 
@@ -88,19 +96,20 @@ Lets combine all variables to a new data.frame:
 
 ```{r}
 country_stats <- tibble("country" = countries,scored,received) %>%
-                    arrange(desc(scored))
+                    arrange(desc(scored)) 
+
 country_stats
 ```
 
 
-## Making world maps using the ggplot2
+# Making world maps using the ggplot2
 
 Now I want to make a  world map and then color each country by the number of goals scored/received. For this I will use the `map` package, which provides a data.frame that  contains outlines of several continents.
 
 ```{r}
 world <- map_data("world")
 
-head(world)
+world
 ```
 
 This  `world` data.frame has the following variables: `long` for longitude, `lat` for latitude, `group` tells which adjacent points to connect, `order` refers to the sequence by which the points should be connected, and `region` and `subregion` annotate the area surrounded by a set of points. We can use this information to plot the world using `ggplot`: 
@@ -121,7 +130,7 @@ To translate the names, I use the `countrycode` package.
 country_stats <- country_stats %>%
                     mutate(country_en = countrycode(country, origin      = 'country.name.de',
                                                              destination = 'country.name.en'))
-country_stats %>% head()
+country_stats
 ```
 
 This worked quite well, except for the following warning: `Some values were not matched unambiguously: Br. Jungferninseln, Djibouti, Dom. Republik, England,` `Kapverdische Inseln, Schottland, Sénégal, VA Emirate, Wales, Zentralafr. Republik`. So I still have to put in some work by myself. I also added additional country name changes, based on checks a few code chunks further down.
@@ -163,7 +172,7 @@ country_stats <- country_stats %>%
 
 # check if we have everything:
 # country_stats %>% filter(is.na(country_en))
-country_stats %>% head()
+country_stats
 ```
 
 Next I make a new variable in the `worlds` data.frame, which I will then use to join both data.frames together.

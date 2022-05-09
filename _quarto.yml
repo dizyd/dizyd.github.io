@@ -30,7 +30,7 @@ format:
   html:
     theme: 
       dark: darkly
-      light: flatly 
+      light: cosmo 
     css: styles.css
     toc: true
     linkcolor: "#5381e6"
