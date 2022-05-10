@@ -8,7 +8,6 @@ categories: [football,STAN]
 subtitle: Explore the results of all qualifying matches for the WM 2022 football championship
 description: |
   This post explores the the results of all qualifying matches for the WM 2022 football championship. In subsequent blog posts, this information will be used to model the data and predicting future matches. 
-author: Charles Teague
 execute: 
   warning: false
   message: false

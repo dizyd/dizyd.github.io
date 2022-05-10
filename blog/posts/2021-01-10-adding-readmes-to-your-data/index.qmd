@@ -8,7 +8,6 @@ categories: [R,Open Science]
 description: |
  Because of a recent experience, I was reminded that it is absolutely annoying when researchers   upload their data to an open repository (e.g. OSF or Github) without adding any form of description or wiki. Thus, I decided to a little `R` - function for me and my colleagues to help
  with this.   
-author: Charles Teague
 execute: 
   warning: false
   message: false
