@@ -56,7 +56,6 @@ desc = c("unique numeric participant ID [1-50]",   # description for variable ID
 
 Next, we need our function. I will first show you the complete function-code and then go through it step by step. So this is what our final function will look like:
 
-
 ```{r}
 make_df_readme     <- function(df,desc,info = NULL,file = "readme.txt",add_examples=TRUE,digits=2){  
   
@@ -95,7 +94,7 @@ make_df_readme     <- function(df,desc,info = NULL,file = "readme.txt",add_examp
 }
 ```
 
-In the first part of the function we start by creating an inital data.frame `temp0` containing the names of our variables, the corresponding description and the variable type. 
+In the first part of the function, we start by creating an inital data.frame `temp0` containing the names of our variables, the corresponding description and the variable type. 
 
 ```{r}
   temp0 <- data.frame("Variable"    = names(df),
@@ -106,20 +105,21 @@ In the first part of the function we start by creating an inital data.frame `tem
 
 ```
 
+This initial data.frame looks like this:
 
 ```{r echo=FALSE}
 temp0
 ```
 
-The next step is to add two example entries of each variable to this `temp0` data.frame *if* the argument `add_examples` equals `TRUE`. The lines to do this inside the `if` statement will:
+The next step is to add two example entries of each variable to this `temp0` data.frame *if* the argument `add_examples` equals `TRUE`. The lines do this by: 
 
-- sample two entries from the initial data.frame (`sample()`)
-- round numeric variables to `digits` decimal places (`mutate_if`)
-- transpose it (`t()`)
-- paste the two entries together (`apply()`) 
-- and return everything as vector (`unlist()`).  
+- sampling two entries from the initial data.frame (`sample()`)
+- rounding numeric variables to `digits` decimal places (`mutate_if`)
+- transposing it (`t()`)
+- pasting the two entries together (`apply()`) 
+- and returning everything as vector (`unlist()`).  
 
-Afterwards we add this new vector `temp_info` to the data.frame as a new column called `Description`
+Afterwards, I add this new vector `temp_info` to the data.frame as a new column called `Description`
 
 ```{r}
     temp_info <- df[sample(1:nrow(df),2),] %>%
@@ -139,21 +139,32 @@ So now we have:
 temp0
 ```
 
-The next line will add an info text, provided trough the `info = ` argument, as well as information about the dimensions of the data.frame to the top of the final `readme.txt`. The statement `length(info)` will return be `FALSE`, and thus nothing added, if the argument is left empty (or `= NULL`). 
+The next lines of code will add an info text, provided trough the `info = ` argument, as well as information about the dimensions of the data.frame to the top of the final `readme.txt`. The statement `length(info)` will return `FALSE` if the argument is left empty (or `= NULL`) and thus no information will be added if none is provided. 
 
-
-The last part prints our data.frame `temp0` in the format of a `markdown` table by using the `kable()` function. I used the `markdown` format since it looks nice as a plain `.txt` file or when copy & pasted in a Github Readme.md or to the OSF wiki part. 
-
-Everything between the  `sink()` statements is then saved as `readme.txt` in your working directory (you can change the name or the path by changing it using the `file = ` argument).
-
-
-Now lets put everything together. Running the following command (of coruse, after first running the function code above) 
-
-```{r eval=FALSE, include=TRUE}
-make_df_readme(df,desc,info="This is data for the second experiment reported in Fancy (2021) and ...")
+```{r echo=FALSE, eval = FALSE}
+ if(length(info)){
+    cat(info,"\n","\n","data.frame (",nrow(df),",",ncol(df),")","\n","\n",sep = "")
+  }
 ```
 
-produces the `readme.txt` file which looks like this:
+The last part of the function prints out the data.frame `temp0` in the format of a `markdown` table by using the `kable()` function. I used the `markdown` format since it looks nice in a plain `.txt` file and when copy & pasted in a Github Readme.md or to the OSF wiki part. Everything between the  `sink()` statements is saved as `readme.txt` in the working directory (you can change the name or the path by changing it using the `file = ` argument). Now lets put everything together. Running the following command (of coruse, after first running the function code above) 
+
+```{r eval=FALSE, include=TRUE}
+
+df = data.frame("ID"   = 1:50,
+                "cond" = sample(c("A","B"),50,replace=T),
+                "rt"   = rnorm(50,500,40))
+
+desc = c("unique numeric participant ID [1-50]",   # description for variable ID
+         "condition [A:congruent, B:incongruent]", # description for variable condition
+         "average reaction time in ms")  
+
+make_df_readme(df,
+              desc,
+              info = "This is data for the second experiment reported in Fancy (2021) and ...")
+```
+
+produces the `readme.txt` file, which looks like this:
 
 ```{r eval=FALSE,}
 This is data for the second experiment reported in Fancy (2021) and ...
@@ -168,7 +179,7 @@ data.frame (50,3)
 
 ```
 
-IFf you copy & paste the table in your OSF wiki or Github Readme the table would look even better: 
+If you copy & paste the table in your OSF wiki or Github Readme the table will look even better: 
 
 |Variable |Type      |Example             |Description                            |
 |:--------|:---------|:-------------------|:--------------------------------------|
