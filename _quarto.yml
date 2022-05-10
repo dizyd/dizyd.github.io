@@ -29,7 +29,7 @@ website:
 format:
   html:
     theme: 
-      dark: darkly
+      dark: [darkly, custom.scss]
       light: cosmo 
     css: [styles.css, custom.scss]
     toc: true
