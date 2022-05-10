@@ -1,16 +1,14 @@
 [
   {
-    "listing": "/pages/blog.html",
-    "items": []
+    "listing": "/blog/index.html",
+    "items": [
+      "/blog/posts/2022-05-07-Predicting-WM-22-Part-1/index.html",
+      "/blog/posts/2021-01-04-tutorial-creating-publication-ready-tables-in-R/index.html",
+      "/blog/posts/2021-01-10-adding-readmes-to-your-data/index.html"
+    ]
   },
   {
     "listing": "/pages/index.html",
     "items": []
-  },
-  {
-    "listing": "/blog/index.html",
-    "items": [
-      "/blog/posts/2022-05-07-Predicting-WM-22-Part-1/index.html"
-    ]
   }
 ]
