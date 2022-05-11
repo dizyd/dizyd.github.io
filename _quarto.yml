@@ -5,7 +5,7 @@ project:
 website:
   title: "David Izydorczyk"
   reader-mode: true
-
+  site-path: "/pages/index.html/"
   navbar:
     background: dark
     search: true

@@ -3,7 +3,7 @@ title: "Publications"
 ---
 
 
-##  <i class="fas fa-book"></i> Journal articles (peer-reviewed)
+##  <i class="bi bi-book"></i> Journal articles (peer-reviewed)
 
 #### 2021
 
@@ -28,11 +28,11 @@ Lischetzke, T., **Izydorczyk, D.**, Hüller, C., & Appel, M. (2017). The topogra
 
 <br/><br/>
 
-## <i class="fas fa-bullhorn"></i> Presentations
+## <i class="bi bi-easel3"></i> Presentations
 
 <br/>
 
-### <i class="fas fa-microphone"></i> Conference talks
+### <i class="bi bi-mic"></i> Conference talks
 
 **Izydorzcyk,  D.**, Jung, J. & Bröder,  A. (2022). *What is more democratic, a stone or a feather? Predicting nonsensical judgments using high-dimensional vector representations obtained from a semantic space model.*  Talk presented at the 63rd Conference of Experimental Psychologists (TeaP). Cologne, Germany.
 
@@ -44,7 +44,7 @@ Lischetzke, T., **Izydorczyk, D.**, Hüller, C., & Appel, M. (2017). The topogra
 
 <br/>
 
-### <i class="fas fa-people-carry"></i> Coauthored talks (i.e., I didn't talk, but probably did stats and made figures)
+### <i class="bi bi-people-fill"></i> Coauthored talks (i.e., I didn't talk, but probably did stats and made figures)
 
 Baumert, A., Schopke, A. & **Izydorzcyk,  D.** (2021). *Reactions to Others‘ Norm Violations in Everyday Life – Scrutinizing Reactivity to Intensive Assessments.*  Talk presented at the Society for Ambulatory Assessment Conference 2021 (SAA). Zürich, Switzerland.
 
@@ -52,7 +52,7 @@ Mascarenhas, M. F., Dbbers, F., Hoszowska, M., Kseolu, A., Karakasheva, R., Topa
 
 <br/>
 
-### <i class="fas fa-image"></i> Posters
+### <i class="bi bi-easel"></i> Posters
 
 **Izydorzcyk,  D.** & Unkelbach,  C. (2019). *Simulating the ecology:  Using the BIASmodel to simulate and explain contradicting evidence of the out-group homogeneity ef-fect, the intergroup bias, and the density hypothesis.*  Poster presented at the 27th Subjective Probability, Utility, and Decision Making Conference (SPUDM27). Amsterdam, Netherlands.
 
