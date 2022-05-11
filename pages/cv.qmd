@@ -5,7 +5,7 @@ classoption: .column-page
 ---
 
 
-## <i class="fas fa-graduation-cap"></i> Education
+## <i class="bi bi-mortarboard-fill"></i> Education
 
 
 **Doctoral (Ph.D.) Candidate in Psychology** , University of Mannheim, since 10/2016,  
@@ -18,7 +18,7 @@ Thesis: _Structuring the uncanny valley: Investigating the effect of the persona
  
 <br/><br/>
 
-## <i class="fas fa-chalkboard-teacher"></i> Teaching Experience
+## <i class="bi bi-pen-fill"></i> Teaching Experience
 
 **Experimental Internship**, University of Mannheim, Department of Experimental Psychology (level: Bachelor; language: German)
 
@@ -40,7 +40,7 @@ Thesis: _Structuring the uncanny valley: Investigating the effect of the persona
 
 <br/><br/>
 
-## <i class="fas fa-chart-line"></i> Programming and statistics
+## <i class="bi bi-graph-up"></i> Programming and statistics
 
 
 Languages: Mastery of R. Regular practice writing JAGS, Stan for Bayesian modeling, as well as HTML/CSS and JavaScript to program experiments. I also did some courses in and analysis with Python. Exposure to C++.
@@ -53,26 +53,26 @@ Experimental software: nowadays mostly lab.JS and Soscisurvey. Some experience w
 
 <br/><br/>
 
-## <i class="fas fa-building"></i> University Service
+## <i class="bi bi-building"></i> University Service
 
 
 **Elected Ph.D. students Spokesperson**, since 2020, Research Training Group Statistical Modeling in Psychology, University of Mannheim
 
 <br/><br/>
 
-## <i class="fas fa-flask"></i> Reviewing
+## <i class="bi bi-ui-radios"></i> Reviewing
 
 Ad-hoc reviewer:  Computers in Human Behaviour, Judgment and Decision Making
 
 <br/><br/>
 
-## <i class="far fa-address-card"></i> Professional Memberships
+## <i class="bi bi-card-list"></i> Professional Memberships
 
 [German Psychological Society](https://www.dgps.de/) (DGPs) Sections *Methods and Evaluation* and *General Psychology*
 
 <br/><br/>
 
-## <i class="fas fa-brain"></i> Workshops and Summerschools
+## <i class="bi bi-gear-fill"></i> Workshops and Summerschools
 
 
 ### 2019 
