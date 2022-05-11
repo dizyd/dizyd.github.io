@@ -1,5 +1,6 @@
 ---
 title: "How to add a Readme to your data files"
+author: David Izydorczyk
 format:
   html:
     code-fold: false

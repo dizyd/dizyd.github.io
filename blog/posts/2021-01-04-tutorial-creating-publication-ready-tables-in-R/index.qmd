@@ -1,5 +1,6 @@
 ---
 title: "Short Tutorial: Creating Publication Ready Tables With `papaja` and `kable()` in `R`"
+author: David Izydorczyk
 format:
   html:
     code-fold: false

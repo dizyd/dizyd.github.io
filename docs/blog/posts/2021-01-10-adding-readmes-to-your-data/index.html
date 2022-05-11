@@ -174,7 +174,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">How to add a Readme to your data files</h1>
+      <div class="quarto-title-block"><div><h1 class="title">How to add a Readme to your data files</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
                           <div class="quarto-categories">
                 <div class="quarto-category">R</div>
                 <div class="quarto-category">Open Science</div>
@@ -390,6 +390,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 
 
+<!-- -->
+
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -519,6 +521,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -567,7 +620,198 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     });
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb9" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "How to add a Readme to your data files"</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> David Izydorczyk</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: false</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "01/04/2021"</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [R,Open Science]</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> |</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"> Because of a recent experience, I was reminded that it is absolutely annoying when researchers   upload their data to an open repository (e.g. OSF or Github) without adding any form of description or wiki. Thus, I decided to a little `R` - function for me and my colleagues to help</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"> with this.   </span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co">  out.width: "100%"</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> open_data.png</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="in">```{r include = FALSE}</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>knit_print.data.frame <span class="ot">&lt;-</span> <span class="cf">function</span> (x, options, ...) {</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  rmarkdown<span class="sc">::</span><span class="fu">paged_table</span>(x, options) <span class="sc">|&gt;</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    rmarkdown<span class="sc">:::</span><span class="fu">print.paged_df</span>()</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="fu">registerS3method</span>(<span class="st">"knit_print"</span>, <span class="st">"data.frame"</span>, knit_print.data.frame)</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>Because of a recent experience, I was reminded that it is absolutely annoying when researchers upload their data to an open repository (e.g. OSF or Github) without adding any form of description or wiki. Thus, I decided to a little <span class="in">`R`</span> - function for me and my colleagues to help with this. You can also source the function directly from Github via <span class="in">`devtools::source_url("https://github.com/dizyd/functions/blob/master/make_readme_fun.R?raw=TRUE")`</span>. </span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>Lets start by creating a data.frame containing our very cool and very interesting data. </span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="in">```{r message=FALSE, warning=FALSE}</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="st">"ID"</span>   <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>,</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>                <span class="st">"cond"</span> <span class="ot">=</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"A"</span>,<span class="st">"B"</span>),<span class="dv">50</span>,<span class="at">replace=</span>T),</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>                <span class="st">"rt"</span>   <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">50</span>,<span class="dv">500</span>,<span class="dv">40</span>))</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>This data.frame now contains the reaction time data of 50 participant, who can be in one of two conditions:</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>df</span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>The next thing we need is a vector of the same length as the number of variables we have in our data.frame, which contains the description of the corresponding variables. For instance, in our example this might look like this:</span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>desc <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"unique numeric participant ID [1-50]"</span>,   <span class="co"># description for variable ID</span></span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>         <span class="st">"condition [A:congruent, B:incongruent]"</span>, <span class="co"># description for variable condition</span></span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>         <span class="st">"average reaction time in ms"</span>)            <span class="co"># description for the variable rt</span></span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>Next, we need our function. I will first show you the complete function-code and then go through it step by step. So this is what our final function will look like:</span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a>make_df_readme     <span class="ot">&lt;-</span> <span class="cf">function</span>(df,desc,<span class="at">info =</span> <span class="cn">NULL</span>,<span class="at">file =</span> <span class="st">"readme.txt"</span>,<span class="at">add_examples=</span><span class="cn">TRUE</span>,<span class="at">digits=</span><span class="dv">2</span>){  </span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a>  temp0 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">"Variable"</span>    <span class="ot">=</span> <span class="fu">names</span>(df),</span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"Type"</span>        <span class="ot">=</span> <span class="fu">sapply</span>(df, class),</span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"Description"</span> <span class="ot">=</span> desc)</span>
+<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row.names</span>(temp0) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(add_examples){</span>
+<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a>    temp_info <span class="ot">&lt;-</span> df[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df),<span class="dv">2</span>),] <span class="sc">%&gt;%</span></span>
+<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">mutate_if</span>(is.numeric,round,digits) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">t</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">apply</span>(., <span class="dv">1</span>, paste, <span class="at">collapse=</span><span class="st">", "</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">unlist</span>()</span>
+<span id="cb9-84"><a href="#cb9-84" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-85"><a href="#cb9-85" aria-hidden="true" tabindex="-1"></a>    <span class="fu">names</span>(temp_info) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a>    temp0 <span class="ot">&lt;-</span> temp0 <span class="sc">%&gt;%</span> <span class="fu">add_column</span>(<span class="st">"Example"</span> <span class="ot">=</span> temp_info,<span class="at">.before =</span> <span class="st">"Description"</span>)</span>
+<span id="cb9-87"><a href="#cb9-87" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb9-88"><a href="#cb9-88" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Start writing to the file</span></span>
+<span id="cb9-90"><a href="#cb9-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sink</span>(file)</span>
+<span id="cb9-91"><a href="#cb9-91" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">length</span>(info)){</span>
+<span id="cb9-92"><a href="#cb9-92" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(info,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,<span class="st">"data.frame ("</span>,<span class="fu">nrow</span>(df),<span class="st">","</span>,<span class="fu">ncol</span>(df),<span class="st">")"</span>,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,<span class="at">sep =</span> <span class="st">""</span>)</span>
+<span id="cb9-93"><a href="#cb9-93" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb9-94"><a href="#cb9-94" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-95"><a href="#cb9-95" aria-hidden="true" tabindex="-1"></a>  temp1 <span class="ot">&lt;-</span> temp0 <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"markdown"</span>) </span>
+<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(temp1,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>) <span class="sc">%&gt;%</span> <span class="fu">cat</span>(<span class="at">sep =</span> <span class="st">""</span>)</span>
+<span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Stop writing to the file</span></span>
+<span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sink</span>()</span>
+<span id="cb9-100"><a href="#cb9-100" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a>In the first part of the function, we start by creating an inital data.frame <span class="in">`temp0`</span> containing the names of our variables, the corresponding description and the variable type. </span>
+<span id="cb9-105"><a href="#cb9-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-109"><a href="#cb9-109" aria-hidden="true" tabindex="-1"></a>  temp0 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">"Variable"</span>    <span class="ot">=</span> <span class="fu">names</span>(df),</span>
+<span id="cb9-110"><a href="#cb9-110" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"Type"</span>        <span class="ot">=</span> <span class="fu">sapply</span>(df, class),</span>
+<span id="cb9-111"><a href="#cb9-111" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"Description"</span> <span class="ot">=</span> desc)</span>
+<span id="cb9-112"><a href="#cb9-112" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-113"><a href="#cb9-113" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row.names</span>(temp0) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb9-114"><a href="#cb9-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-115"><a href="#cb9-115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-116"><a href="#cb9-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-117"><a href="#cb9-117" aria-hidden="true" tabindex="-1"></a>This initial data.frame looks like this:</span>
+<span id="cb9-118"><a href="#cb9-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-119"><a href="#cb9-119" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo=FALSE}</span></span>
+<span id="cb9-120"><a href="#cb9-120" aria-hidden="true" tabindex="-1"></a>temp0</span>
+<span id="cb9-121"><a href="#cb9-121" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-122"><a href="#cb9-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-123"><a href="#cb9-123" aria-hidden="true" tabindex="-1"></a>The next step is to add two example entries of each variable to this <span class="in">`temp0`</span> data.frame *if* the argument <span class="in">`add_examples`</span> equals <span class="in">`TRUE`</span>. The lines do this by: </span>
+<span id="cb9-124"><a href="#cb9-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-125"><a href="#cb9-125" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>sampling two entries from the initial data.frame (<span class="in">`sample()`</span>)</span>
+<span id="cb9-126"><a href="#cb9-126" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>rounding numeric variables to <span class="in">`digits`</span> decimal places (<span class="in">`mutate_if`</span>)</span>
+<span id="cb9-127"><a href="#cb9-127" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>transposing it (<span class="in">`t()`</span>)</span>
+<span id="cb9-128"><a href="#cb9-128" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>pasting the two entries together (<span class="in">`apply()`</span>) </span>
+<span id="cb9-129"><a href="#cb9-129" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>and returning everything as vector (<span class="in">`unlist()`</span>).  </span>
+<span id="cb9-130"><a href="#cb9-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-131"><a href="#cb9-131" aria-hidden="true" tabindex="-1"></a>Afterwards, I add this new vector <span class="in">`temp_info`</span> to the data.frame as a new column called <span class="in">`Description`</span></span>
+<span id="cb9-132"><a href="#cb9-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-135"><a href="#cb9-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-136"><a href="#cb9-136" aria-hidden="true" tabindex="-1"></a>    temp_info <span class="ot">&lt;-</span> df[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df),<span class="dv">2</span>),] <span class="sc">%&gt;%</span></span>
+<span id="cb9-137"><a href="#cb9-137" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">mutate_if</span>(is.numeric,round,<span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-138"><a href="#cb9-138" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">t</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb9-139"><a href="#cb9-139" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">apply</span>(., <span class="dv">1</span>, paste, <span class="at">collapse=</span><span class="st">", "</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-140"><a href="#cb9-140" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">unlist</span>()</span>
+<span id="cb9-141"><a href="#cb9-141" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-142"><a href="#cb9-142" aria-hidden="true" tabindex="-1"></a>    <span class="fu">names</span>(temp_info) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb9-143"><a href="#cb9-143" aria-hidden="true" tabindex="-1"></a>    temp0 <span class="ot">&lt;-</span> temp0 <span class="sc">%&gt;%</span> <span class="fu">add_column</span>(<span class="st">"Example"</span> <span class="ot">=</span> temp_info,<span class="at">.before =</span> <span class="st">"Description"</span>)</span>
+<span id="cb9-144"><a href="#cb9-144" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-145"><a href="#cb9-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-146"><a href="#cb9-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-147"><a href="#cb9-147" aria-hidden="true" tabindex="-1"></a>So now we have:</span>
+<span id="cb9-148"><a href="#cb9-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-149"><a href="#cb9-149" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo=FALSE}</span></span>
+<span id="cb9-150"><a href="#cb9-150" aria-hidden="true" tabindex="-1"></a>temp0</span>
+<span id="cb9-151"><a href="#cb9-151" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-152"><a href="#cb9-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-153"><a href="#cb9-153" aria-hidden="true" tabindex="-1"></a>The next lines of code will add an info text, provided trough the <span class="in">`info = `</span> argument, as well as information about the dimensions of the data.frame to the top of the final <span class="in">`readme.txt`</span>. The statement <span class="in">`length(info)`</span> will return <span class="in">`FALSE`</span> if the argument is left empty (or <span class="in">`= NULL`</span>) and thus no information will be added if none is provided. </span>
+<span id="cb9-154"><a href="#cb9-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-155"><a href="#cb9-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo=FALSE, eval = FALSE}</span></span>
+<span id="cb9-156"><a href="#cb9-156" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span>(<span class="fu">length</span>(info)){</span>
+<span id="cb9-157"><a href="#cb9-157" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(info,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,<span class="st">"data.frame ("</span>,<span class="fu">nrow</span>(df),<span class="st">","</span>,<span class="fu">ncol</span>(df),<span class="st">")"</span>,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,<span class="at">sep =</span> <span class="st">""</span>)</span>
+<span id="cb9-158"><a href="#cb9-158" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb9-159"><a href="#cb9-159" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-160"><a href="#cb9-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-161"><a href="#cb9-161" aria-hidden="true" tabindex="-1"></a>The last part of the function prints out the data.frame <span class="in">`temp0`</span> in the format of a <span class="in">`markdown`</span> table by using the <span class="in">`kable()`</span> function. I used the <span class="in">`markdown`</span> format since it looks nice in a plain <span class="in">`.txt`</span> file and when copy &amp; pasted in a Github Readme.md or to the OSF wiki part. Everything between the  <span class="in">`sink()`</span> statements is saved as <span class="in">`readme.txt`</span> in the working directory (you can change the name or the path by changing it using the <span class="in">`file = `</span> argument). Now lets put everything together. Running the following command (of coruse, after first running the function code above) </span>
+<span id="cb9-162"><a href="#cb9-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-163"><a href="#cb9-163" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE, include=TRUE}</span></span>
+<span id="cb9-164"><a href="#cb9-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-165"><a href="#cb9-165" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="st">"ID"</span>   <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>,</span>
+<span id="cb9-166"><a href="#cb9-166" aria-hidden="true" tabindex="-1"></a>                <span class="st">"cond"</span> <span class="ot">=</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"A"</span>,<span class="st">"B"</span>),<span class="dv">50</span>,<span class="at">replace=</span>T),</span>
+<span id="cb9-167"><a href="#cb9-167" aria-hidden="true" tabindex="-1"></a>                <span class="st">"rt"</span>   <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">50</span>,<span class="dv">500</span>,<span class="dv">40</span>))</span>
+<span id="cb9-168"><a href="#cb9-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-169"><a href="#cb9-169" aria-hidden="true" tabindex="-1"></a>desc <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"unique numeric participant ID [1-50]"</span>,   <span class="co"># description for variable ID</span></span>
+<span id="cb9-170"><a href="#cb9-170" aria-hidden="true" tabindex="-1"></a>         <span class="st">"condition [A:congruent, B:incongruent]"</span>, <span class="co"># description for variable condition</span></span>
+<span id="cb9-171"><a href="#cb9-171" aria-hidden="true" tabindex="-1"></a>         <span class="st">"average reaction time in ms"</span>)  </span>
+<span id="cb9-172"><a href="#cb9-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-173"><a href="#cb9-173" aria-hidden="true" tabindex="-1"></a><span class="fu">make_df_readme</span>(df,</span>
+<span id="cb9-174"><a href="#cb9-174" aria-hidden="true" tabindex="-1"></a>              desc,</span>
+<span id="cb9-175"><a href="#cb9-175" aria-hidden="true" tabindex="-1"></a>              <span class="at">info =</span> <span class="st">"This is data for the second experiment reported in Fancy (2021) and ..."</span>)</span>
+<span id="cb9-176"><a href="#cb9-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-177"><a href="#cb9-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-178"><a href="#cb9-178" aria-hidden="true" tabindex="-1"></a>produces the <span class="in">`readme.txt`</span> file, which looks like this:</span>
+<span id="cb9-179"><a href="#cb9-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-180"><a href="#cb9-180" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE,}</span></span>
+<span id="cb9-181"><a href="#cb9-181" aria-hidden="true" tabindex="-1"></a>This is data <span class="cf">for</span> the second experiment reported <span class="cf">in</span> <span class="fu">Fancy</span> (<span class="dv">2021</span>) and ...</span>
+<span id="cb9-182"><a href="#cb9-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-183"><a href="#cb9-183" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span> (<span class="dv">50</span>,<span class="dv">3</span>)</span>
+<span id="cb9-184"><a href="#cb9-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-185"><a href="#cb9-185" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>Variable <span class="sc">|</span>Type      <span class="sc">|</span>Example             <span class="sc">|</span>Description                            <span class="sc">|</span></span>
+<span id="cb9-186"><a href="#cb9-186" aria-hidden="true" tabindex="-1"></a><span class="er">|:</span><span class="sc">--------</span><span class="er">|:</span><span class="sc">---------</span><span class="er">|:</span><span class="sc">-------------------</span><span class="er">|:</span><span class="sc">--------------------------------------</span><span class="er">|</span></span>
+<span id="cb9-187"><a href="#cb9-187" aria-hidden="true" tabindex="-1"></a><span class="er">|</span>ID       <span class="sc">|</span>integer   <span class="sc">|</span><span class="dv">12</span>,<span class="dv">15</span>               <span class="sc">|</span>unique numeric participant ID [<span class="dv">1-50</span>]   <span class="sc">|</span></span>
+<span id="cb9-188"><a href="#cb9-188" aria-hidden="true" tabindex="-1"></a><span class="er">|</span>cond     <span class="sc">|</span>character <span class="sc">|</span>A, B                <span class="sc">|</span>condition [A<span class="sc">:</span>congruent, B<span class="sc">:</span>incongruent] <span class="sc">|</span></span>
+<span id="cb9-189"><a href="#cb9-189" aria-hidden="true" tabindex="-1"></a><span class="er">|</span>rt       <span class="sc">|</span>numeric   <span class="sc">|</span><span class="fl">511.44</span>,<span class="fl">486.54</span>       <span class="sc">|</span>average reaction time <span class="cf">in</span> ms            <span class="sc">|</span></span>
+<span id="cb9-190"><a href="#cb9-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-191"><a href="#cb9-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-192"><a href="#cb9-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-193"><a href="#cb9-193" aria-hidden="true" tabindex="-1"></a>If you copy &amp; paste the table in your OSF wiki or Github Readme the table will look even better: </span>
+<span id="cb9-194"><a href="#cb9-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-195"><a href="#cb9-195" aria-hidden="true" tabindex="-1"></a>|Variable |Type      |Example             |Description                            |</span>
+<span id="cb9-196"><a href="#cb9-196" aria-hidden="true" tabindex="-1"></a>|:--------|:---------|:-------------------|:--------------------------------------|</span>
+<span id="cb9-197"><a href="#cb9-197" aria-hidden="true" tabindex="-1"></a>|ID       |integer   |12,15               |unique numeric participant ID <span class="co">[</span><span class="ot">1-50</span><span class="co">]</span>   |</span>
+<span id="cb9-198"><a href="#cb9-198" aria-hidden="true" tabindex="-1"></a>|cond     |character |A, B                |condition <span class="co">[</span><span class="ot">A:congruent, B:incongruent</span><span class="co">]</span> |</span>
+<span id="cb9-199"><a href="#cb9-199" aria-hidden="true" tabindex="-1"></a>|rt       |numeric   |511.44,486.54       |average reaction time in ms            |</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="David Izydorczyk">
 <meta name="dcterms.date" content="2022-05-07">
 <meta name="description" content="This post explores the the results of all qualifying matches for the WM 2022 football championship. In subsequent blog posts, this information will be used to model the data and predicting future matches.">
 
@@ -173,7 +174,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Predicting the WM22 Part 1</h1>
+      <div class="quarto-title-block"><div><h1 class="title">Predicting the WM22 Part 1</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
             <p class="subtitle lead">Explore the results of all qualifying matches for the WM 2022 football championship</p>
                           <div class="quarto-categories">
                 <div class="quarto-category">football</div>
@@ -193,6 +194,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
   <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>David Izydorczyk </p>
+            </div>
+    </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
@@ -598,6 +605,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Those were some very one-sided match-ups.</p>
 
 
+<!-- -->
+
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section></div></main> <!-- /main -->
@@ -728,6 +737,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -776,7 +836,327 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     });
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb21" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Predicting the WM22 Part 1"</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> David Izydorczyk</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "05/07/2022"</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [football,STAN]</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> Explore the results of all qualifying matches for the WM 2022 football championship</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> |</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="co">  This post explores the the results of all qualifying matches for the WM 2022 football championship. In subsequent blog posts, this information will be used to model the data and predicting future matches. </span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="co">  out.width: "100%"</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> goals_WM22_qualifying.png</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a><span class="in">```{r include = FALSE}</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>knit_print.data.frame <span class="ot">&lt;-</span> <span class="cf">function</span> (x, options, ...) {</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>  rmarkdown<span class="sc">::</span><span class="fu">paged_table</span>(x, options) <span class="sc">|&gt;</span></span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>    rmarkdown<span class="sc">:::</span><span class="fu">print.paged_df</span>()</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a><span class="fu">registerS3method</span>(<span class="st">"knit_print"</span>, <span class="st">"data.frame"</span>, knit_print.data.frame)</span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a>With this series of blog posts, I wanted to learn more about <span class="in">`Python`</span>, plotting maps with <span class="in">`ggplot`</span>, modeling with <span class="in">`STAN`</span>, football (?) and just practice writing. The aim is to predict the games of the 2022 football world championship using data from the qualifying games of all countries and informations about the individual players of each team. I scraped the data from open websites using <span class="in">`Python`</span>. The scripts can be found on the corresponding <span class="in">`Github`</span> page of this project. In this first blog post of the series, I want to explore the data set <span class="in">`results_quali_matches.csv`</span> which contains the data of all qualifying games. I never used spatial data or plotted spatial data, so since I have data from all over the world, I want to try out plotting maps with <span class="in">`ggplot`</span>. The main point of this blog post, however, is to get a feel for the data we have, which will be useful for our modeling attempts later. </span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a><span class="fu"># The data</span></span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>I start by loading the packages I need, set a general theme for our plots, and then load our data. </span>
+<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-41"><a href="#cb21-41" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb21-42"><a href="#cb21-42" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maps)</span>
+<span id="cb21-43"><a href="#cb21-43" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapdata)</span>
+<span id="cb21-44"><a href="#cb21-44" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span>
+<span id="cb21-45"><a href="#cb21-45" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb21-46"><a href="#cb21-46" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(countrycode)</span>
+<span id="cb21-47"><a href="#cb21-47" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb21-48"><a href="#cb21-48" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb21-49"><a href="#cb21-49" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb21-50"><a href="#cb21-50" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb21-51"><a href="#cb21-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-52"><a href="#cb21-52" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(</span>
+<span id="cb21-53"><a href="#cb21-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb21-54"><a href="#cb21-54" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) </span>
+<span id="cb21-55"><a href="#cb21-55" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-56"><a href="#cb21-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-57"><a href="#cb21-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-58"><a href="#cb21-58" aria-hidden="true" tabindex="-1"></a>quali22        <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"../../../data/results_quali_matches.csv"</span>)</span>
+<span id="cb21-59"><a href="#cb21-59" aria-hidden="true" tabindex="-1"></a>quali22<span class="sc">$</span>goalsA <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(quali22<span class="sc">$</span>goalsA)</span>
+<span id="cb21-60"><a href="#cb21-60" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-61"><a href="#cb21-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-62"><a href="#cb21-62" aria-hidden="true" tabindex="-1"></a>Our data.frame generally looks like this: </span>
+<span id="cb21-63"><a href="#cb21-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-66"><a href="#cb21-66" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-67"><a href="#cb21-67" aria-hidden="true" tabindex="-1"></a>quali22</span>
+<span id="cb21-68"><a href="#cb21-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-69"><a href="#cb21-69" aria-hidden="true" tabindex="-1"></a>countries <span class="ot">&lt;-</span>  quali22<span class="sc">$</span>teamA <span class="sc">%&gt;%</span> <span class="fu">unique</span>() </span>
+<span id="cb21-70"><a href="#cb21-70" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-71"><a href="#cb21-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-72"><a href="#cb21-72" aria-hidden="true" tabindex="-1"></a>In total we have <span class="in">`r nrow(quali22)`</span> matches from <span class="in">`r length(countries)`</span> in our data set. Lets start our exploration by calculating and then plotting the number of goals scored and received by each country. For this, I first want to create two new variables <span class="in">`scored`</span> and <span class="in">`received`</span> using a <span class="in">`for`</span>-loop. There might be a "tidyverse" way to do this faster, however, I think the <span class="in">`for`</span>-loop is pretty straight forward.</span>
+<span id="cb21-73"><a href="#cb21-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-76"><a href="#cb21-76" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-77"><a href="#cb21-77" aria-hidden="true" tabindex="-1"></a>n_countries <span class="ot">&lt;-</span> <span class="fu">length</span>(countries)</span>
+<span id="cb21-78"><a href="#cb21-78" aria-hidden="true" tabindex="-1"></a>scored      <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"numeric"</span>,n_countries)</span>
+<span id="cb21-79"><a href="#cb21-79" aria-hidden="true" tabindex="-1"></a>received    <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"numeric"</span>,n_countries)</span>
+<span id="cb21-80"><a href="#cb21-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-81"><a href="#cb21-81" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(countries)){</span>
+<span id="cb21-82"><a href="#cb21-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-83"><a href="#cb21-83" aria-hidden="true" tabindex="-1"></a>  country <span class="ot">&lt;-</span> countries[i]</span>
+<span id="cb21-84"><a href="#cb21-84" aria-hidden="true" tabindex="-1"></a>  rows    <span class="ot">&lt;-</span> quali22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(teamA <span class="sc">==</span> country <span class="sc">|</span> teamB <span class="sc">==</span> country) </span>
+<span id="cb21-85"><a href="#cb21-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-86"><a href="#cb21-86" aria-hidden="true" tabindex="-1"></a>  temp    <span class="ot">&lt;-</span> rows <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">scored  =</span> <span class="fu">case_when</span>(</span>
+<span id="cb21-87"><a href="#cb21-87" aria-hidden="true" tabindex="-1"></a>                                        teamA <span class="sc">==</span> country <span class="sc">~</span> goalsA,</span>
+<span id="cb21-88"><a href="#cb21-88" aria-hidden="true" tabindex="-1"></a>                                        teamB <span class="sc">==</span> country <span class="sc">~</span> goalsB),</span>
+<span id="cb21-89"><a href="#cb21-89" aria-hidden="true" tabindex="-1"></a>                            <span class="at">received =</span> <span class="fu">case_when</span>(</span>
+<span id="cb21-90"><a href="#cb21-90" aria-hidden="true" tabindex="-1"></a>                                        teamA <span class="sc">==</span> country <span class="sc">~</span> goalsB,</span>
+<span id="cb21-91"><a href="#cb21-91" aria-hidden="true" tabindex="-1"></a>                                        teamB <span class="sc">==</span> country <span class="sc">~</span> goalsA)) <span class="sc">%&gt;%</span></span>
+<span id="cb21-92"><a href="#cb21-92" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">summarize</span>(<span class="at">scored   =</span> <span class="fu">sum</span>(scored,<span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb21-93"><a href="#cb21-93" aria-hidden="true" tabindex="-1"></a>                                <span class="at">received =</span> <span class="fu">sum</span>(received,<span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
+<span id="cb21-94"><a href="#cb21-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-95"><a href="#cb21-95" aria-hidden="true" tabindex="-1"></a>  scored[i]   <span class="ot">&lt;-</span> temp<span class="sc">$</span>scored</span>
+<span id="cb21-96"><a href="#cb21-96" aria-hidden="true" tabindex="-1"></a>  received[i] <span class="ot">&lt;-</span> temp<span class="sc">$</span>received</span>
+<span id="cb21-97"><a href="#cb21-97" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-98"><a href="#cb21-98" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-99"><a href="#cb21-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-100"><a href="#cb21-100" aria-hidden="true" tabindex="-1"></a>Lets combine all variables to a new data.frame:</span>
+<span id="cb21-101"><a href="#cb21-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-104"><a href="#cb21-104" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-105"><a href="#cb21-105" aria-hidden="true" tabindex="-1"></a>country_stats <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="st">"country"</span> <span class="ot">=</span> countries,scored,received) <span class="sc">%&gt;%</span></span>
+<span id="cb21-106"><a href="#cb21-106" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">arrange</span>(<span class="fu">desc</span>(scored)) </span>
+<span id="cb21-107"><a href="#cb21-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-108"><a href="#cb21-108" aria-hidden="true" tabindex="-1"></a>country_stats</span>
+<span id="cb21-109"><a href="#cb21-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-110"><a href="#cb21-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-111"><a href="#cb21-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-112"><a href="#cb21-112" aria-hidden="true" tabindex="-1"></a><span class="fu"># Making world maps using the ggplot2</span></span>
+<span id="cb21-113"><a href="#cb21-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-114"><a href="#cb21-114" aria-hidden="true" tabindex="-1"></a>Now I want to make a  world map and then color each country by the number of goals scored/received. For this I will use the <span class="in">`map`</span> package, which provides a data.frame that  contains outlines of several continents.</span>
+<span id="cb21-115"><a href="#cb21-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-118"><a href="#cb21-118" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-119"><a href="#cb21-119" aria-hidden="true" tabindex="-1"></a>world <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="st">"world"</span>)</span>
+<span id="cb21-120"><a href="#cb21-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-121"><a href="#cb21-121" aria-hidden="true" tabindex="-1"></a>world</span>
+<span id="cb21-122"><a href="#cb21-122" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-123"><a href="#cb21-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-124"><a href="#cb21-124" aria-hidden="true" tabindex="-1"></a>This  <span class="in">`world`</span> data.frame has the following variables: <span class="in">`long`</span> for longitude, <span class="in">`lat`</span> for latitude, <span class="in">`group`</span> tells which adjacent points to connect, <span class="in">`order`</span> refers to the sequence by which the points should be connected, and <span class="in">`region`</span> and <span class="in">`subregion`</span> annotate the area surrounded by a set of points. We can use this information to plot the world using <span class="in">`ggplot`</span>: </span>
+<span id="cb21-125"><a href="#cb21-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-128"><a href="#cb21-128" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-129"><a href="#cb21-129" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> world, <span class="fu">aes</span>(<span class="at">x=</span>long, <span class="at">y =</span> lat, <span class="at">group =</span> group)) <span class="sc">+</span></span>
+<span id="cb21-130"><a href="#cb21-130" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">color=</span><span class="st">"black"</span>,<span class="at">fill=</span><span class="st">"lightgrey"</span>)  <span class="sc">+</span></span>
+<span id="cb21-131"><a href="#cb21-131" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="fl">1.3</span>) <span class="sc">+</span> <span class="fu">theme_map</span>() <span class="co"># looks better</span></span>
+<span id="cb21-132"><a href="#cb21-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-133"><a href="#cb21-133" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-134"><a href="#cb21-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-135"><a href="#cb21-135" aria-hidden="true" tabindex="-1"></a>Beautiful, isn't it ? In order to color each country by the number of goals scored or received, we have to join the <span class="in">`world`</span> and the <span class="in">`country_stats`</span> data.frames together. However, before we can do this, we first have to make some processing steps in both data.frames. First, I need to translate the country names in the <span class="in">`country_stats`</span> data.frames from German to English, since the <span class="in">`region`</span> column in <span class="in">`world`</span> contains the Names in English. Second, in the <span class="in">`country_stats`</span> data.frame I have some "countries" which are rather sub-regions in <span class="in">`world`</span>, for instance, Wales or Scotland. Thus, I need to create a new column in <span class="in">`world`</span> which contains the same "countries" as in <span class="in">`country_stats`</span>. </span>
+<span id="cb21-136"><a href="#cb21-136" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb21-137"><a href="#cb21-137" aria-hidden="true" tabindex="-1"></a>To translate the names, I use the <span class="in">`countrycode`</span> package. </span>
+<span id="cb21-138"><a href="#cb21-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-141"><a href="#cb21-141" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-142"><a href="#cb21-142" aria-hidden="true" tabindex="-1"></a>country_stats <span class="ot">&lt;-</span> country_stats <span class="sc">%&gt;%</span></span>
+<span id="cb21-143"><a href="#cb21-143" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">mutate</span>(<span class="at">country_en =</span> <span class="fu">countrycode</span>(country, <span class="at">origin      =</span> <span class="st">'country.name.de'</span>,</span>
+<span id="cb21-144"><a href="#cb21-144" aria-hidden="true" tabindex="-1"></a>                                                             <span class="at">destination =</span> <span class="st">'country.name.en'</span>))</span>
+<span id="cb21-145"><a href="#cb21-145" aria-hidden="true" tabindex="-1"></a>country_stats</span>
+<span id="cb21-146"><a href="#cb21-146" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-147"><a href="#cb21-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-148"><a href="#cb21-148" aria-hidden="true" tabindex="-1"></a>This worked quite well, except for the following warning: <span class="in">`Some values were not matched unambiguously: Br. Jungferninseln, Djibouti, Dom. Republik, England,`</span> <span class="in">`Kapverdische Inseln, Schottland, Sénégal, VA Emirate, Wales, Zentralafr. Republik`</span>. So I still have to put in some work by myself. I also added additional country name changes, based on checks a few code chunks further down.</span>
+<span id="cb21-149"><a href="#cb21-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-152"><a href="#cb21-152" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-153"><a href="#cb21-153" aria-hidden="true" tabindex="-1"></a>country_stats <span class="ot">&lt;-</span> country_stats <span class="sc">%&gt;%</span></span>
+<span id="cb21-154"><a href="#cb21-154" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">mutate</span>(<span class="at">country_en =</span> <span class="fu">case_when</span>(</span>
+<span id="cb21-155"><a href="#cb21-155" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"Djibouti"</span> <span class="sc">~</span> <span class="st">"Djibouti"</span>, <span class="co"># not sure why this didnt work before</span></span>
+<span id="cb21-156"><a href="#cb21-156" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"Br. Jungferninseln"</span> <span class="sc">~</span> <span class="st">"Virgin Islands"</span>,</span>
+<span id="cb21-157"><a href="#cb21-157" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"Dom. Republik"</span> <span class="sc">~</span> <span class="st">"Dominican Republic"</span>,</span>
+<span id="cb21-158"><a href="#cb21-158" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"England"</span> <span class="sc">~</span> <span class="st">"Great Britain"</span>,</span>
+<span id="cb21-159"><a href="#cb21-159" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"Kapverdische Inseln"</span> <span class="sc">~</span> <span class="st">"Cape Verde"</span>,</span>
+<span id="cb21-160"><a href="#cb21-160" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"Schottland"</span> <span class="sc">~</span> <span class="st">"Scotland"</span>,</span>
+<span id="cb21-161"><a href="#cb21-161" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"Sénégal"</span> <span class="sc">~</span> <span class="st">"Senegal"</span>,</span>
+<span id="cb21-162"><a href="#cb21-162" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"Wales"</span> <span class="sc">~</span> <span class="st">"Wales"</span>,</span>
+<span id="cb21-163"><a href="#cb21-163" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"Zentralafr. Republik"</span> <span class="sc">~</span> <span class="st">"Central African Republic"</span>,</span>
+<span id="cb21-164"><a href="#cb21-164" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"Bosnien-Herzegowina"</span> <span class="sc">~</span> <span class="st">"Bosnia and Herzegovina"</span>,</span>
+<span id="cb21-165"><a href="#cb21-165" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"Elfenbeinküste"</span> <span class="sc">~</span> <span class="st">"Ivory Coast"</span>,</span>
+<span id="cb21-166"><a href="#cb21-166" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"Tschechien"</span> <span class="sc">~</span> <span class="st">"Czech Republic"</span>,</span>
+<span id="cb21-167"><a href="#cb21-167" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"Curaçao"</span> <span class="sc">~</span> <span class="st">"Curacao"</span>,</span>
+<span id="cb21-168"><a href="#cb21-168" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"Kongo"</span> <span class="sc">~</span> <span class="st">"Republic of Congo"</span>,</span>
+<span id="cb21-169"><a href="#cb21-169" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"USA"</span> <span class="sc">~</span> <span class="st">"USA"</span>,</span>
+<span id="cb21-170"><a href="#cb21-170" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"DR Kongo"</span> <span class="sc">~</span> <span class="st">"Democratic Republic of the Congo"</span>,</span>
+<span id="cb21-171"><a href="#cb21-171" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"St. Kitts &amp; Nevis"</span> <span class="sc">~</span> <span class="st">"Nevis"</span>,</span>
+<span id="cb21-172"><a href="#cb21-172" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"Antigua &amp; Barbuda"</span> <span class="sc">~</span> <span class="st">"Antigua"</span>,</span>
+<span id="cb21-173"><a href="#cb21-173" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"Turks &amp; Caicos"</span> <span class="sc">~</span> <span class="st">"Turks and Caicos Islands"</span>,</span>
+<span id="cb21-174"><a href="#cb21-174" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"Trinidad &amp; Tobago"</span> <span class="sc">~</span> <span class="st">"Trinidad"</span>,</span>
+<span id="cb21-175"><a href="#cb21-175" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"St. Vincent/Grenadines"</span> <span class="sc">~</span> <span class="st">"Saint Vincent"</span>,</span>
+<span id="cb21-176"><a href="#cb21-176" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"VA Emirate"</span> <span class="sc">~</span> <span class="st">"United Arab Emirates"</span>,</span>
+<span id="cb21-177"><a href="#cb21-177" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"Hong Kong SAR China"</span> <span class="sc">~</span> <span class="st">"Hongkong"</span>,</span>
+<span id="cb21-178"><a href="#cb21-178" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"Palästina"</span> <span class="sc">~</span> <span class="st">"Palestine"</span>,</span>
+<span id="cb21-179"><a href="#cb21-179" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"Myanmar"</span> <span class="sc">~</span> <span class="st">"Myanmar"</span>,</span>
+<span id="cb21-180"><a href="#cb21-180" aria-hidden="true" tabindex="-1"></a>                      country <span class="sc">==</span> <span class="st">"Nordirland"</span> <span class="sc">~</span> <span class="st">"Northern Ireland"</span>,</span>
+<span id="cb21-181"><a href="#cb21-181" aria-hidden="true" tabindex="-1"></a>                      <span class="cn">TRUE</span> <span class="sc">~</span> country_en</span>
+<span id="cb21-182"><a href="#cb21-182" aria-hidden="true" tabindex="-1"></a>                    )) </span>
+<span id="cb21-183"><a href="#cb21-183" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb21-184"><a href="#cb21-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-185"><a href="#cb21-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-186"><a href="#cb21-186" aria-hidden="true" tabindex="-1"></a><span class="co"># check if we have everything:</span></span>
+<span id="cb21-187"><a href="#cb21-187" aria-hidden="true" tabindex="-1"></a><span class="co"># country_stats %&gt;% filter(is.na(country_en))</span></span>
+<span id="cb21-188"><a href="#cb21-188" aria-hidden="true" tabindex="-1"></a>country_stats</span>
+<span id="cb21-189"><a href="#cb21-189" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-190"><a href="#cb21-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-191"><a href="#cb21-191" aria-hidden="true" tabindex="-1"></a>Next I make a new variable in the <span class="in">`worlds`</span> data.frame, which I will then use to join both data.frames together.</span>
+<span id="cb21-192"><a href="#cb21-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-195"><a href="#cb21-195" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-196"><a href="#cb21-196" aria-hidden="true" tabindex="-1"></a>world <span class="ot">&lt;-</span> world <span class="sc">%&gt;%</span></span>
+<span id="cb21-197"><a href="#cb21-197" aria-hidden="true" tabindex="-1"></a>            <span class="fu">mutate</span>(<span class="at">country_en =</span> <span class="fu">case_when</span>(subregion <span class="sc">==</span> <span class="st">"Wales"</span> <span class="sc">~</span> <span class="st">"Wales"</span>,</span>
+<span id="cb21-198"><a href="#cb21-198" aria-hidden="true" tabindex="-1"></a>                                          subregion <span class="sc">==</span> <span class="st">"Northern Ireland"</span> <span class="sc">~</span> <span class="st">"Northern Ireland"</span>,</span>
+<span id="cb21-199"><a href="#cb21-199" aria-hidden="true" tabindex="-1"></a>                                          subregion <span class="sc">==</span> <span class="st">"Scotland"</span> <span class="sc">~</span> <span class="st">"Scotland"</span>,</span>
+<span id="cb21-200"><a href="#cb21-200" aria-hidden="true" tabindex="-1"></a>                                          subregion <span class="sc">==</span> <span class="st">"Great Britain"</span> <span class="sc">~</span> <span class="st">"Great Britain"</span>,</span>
+<span id="cb21-201"><a href="#cb21-201" aria-hidden="true" tabindex="-1"></a>                                          subregion <span class="sc">==</span> <span class="st">"Grand Caicos Island"</span> <span class="sc">~</span> <span class="st">"Turks and Caicos Islands"</span>,</span>
+<span id="cb21-202"><a href="#cb21-202" aria-hidden="true" tabindex="-1"></a>                                          subregion <span class="sc">==</span> <span class="st">"British"</span> <span class="sc">~</span> <span class="st">"Virgin Islands"</span>,</span>
+<span id="cb21-203"><a href="#cb21-203" aria-hidden="true" tabindex="-1"></a>                                          subregion <span class="sc">==</span> <span class="st">"Hong Kong"</span> <span class="sc">~</span> <span class="st">"Hong Kong"</span>,</span>
+<span id="cb21-204"><a href="#cb21-204" aria-hidden="true" tabindex="-1"></a>                                          <span class="cn">TRUE</span> <span class="sc">~</span> region)) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-205"><a href="#cb21-205" aria-hidden="true" tabindex="-1"></a>            <span class="fu">filter</span>(region <span class="sc">!=</span> <span class="st">"USA"</span> <span class="sc">|</span> region <span class="sc">==</span> <span class="st">"USA"</span> <span class="sc">&amp;</span> (<span class="fu">is.na</span>(subregion) <span class="sc">|</span> subregion <span class="sc">==</span> <span class="st">"Alaska"</span>),</span>
+<span id="cb21-206"><a href="#cb21-206" aria-hidden="true" tabindex="-1"></a>                   region <span class="sc">!=</span> <span class="st">"United Arab Emirates"</span> <span class="sc">|</span> region <span class="sc">==</span> <span class="st">"United Arab Emirates"</span> <span class="sc">&amp;</span> <span class="fu">is.na</span>(subregion),</span>
+<span id="cb21-207"><a href="#cb21-207" aria-hidden="true" tabindex="-1"></a>                   region <span class="sc">!=</span> <span class="st">"Myanmar"</span> <span class="sc">|</span> region <span class="sc">==</span> <span class="st">"Myanmar"</span> <span class="sc">&amp;</span> <span class="fu">is.na</span>(subregion),</span>
+<span id="cb21-208"><a href="#cb21-208" aria-hidden="true" tabindex="-1"></a>                   region <span class="sc">!=</span> <span class="st">"Ireland"</span> <span class="sc">|</span> region <span class="sc">==</span> <span class="st">"Ireland"</span> <span class="sc">&amp;</span> <span class="fu">is.na</span>(subregion))</span>
+<span id="cb21-209"><a href="#cb21-209" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-210"><a href="#cb21-210" aria-hidden="true" tabindex="-1"></a><span class="co"># We need to add Gibraltar through a different dataset</span></span>
+<span id="cb21-211"><a href="#cb21-211" aria-hidden="true" tabindex="-1"></a><span class="co"># "worldHires" is a more detailed version of "world"</span></span>
+<span id="cb21-212"><a href="#cb21-212" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="st">'worldHires'</span>)  <span class="sc">%&gt;%</span> <span class="fu">filter</span>(subregion <span class="sc">==</span> <span class="st">"Gibralter"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">country_en =</span> <span class="st">"Gibraltar"</span>)</span>
+<span id="cb21-213"><a href="#cb21-213" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-214"><a href="#cb21-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-215"><a href="#cb21-215" aria-hidden="true" tabindex="-1"></a>world <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(world,temp) <span class="sc">%&gt;%</span> <span class="fu">as_tibble</span>() </span>
+<span id="cb21-216"><a href="#cb21-216" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-217"><a href="#cb21-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-218"><a href="#cb21-218" aria-hidden="true" tabindex="-1"></a>Now we can join both data.frames using <span class="in">`left_join`</span>. Lets also clean the resulting data.frame a little bit.</span>
+<span id="cb21-219"><a href="#cb21-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-222"><a href="#cb21-222" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-223"><a href="#cb21-223" aria-hidden="true" tabindex="-1"></a>country_stats <span class="ot">&lt;-</span> <span class="fu">left_join</span>(country_stats,world,<span class="at">by=</span><span class="st">"country_en"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-224"><a href="#cb21-224" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">select</span>(<span class="at">region =</span> country_en, scored, received, long, lat, group, order )</span>
+<span id="cb21-225"><a href="#cb21-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-226"><a href="#cb21-226" aria-hidden="true" tabindex="-1"></a><span class="co"># checks:</span></span>
+<span id="cb21-227"><a href="#cb21-227" aria-hidden="true" tabindex="-1"></a><span class="co"># check if any countries do not have infos from world</span></span>
+<span id="cb21-228"><a href="#cb21-228" aria-hidden="true" tabindex="-1"></a><span class="co"># country_stats %&gt;% filter(is.na(long)) %&gt;% pull(region) %&gt;% unique()</span></span>
+<span id="cb21-229"><a href="#cb21-229" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-230"><a href="#cb21-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-231"><a href="#cb21-231" aria-hidden="true" tabindex="-1"></a>Great, after some back and forth changes, I think I now have the position of every country in our data set. Lets check this, by just plotting all countries or regions where we have some data from.</span>
+<span id="cb21-232"><a href="#cb21-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-235"><a href="#cb21-235" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-236"><a href="#cb21-236" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> country_stats, <span class="fu">aes</span>(<span class="at">x=</span>long, <span class="at">y =</span> lat, <span class="at">group =</span> group)) <span class="sc">+</span></span>
+<span id="cb21-237"><a href="#cb21-237" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">color=</span><span class="st">"black"</span>,<span class="at">fill=</span><span class="st">"lightgrey"</span>) <span class="sc">+</span></span>
+<span id="cb21-238"><a href="#cb21-238" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="fl">1.3</span>) <span class="sc">+</span> <span class="fu">theme_map</span>()</span>
+<span id="cb21-239"><a href="#cb21-239" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-240"><a href="#cb21-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-241"><a href="#cb21-241" aria-hidden="true" tabindex="-1"></a>So we this really is a "World" championship. </span>
+<span id="cb21-242"><a href="#cb21-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-243"><a href="#cb21-243" aria-hidden="true" tabindex="-1"></a><span class="fu"># Color regions by goals scored and recevied</span></span>
+<span id="cb21-244"><a href="#cb21-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-245"><a href="#cb21-245" aria-hidden="true" tabindex="-1"></a>Here I color each country or region by the number of goals they scored and received in their qualifying matches. From the plots you can identify some countries which apparently did well in their group, since the score many goals, but received only few. For instance, Canada, Japan, German, or Brasil. There also seem to be fewer goals in African and south-east Asian countries.</span>
+<span id="cb21-246"><a href="#cb21-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-247"><a href="#cb21-247" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,fig.height= 8,fig.width=12 }</span></span>
+<span id="cb21-248"><a href="#cb21-248" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> country_stats, <span class="fu">aes</span>(<span class="at">x=</span>long, <span class="at">y =</span> lat, <span class="at">group =</span> group)) <span class="sc">+</span></span>
+<span id="cb21-249"><a href="#cb21-249" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="fu">aes</span>(<span class="at">fill=</span>scored), <span class="at">color=</span><span class="st">"black"</span>,<span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb21-250"><a href="#cb21-250" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>() <span class="sc">+</span></span>
+<span id="cb21-251"><a href="#cb21-251" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="fl">1.3</span>) <span class="sc">+</span></span>
+<span id="cb21-252"><a href="#cb21-252" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Goals Scored"</span>) <span class="sc">+</span> <span class="fu">theme_map</span>() <span class="sc">+</span></span>
+<span id="cb21-253"><a href="#cb21-253" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) </span>
+<span id="cb21-254"><a href="#cb21-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-255"><a href="#cb21-255" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> country_stats, <span class="fu">aes</span>(<span class="at">x=</span>long, <span class="at">y =</span> lat, <span class="at">group =</span> group)) <span class="sc">+</span></span>
+<span id="cb21-256"><a href="#cb21-256" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="fu">aes</span>(<span class="at">fill=</span>received), <span class="at">color=</span><span class="st">"black"</span>,<span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb21-257"><a href="#cb21-257" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>() <span class="sc">+</span></span>
+<span id="cb21-258"><a href="#cb21-258" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="fl">1.3</span>) <span class="sc">+</span></span>
+<span id="cb21-259"><a href="#cb21-259" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Goals Received"</span>) <span class="sc">+</span> <span class="fu">theme_map</span>() <span class="sc">+</span></span>
+<span id="cb21-260"><a href="#cb21-260" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) </span>
+<span id="cb21-261"><a href="#cb21-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-262"><a href="#cb21-262" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-263"><a href="#cb21-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-264"><a href="#cb21-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-265"><a href="#cb21-265" aria-hidden="true" tabindex="-1"></a><span class="fu"># Goals Scored and Received per Country</span></span>
+<span id="cb21-266"><a href="#cb21-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-269"><a href="#cb21-269" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-270"><a href="#cb21-270" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> country_stats <span class="sc">%&gt;%</span> <span class="fu">select</span>(region,scored,received) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
+<span id="cb21-271"><a href="#cb21-271" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-272"><a href="#cb21-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-273"><a href="#cb21-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-274"><a href="#cb21-274" aria-hidden="true" tabindex="-1"></a>I also want to get a general idea of the distribution and relationship of the scored and received goals. There is only a small negative correlation between the number of goals scored and the number of goals received (r = <span class="in">`r cor(temp$scored,temp$received) %&gt;% round(2)`</span>), mostly driven by Japan.</span>
+<span id="cb21-275"><a href="#cb21-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-276"><a href="#cb21-276" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE}</span></span>
+<span id="cb21-277"><a href="#cb21-277" aria-hidden="true" tabindex="-1"></a>p_scatter <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(temp,<span class="fu">aes</span>(<span class="at">x =</span> scored, <span class="at">y =</span> received)) <span class="sc">+</span></span>
+<span id="cb21-278"><a href="#cb21-278" aria-hidden="true" tabindex="-1"></a>              <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"lightgrey"</span>,<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb21-279"><a href="#cb21-279" aria-hidden="true" tabindex="-1"></a>              <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb21-280"><a href="#cb21-280" aria-hidden="true" tabindex="-1"></a>              <span class="fu">geom_label_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span> region),</span>
+<span id="cb21-281"><a href="#cb21-281" aria-hidden="true" tabindex="-1"></a>                               <span class="at">box.padding   =</span> <span class="fl">0.35</span>, </span>
+<span id="cb21-282"><a href="#cb21-282" aria-hidden="true" tabindex="-1"></a>                               <span class="at">point.padding =</span> <span class="fl">0.5</span>,</span>
+<span id="cb21-283"><a href="#cb21-283" aria-hidden="true" tabindex="-1"></a>                               <span class="at">segment.color =</span> <span class="st">'grey50'</span>)</span>
+<span id="cb21-284"><a href="#cb21-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-285"><a href="#cb21-285" aria-hidden="true" tabindex="-1"></a>p_scatter</span>
+<span id="cb21-286"><a href="#cb21-286" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-287"><a href="#cb21-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-288"><a href="#cb21-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-289"><a href="#cb21-289" aria-hidden="true" tabindex="-1"></a>On average, countries scored/received <span class="in">`r mean(temp$scored) %&gt;% round(2)`</span> goals (SD = <span class="in">`r sd(temp$scored) %&gt;% round(2)`</span>). Lets also look at the distributions:</span>
+<span id="cb21-290"><a href="#cb21-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-293"><a href="#cb21-293" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-294"><a href="#cb21-294" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(temp) <span class="sc">+</span> </span>
+<span id="cb21-295"><a href="#cb21-295" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> scored, <span class="at">fill =</span> <span class="st">"Scored"</span>), <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb21-296"><a href="#cb21-296" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> received, <span class="at">fill =</span> <span class="st">"Received"</span>), <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb21-297"><a href="#cb21-297" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#74D055FF"</span>,<span class="st">"#39558CFF"</span>)) <span class="sc">+</span> </span>
+<span id="cb21-298"><a href="#cb21-298" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">"Goals"</span>,<span class="at">x =</span> <span class="st">""</span>, <span class="at">y=</span><span class="st">""</span>, <span class="at">title =</span> <span class="st">"Distribution of Goals per Country"</span>) <span class="sc">+</span></span>
+<span id="cb21-299"><a href="#cb21-299" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.8</span>, <span class="fl">0.8</span>)) <span class="sc">+</span></span>
+<span id="cb21-300"><a href="#cb21-300" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">65</span>)) <span class="sc">+</span> </span>
+<span id="cb21-301"><a href="#cb21-301" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.065</span>))</span>
+<span id="cb21-302"><a href="#cb21-302" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-303"><a href="#cb21-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-304"><a href="#cb21-304" aria-hidden="true" tabindex="-1"></a><span class="fu"># Goals Scored and Received per Match</span></span>
+<span id="cb21-305"><a href="#cb21-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-306"><a href="#cb21-306" aria-hidden="true" tabindex="-1"></a>I am also interested in the single match-ups, for instance, how many goals are there in the average match, what are the most probably outcomes of a match, etc. Lets try to find this out. On average, there were  <span class="in">`r mean(c(quali22$goalsA,quali22$goalsB),na.rm=T) %&gt;% round(2)`</span> goals per game (SD = <span class="in">`r sd(c(quali22$goalsA,quali22$goalsB),na.rm=T) %&gt;% round(2)`</span>). The distribution of goals looks as follows:</span>
+<span id="cb21-307"><a href="#cb21-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-308"><a href="#cb21-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-311"><a href="#cb21-311" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-312"><a href="#cb21-312" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">goals =</span> <span class="fu">c</span>(quali22<span class="sc">$</span>goalsA,quali22<span class="sc">$</span>goalsB)) <span class="sc">%&gt;%</span></span>
+<span id="cb21-313"><a href="#cb21-313" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(goals,<span class="at">sort=</span>T) <span class="sc">%&gt;%</span></span>
+<span id="cb21-314"><a href="#cb21-314" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb21-315"><a href="#cb21-315" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> goals,<span class="at">y =</span> n)) <span class="sc">+</span> </span>
+<span id="cb21-316"><a href="#cb21-316" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">fill=</span><span class="st">"#39558CFF"</span>) <span class="sc">+</span></span>
+<span id="cb21-317"><a href="#cb21-317" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> n), <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb21-318"><a href="#cb21-318" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">560</span>) <span class="sc">+</span></span>
+<span id="cb21-319"><a href="#cb21-319" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Nr. of Goals of one team"</span>, <span class="at">y=</span><span class="st">"Frequency"</span>, <span class="at">title =</span> <span class="st">"Distribution of Goals per Match"</span>) </span>
+<span id="cb21-320"><a href="#cb21-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-321"><a href="#cb21-321" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-322"><a href="#cb21-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-323"><a href="#cb21-323" aria-hidden="true" tabindex="-1"></a>The most common number of goals a team scores is 0 (sad). Now lets look at the results of the matches. I don't really care if the match was 1:0 or 0:1, so I will treat both outcomes as the same. I will first recode the individual goals of team A and B into a match results variable <span class="in">`result`</span>, which I can then use to count and plot the different results.</span>
+<span id="cb21-324"><a href="#cb21-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-327"><a href="#cb21-327" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-328"><a href="#cb21-328" aria-hidden="true" tabindex="-1"></a>quali22 <span class="sc">%&gt;%</span></span>
+<span id="cb21-329"><a href="#cb21-329" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb21-330"><a href="#cb21-330" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(goalsA,goalsB) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-331"><a href="#cb21-331" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">result =</span> <span class="fu">paste0</span>(<span class="fu">ifelse</span>(goalsA <span class="sc">&gt;</span> goalsB,goalsA,goalsB),</span>
+<span id="cb21-332"><a href="#cb21-332" aria-hidden="true" tabindex="-1"></a>                         <span class="st">":"</span>,</span>
+<span id="cb21-333"><a href="#cb21-333" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">ifelse</span>(goalsA <span class="sc">&gt;</span> goalsB,goalsB,goalsA))) <span class="sc">%&gt;%</span></span>
+<span id="cb21-334"><a href="#cb21-334" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(result,<span class="at">sort=</span>T) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-335"><a href="#cb21-335" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(result,n),<span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb21-336"><a href="#cb21-336" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">fill=</span><span class="st">"#39558CFF"</span>) <span class="sc">+</span></span>
+<span id="cb21-337"><a href="#cb21-337" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> n), <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.12</span>) <span class="sc">+</span></span>
+<span id="cb21-338"><a href="#cb21-338" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb21-339"><a href="#cb21-339" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">170</span>)) <span class="sc">+</span></span>
+<span id="cb21-340"><a href="#cb21-340" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Match Result"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>)</span>
+<span id="cb21-341"><a href="#cb21-341" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-342"><a href="#cb21-342" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-343"><a href="#cb21-343" aria-hidden="true" tabindex="-1"></a>Not suprising, results of 1:0, 2:0, or 1:1 are the most common outcomes. Just out of curioisity, lets check the high scoring games:</span>
+<span id="cb21-344"><a href="#cb21-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-347"><a href="#cb21-347" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-348"><a href="#cb21-348" aria-hidden="true" tabindex="-1"></a>quali22 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(goalsA <span class="sc">&gt;=</span> <span class="dv">10</span> <span class="sc">|</span> goalsB <span class="sc">&gt;=</span> <span class="dv">10</span>)</span>
+<span id="cb21-349"><a href="#cb21-349" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-350"><a href="#cb21-350" aria-hidden="true" tabindex="-1"></a>Those were some very one-sided match-ups. </span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

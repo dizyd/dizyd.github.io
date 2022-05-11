@@ -1,5 +1,6 @@
 ---
 title: "Predicting the WM22 Part 1"
+author: David Izydorczyk
 format:
   html:
     code-fold: true
