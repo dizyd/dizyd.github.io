@@ -5,9 +5,14 @@ title: "Publications"
 
 ##  <i class="bi bi-book"></i> Journal articles (peer-reviewed)
 
-#### 2021
+#### 2022
 
-Ruggeri K., ..., **Izydorczyk, D.**, ..., &  Garcia-Garzon, E. (preprint only). The globalizability of  temporal discounting. (preprint available [PDF](https://psyarxiv.com/2enfz/)) 
+Ruggeri K., ..., **Izydorczyk, D.**, ..., &  Garcia-Garzon, E. (2022). The globalizability of  temporal discounting. _Nature Human Behavior_.  https://doi.org/10.1038/s41562-022-01392-w ([PDF](https://www.nature.com/articles/s41562-022-01392-w)) 
+
+Hoogeveen, S., Sarafoglou, A., Aczel, B., ..., **Izydorczyk, D.**, ... Wagenmakers, E.-J. (2022). A many-analysts approach to the relation between religiosity and well-being. _Religion, Brain & Behavior_. https://doi.org/10.1080/2153599X.2022.2070255 ([PDF](https://www.tandfonline.com/doi/full/10.1080/2153599X.2022.2070263?scroll=top&needAccess=true))
+
+
+#### 2021
 
 Frenken, M., Hemmerich, W., **Izydorczyk, D.**, Scharf, S., & Imhoff, R. (2021).  Cognitive processes behind the shooter bias: Dissecting response bias, motor preparation and information accumulation. _Journal of Experimental Social Psychology._ (https://doi.org/10.1016/j.jesp.2021.104230, preprint available [PDF](https://psyarxiv.com/eagwt/)) 
 
@@ -33,6 +38,8 @@ Lischetzke, T., **Izydorczyk, D.**, Hüller, C., & Appel, M. (2017). The topogra
 <br/>
 
 ### <i class="bi bi-mic"></i> Conference talks
+
+**Izydorzcyk,  D.**, Jung, J. & Bröder,  A. (2022). *What is more democratic, a stone or a feather? Predicting nonsensical judgments using high-dimensional vector representations obtained from a semantic space model.*  Talk presented at the  joint meeting of the Society for Mathematical Psychology and the International Conference on Cognitive Modeling (Virtual MathPsych/ICCM). Cologne, Germany.
 
 **Izydorzcyk,  D.**, Jung, J. & Bröder,  A. (2022). *What is more democratic, a stone or a feather? Predicting nonsensical judgments using high-dimensional vector representations obtained from a semantic space model.*  Talk presented at the 63rd Conference of Experimental Psychologists (TeaP). Cologne, Germany.
 
