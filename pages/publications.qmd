@@ -5,6 +5,7 @@ title: "Publications"
 
 ##  <i class="bi bi-book"></i> Journal articles (peer-reviewed)
 
+
 #### 2022
 
 Ruggeri K., ..., **Izydorczyk, D.**, ..., &  Garcia-Garzon, E. (2022). The globalizability of  temporal discounting. _Nature Human Behavior_.  https://doi.org/10.1038/s41562-022-01392-w ([PDF](https://www.nature.com/articles/s41562-022-01392-w)) 
