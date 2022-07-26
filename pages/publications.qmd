@@ -8,6 +8,8 @@ title: "Publications"
 
 #### 2022
 
+**Izydorczyk, D.**, & Bröder, A. (in press). Measuring the mixture of rule-based and exemplar-based processes in judgment: A hierarchical Bayesian approach. _Decision_.
+
 Ruggeri K., ..., **Izydorczyk, D.**, ..., &  Garcia-Garzon, E. (2022). The globalizability of  temporal discounting. _Nature Human Behavior_.  [https://doi.org/10.1038/s41562-022-01392-w](https://doi.org/10.1038/s41562-022-01392-w) [[PDF](https://www.nature.com/articles/s41562-022-01392-w)]
 
 Hoogeveen, S., ..., **Izydorczyk, D.**, ... Wagenmakers, E.-J. (2022). A many-analysts approach to the relation between religiosity and well-being. _Religion, Brain & Behavior_. [https://doi.org/10.1080/2153599X.2022.2070255](https://doi.org/10.1080/2153599X.2022.2070255)  [[PDF](https://www.tandfonline.com/doi/full/10.1080/2153599X.2022.2070263?scroll=top&needAccess=true)]
