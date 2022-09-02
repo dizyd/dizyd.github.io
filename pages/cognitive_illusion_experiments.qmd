@@ -1,0 +1,26 @@
+---
+title: "Experiments for the G3 Seminar on Cognitive Illusions"
+---
+
+
+- 13.09: Verfügbarkeit (S. 187)
+- 20.09: Anker-Effekt (S. 224)
+- 27.09: Probability Matching (S. 66)
+- 04.10: Basisratenfehler (S. 47)
+- 11.10: Validity Effect Teil 1 (S. 243)
+- 18.10: Validity Effect Teil 2 (S. 243)
+- 25.10: Moses Illusion (S. 276 altes Buch)
+- 01.11: 
+- 08.11: Überlebensrelevanz-Effekt (S. 358)
+- 15.11: Enthüllungseffekt (S. 344)
+- 22.11: Assoziatives Gedächtnis (S. 392)
+- 29.11: Falschinformation (S. 409)
+
+
+
+
+All experiments are implement in `lab.js` and are based on the book *Cognitive illusions* by Rüdiger Pohl (2016).
+
+
+
+

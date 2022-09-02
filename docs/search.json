@@ -278,5 +278,12 @@
     "title": "Old Faithful",
     "section": "",
     "text": "Number of bins:"
+  },
+  {
+    "objectID": "pages/cognitive_illusion_experiments.html",
+    "href": "pages/cognitive_illusion_experiments.html",
+    "title": "Experiments for the G3 Seminar on Cognitive Illusions",
+    "section": "",
+    "text": "All experiments are implement in lab.js and are based on the book Cognitive illusions by Rüdiger Pohl (2016)."
   }
 ]
