@@ -1,0 +1,21 @@
+/* css styles */
+
+div.quarto-about-jolla main {
+    text-align: left;
+}
+
+code {
+
+  color: #5381e6;
+
+}
+
+li {
+  
+  padding: 3px;
+  
+}
+
+.notimportant {
+  color: #B9B9B9;
+}
