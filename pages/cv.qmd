@@ -20,6 +20,14 @@ Thesis: _Structuring the uncanny valley: Investigating the effect of the persona
 
 ## <i class="bi bi-pen-fill"></i> Teaching Experience
 
+**Writing APA-Style Manuscripts in R**, University of Mannheim , RTG Statistical Modeling in Psychology (level: P.hD.; language: English)
+
+**Introduction to Shiny**, University of Mannheim , RTG Statistical Modeling in Psychology (level: P.hD.; language: English)
+
+**Introduction to lab.js**, University of Mannheim , RTG Statistical Modeling in Psychology (level: P.hD.; language: English)
+
+**G3 Seminar: Cognitive Illusions**, University of Mannheim, Department of Experimental Psychology (level: Bachelor; language: German)
+
 **Experimental Internship**, University of Mannheim, Department of Experimental Psychology (level: Bachelor; language: German)
 
 **Workshop Advanced R**, University of Mannheim , RTG Statistical Modeling in Psychology (level: P.hD.; language: English)
@@ -43,9 +51,9 @@ Thesis: _Structuring the uncanny valley: Investigating the effect of the persona
 ## <i class="bi bi-graph-up"></i> Programming and statistics
 
 
-Languages: Mastery of R. Regular practice writing JAGS, Stan for Bayesian modeling, as well as HTML/CSS and JavaScript to program experiments. I also did some courses in and analysis with Python. Exposure to C++.
+Languages: Mastery of R. Regular practice writing JAGS and Stan for Bayesian modeling, as well as HTML/CSS and JavaScript to program experiments. I also did some courses in and analysis with Python. Exposure to C++.
 
-Computing tools and technologies: tidy data and the R tidyverse, git and GitHub, knitr/rmarkdown, Shiny.
+Computing tools and technologies: tidy data and the R tidyverse, git and GitHub, knitr/rmarkdown/Quarto, Shiny.
 
 Statistics: Regression: generalized linear models, hierarchical and mixed effects models, and Bayesian versions of these models. Structural equation modeling and factor analysis. Neural networks:  familiarity with how some deep network architectures work. 
 

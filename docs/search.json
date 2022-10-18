@@ -95,14 +95,14 @@
     "href": "pages/cv.html#teaching-experience",
     "title": "CV",
     "section": " Teaching Experience",
-    "text": "Teaching Experience\nExperimental Internship, University of Mannheim, Department of Experimental Psychology (level: Bachelor; language: German)\nWorkshop Advanced R, University of Mannheim , RTG Statistical Modeling in Psychology (level: P.hD.; language: English)\nWorkshop Modern R, University of Mannheim , RTG Statistical Modeling in Psychology (level: P.hD.; language: English)\nTutorial Multivariate Statistics, University of Cologne , Department for Research Methods and Experimental Psychology (level: M.Sc.; language: German)\nTutorial Multivariate Statistics, University of Cologne , Department for Research Methods and Experimental Psychology (level: M.Sc.; language: German)\nTutorial Data Collection and Analysis, University of Cologne , Department for Research Methods and Experimental Psychology (level: M.Sc.; language: German)\nTutorial Empirical Internship, University of Koblenz-Landau, Department for Methods and Evaluation (level: B.Sc.; language: German)\nWorkshop Introduction to R, University of Koblenz-Landau, Department for Methods and Evaluation (level: P.hD.; language: English)\nTutorial Test Theory with R, University of Koblenz-Landau, Department for Methods and Evaluation (level: B.Sc.; language: German)"
+    "text": "Teaching Experience\nWriting APA-Style Manuscripts in R, University of Mannheim , RTG Statistical Modeling in Psychology (level: P.hD.; language: English)\nIntroduction to Shiny, University of Mannheim , RTG Statistical Modeling in Psychology (level: P.hD.; language: English)\nIntroduction to lab.js, University of Mannheim , RTG Statistical Modeling in Psychology (level: P.hD.; language: English)\nG3 Seminar: Cognitive Illusions, University of Mannheim, Department of Experimental Psychology (level: Bachelor; language: German)\nExperimental Internship, University of Mannheim, Department of Experimental Psychology (level: Bachelor; language: German)\nWorkshop Advanced R, University of Mannheim , RTG Statistical Modeling in Psychology (level: P.hD.; language: English)\nWorkshop Modern R, University of Mannheim , RTG Statistical Modeling in Psychology (level: P.hD.; language: English)\nTutorial Multivariate Statistics, University of Cologne , Department for Research Methods and Experimental Psychology (level: M.Sc.; language: German)\nTutorial Multivariate Statistics, University of Cologne , Department for Research Methods and Experimental Psychology (level: M.Sc.; language: German)\nTutorial Data Collection and Analysis, University of Cologne , Department for Research Methods and Experimental Psychology (level: M.Sc.; language: German)\nTutorial Empirical Internship, University of Koblenz-Landau, Department for Methods and Evaluation (level: B.Sc.; language: German)\nWorkshop Introduction to R, University of Koblenz-Landau, Department for Methods and Evaluation (level: P.hD.; language: English)\nTutorial Test Theory with R, University of Koblenz-Landau, Department for Methods and Evaluation (level: B.Sc.; language: German)"
   },
   {
     "objectID": "pages/cv.html#programming-and-statistics",
     "href": "pages/cv.html#programming-and-statistics",
     "title": "CV",
     "section": " Programming and statistics",
-    "text": "Programming and statistics\nLanguages: Mastery of R. Regular practice writing JAGS, Stan for Bayesian modeling, as well as HTML/CSS and JavaScript to program experiments. I also did some courses in and analysis with Python. Exposure to C++.\nComputing tools and technologies: tidy data and the R tidyverse, git and GitHub, knitr/rmarkdown, Shiny.\nStatistics: Regression: generalized linear models, hierarchical and mixed effects models, and Bayesian versions of these models. Structural equation modeling and factor analysis. Neural networks: familiarity with how some deep network architectures work.\nExperimental software: nowadays mostly lab.JS and Soscisurvey. Some experience with OpenSesame and Inquisit."
+    "text": "Programming and statistics\nLanguages: Mastery of R. Regular practice writing JAGS and Stan for Bayesian modeling, as well as HTML/CSS and JavaScript to program experiments. I also did some courses in and analysis with Python. Exposure to C++.\nComputing tools and technologies: tidy data and the R tidyverse, git and GitHub, knitr/rmarkdown/Quarto, Shiny.\nStatistics: Regression: generalized linear models, hierarchical and mixed effects models, and Bayesian versions of these models. Structural equation modeling and factor analysis. Neural networks: familiarity with how some deep network architectures work.\nExperimental software: nowadays mostly lab.JS and Soscisurvey. Some experience with OpenSesame and Inquisit."
   },
   {
     "objectID": "pages/cv.html#university-service",
@@ -278,5 +278,19 @@
     "title": "Old Faithful",
     "section": "",
     "text": "Number of bins:"
+  },
+  {
+    "objectID": "pages/cognitive_illusion_experiments.html",
+    "href": "pages/cognitive_illusion_experiments.html",
+    "title": "Experiments for the G3 Seminar on Cognitive Illusions",
+    "section": "",
+    "text": "All experiments are implement in lab.js and are based on the book Cognitive illusions by Rüdiger Pohl (2016)."
+  },
+  {
+    "objectID": "pages/cognitive_illusion.html",
+    "href": "pages/cognitive_illusion.html",
+    "title": "Experiments for the G3 Seminar on Cognitive Illusions",
+    "section": "",
+    "text": "All experiments are implement in lab.js and are based on the book Cognitive illusions by Rüdiger Pohl (2016)."
   }
 ]
